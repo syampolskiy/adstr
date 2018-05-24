@@ -1,0 +1,57 @@
+extends ../template
+
+block content
+	main.content.js-init-scrollable
+		.box.box--wide
+			.box__header
+				h1 Channels
+			.box__content
+				table.js-init-responsive-table
+					thead
+						tr
+							th No.
+							th Name
+							th Channel Name
+							th Category
+							th Platform
+							th Status
+							th Balance
+					tbody
+						tr
+							td 00150
+							td
+								span.cell-name Stephen Amell
+							td
+								span.cell-channel stepstep_Amell
+							td Gaming
+							td Twitch.TV
+							td
+								//- .status.status--green verified
+							td
+								span.cell-balance $38.5
+							td
+								select.select.js-init-selectric
+									option(value="Actions" data-content="Actions") Actions	
+									option(value="Layers" data-content="Layers") Layers	
+									option(value="Edit" data-content="Edit") Edit	
+									option(value="Remove channel" data-content="Remove channel") Remove channel	
+									option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
+						tr
+							td 00150
+							td
+								span.cell-name Stephen Amell
+							td
+								span.cell-channel stepstep_Amell
+							td Gaming
+							td Twitch.TV
+							td
+								//- .status.status--green verified
+							td
+								span.cell-balance $38.5
+							td
+								select.select.js-init-selectric
+									option(value="Actions" data-content="Actions") Actions	
+									option(value="Layers" data-content="Layers") Layers	
+									option(value="Edit" data-content="Edit") Edit	
+									option(value="Remove channel" data-content="Remove channel") Remove channel	
+									option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link

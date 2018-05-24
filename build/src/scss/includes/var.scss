@@ -1,0 +1,45 @@
+// variables & mixins
+@mixin max($size) {
+    @media (max-width: $size + 'px') {
+        @content;
+    }
+}
+
+@mixin min($size) {
+    @media (min-width: $size + 'px') {
+        @content;
+    }
+}
+
+@mixin minmax($from, $to) {
+    @media (min-width: $from + 'px') and (max-width: $to + 'px') {
+        @content;
+    }
+}
+
+@mixin haf {
+    &:hover,
+    &:active,
+    &:focus {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+// colors
+// paths
+$i: '../img/';

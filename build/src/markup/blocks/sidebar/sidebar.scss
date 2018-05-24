@@ -1,0 +1,157 @@
+.sidebar{
+	width: 272px;
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+	background-color: #282828;
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 35px 32px 34px 35px;
+		border-bottom: solid 1px #0c1224;
+		margin-bottom: 14px;
+	}
+	&__content{
+		padding: 9px 32px 40px 35px;
+		height: calc(100% - 100px);
+		.mCSB_scrollTools{
+			right: -6px;
+		}
+		.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+			background-color: #E4EBF7;
+		}
+		.mCSB_scrollTools .mCSB_draggerRail{
+			background-color: #0C1224;
+		}
+	}
+}
+.logo{
+	padding-top: 3.5px;
+}
+// .sidebar-toggle{
+// 	width: 24px;
+// 	height: 24px;
+// 	padding: 0;
+// 	border: none;
+// 	background: none;
+// 	&__bar{
+// 		display: block;
+// 		width: 100%;
+// 		height: 2px;
+// 		background-color: #e4ebf7;
+// 		& + span{
+// 			margin-top: 9px;
+// 		}
+// 	}
+// }
+.sidebar-menu{
+	&__item{
+		& + li{
+			margin-top: 35px;
+		}
+		&.opened{
+			.sidebar-menu__link{
+				&:after{
+					transform: translateY(-50%) rotate(180deg);
+				}
+			}
+			.sidebar-submenu{
+				display: block;
+			}
+		}
+	}
+	&__link{
+		display: block;
+		color: #515974;
+		font-family: "Noto Sans";
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 16px;
+		position: relative;
+		margin-bottom: 39px;
+		&:hover{
+			opacity: 0.7;
+		}
+		&:after{
+			content: "";
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: .15s;
+			@include sprite($arrow-dark);
+		}
+	}
+}
+.sidebar-submenu{
+	display: none;
+	&__item{
+		& + li{
+			margin-top: 29px;
+		}
+	}
+	&__link{
+		color: #e4ebf7;
+		position: relative;
+		padding-left: 38px;
+		&:hover{
+			opacity: 0.7;
+		}
+		&:before{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+		&--dashboard{
+			&:before{
+				@include sprite($icon-home);
+			}
+		}
+		&--channels{
+			&:before{
+				@include sprite($icon-project);
+			}
+		}
+		&--search-campaigns{
+			&:before{
+				@include sprite($icon-search);
+			}
+		}
+		&--statistics{
+			&:before{
+				@include sprite($icon-statistics-);
+			}
+		}
+		&--orders{
+			&:before{
+				@include sprite($icon-orders);
+			}
+		}
+		&--wallet{
+			&:before{
+				@include sprite($icon-wallet);
+			}
+		}
+		&--settings{
+			&:before{
+				@include sprite($icon-settings);
+			}
+		}
+		&--support{
+			&:before{
+				@include sprite($icon-support);
+			}
+		}
+		&--help{
+			&:before{
+				@include sprite($icon-help);
+			}
+		}
+	}
+}

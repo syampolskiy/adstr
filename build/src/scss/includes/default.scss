@@ -1,0 +1,119 @@
+// default styles
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+body {
+    min-width: 320px;
+    -ms-overflow-style: scrollbar;
+    backface-visibility: hidden;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: .2s;
+    &:hover,
+    &:active {
+        text-decoration: none;
+    }
+    &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+    img {
+        border: 0;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    transition: .2s linear;
+    &:focus {
+        outline: none;
+    }
+}
+
+input,
+textarea {
+    border: 0;
+    &:focus {
+        outline: none;
+    }
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.no-pad-l {
+    padding-left: 0 !important;
+}
+
+.no-pad-r {
+    padding-right: 0 !important;
+}
+
+.no-pad-t {
+    padding-top: 0 !important;
+}
+
+.no-pad-lr {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.no-margin-lr {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.no-margin-b{
+    margin-bottom: 0 !important;
+}
+
+.container {
+    position: relative;
+    max-width: 100%;
+    padding: 0 30px;
+    margin: 0 auto;
+    height: 100%;
+    width: 1200px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.fa {
+    span {
+        display: none;
+    }
+}

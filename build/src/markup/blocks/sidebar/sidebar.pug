@@ -1,0 +1,37 @@
+aside.sidebar
+	.sidebar__header
+		a.logo(href="/")
+			img(src=i + "adstrm.png", alt="")
+		//- button.sidebar-toggle
+		//- 	span.sidebar-toggle__bar
+		//- 	span.sidebar-toggle__bar
+		//- 	span.sidebar-toggle__bar
+	.sidebar__content.js-init-scrollable
+		ul.sidebar-menu
+			li.sidebar-menu__item.opened
+				a.sidebar-menu__link.js-toggle-submenu(href="") Main
+				ul.sidebar-submenu.js-toggle-me
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--dashboard(href="#") Dashboard
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--channels(href="#") Channels
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--search-campaigns(href="#") Search campaigns
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--statistics(href="#") Statistics
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--orders(href="#")
+							span.counter-wrap
+								| Orders
+								span.counter 1
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--wallet(href="#") Wallet
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--settings(href="#") Settings
+			li.sidebar-menu__item.opened
+				a.sidebar-menu__link.js-toggle-submenu(href="") More
+				ul.sidebar-submenu.js-toggle-me
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--support(href="#") Support
+					li.sidebar-submenu__item
+						a.sidebar-submenu__link.sidebar-submenu__link--help(href="#") Help

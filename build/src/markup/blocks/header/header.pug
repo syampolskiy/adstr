@@ -1,0 +1,22 @@
+header.header
+	.balance
+		| Balance:
+		span 38.5$
+	.notifications.js-toggle-notifications
+		.counter-wrap
+			.icon.icon-bell
+			span.counter.counter--small 21
+		.notifications__dropdown
+			| Order for confirmation: 
+			span.notifications__number 1
+	.user.js-toggle-dropdown
+		.user__photo
+			img(src=i + "avatar.png", alt="")
+		.user__name-wrap
+			.user__name Stephen Amell
+			.user__dropdown
+				ul.user-dropdown-list
+					li.user-dropdown-list__item
+						a.user-dropdown-list__link(href="#") Edit Profile
+					li.user-dropdown-list__item
+						a.user-dropdown-list__link.user-dropdown-list__link--logoff(href="#") Log off
