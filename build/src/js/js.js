@@ -28,4 +28,11 @@ $(function() {
     // init responsive table
     // $('.js-init-responsive-table')
     // init responsive table --/
+
+    // tabs
+    $("#tabs").tabs();
+
+
+
+
 });

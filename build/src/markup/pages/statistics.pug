@@ -1,0 +1,62 @@
+extends ../template
+block scripts
+    script(src=jsnoConcate +  "streamers-incomes.js")
+
+block content
+    #tabs
+        ul
+            li
+                a(href='#tabs-1') Nunc tincidunt
+            li
+                a(href='#tabs-2') Proin dolor
+            li
+                a(href='#tabs-3') Streamer-Income
+        #tabs-1
+            p
+                | Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+        #tabs-2
+            p
+                | Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
+        #tabs-3
+            .streamer-incoms-block
+                .filters-block
+                    input#startDay.start-day(name='startDate')
+                    input#endDay.end-day(name='endDate')
+                    #date_range
+                    form
+                        #graphLayer.radio-group
+                            input#days(type='radio', name='radio', value='Days', checked='')
+                            label(for='days') Days
+                            input#weeks(type='radio', name='radio', value='Weeks')
+                            label(for='weeks') Weeks
+                    dl.dropdown
+                        dt
+                            a(href='#')
+                                span.hida Select
+                                p.multiSel
+                        dd
+                            .mutliSelect
+                                ul
+                                    li
+                                        input#channel_228701.banner(type='checkbox', value='channel 1')
+                                        | channel 1
+                                    li
+                                        input#channel_228702.banner(type='checkbox', value='channel 2')
+                                        | channel 2
+                                    li
+                                        input#channel_228703.banner(type='checkbox', value='channel 3')
+                                        | channel 3
+                                    li
+                                        input#channel_228704.banner(type='checkbox', value='channel 4 ')
+                                        | channel 4
+                                    li
+                                        input#channel_228705.banner(type='checkbox', value='channel 5')
+                                        | channel 5
+                                    li
+                                        input#channel_228706.banner(type='checkbox', value='channel 6')
+                                        | channel 6
+                .income-chart
+                    canvas#stream-incoms.chart-cnvs.show
+                    canvas#stream-incoms2.chart-cnvs
+
+

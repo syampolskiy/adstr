@@ -3,6 +3,7 @@
 - var js = "js/";
 - var vendor = "vendor/";
 - var i = "img/";
+- var jsnoConcate = "js/";
 
 block local-vars
 
@@ -16,6 +17,8 @@ html(lang="en")
 			block title
 		
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 		
 		//- link(rel="stylesheet" href=vendor + "bootstrap/css/bootstrap.min.css")
 		//- link(rel="stylesheet" href=vendor + "font-awesome/css/font-awesome.min.css")
@@ -36,10 +39,13 @@ html(lang="en")
 				block after-content
 
 				include blocks/footer/footer
-
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js")
 		script(src=vendor + "jquery.min.js")
 		script(src=vendor + "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js")
 		script(src=vendor + "jquery.selectric/jquery.selectric.min.js")
+		script(src= "https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+		script(src=jsnoConcate + "jquery.datepicker.extension.range.min.js")
 		//- script(src=vendor + "tether/js/tether.min.js")
 		//- script(src=vendor + "bootstrap/js/bootstrap.min.js")
 		block scripts
