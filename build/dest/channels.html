@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="vendor/jquery.selectric/selectric.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<aside class="sidebar">
+			<div class="sidebar__header">
+				<a class="logo" href="/">
+					<img src="img/adstrm.png" alt="">
+				</a>
+			</div>
+			<div class="sidebar__content js-init-scrollable">
+				<ul class="sidebar-menu">
+					<li class="sidebar-menu__item opened">
+						<a class="sidebar-menu__link js-toggle-submenu" href="">Main</a>
+						<ul class="sidebar-submenu js-toggle-me">
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--dashboard" href="#">Dashboard</a>
+							</li>
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--channels" href="#">Channels</a>
+							</li>
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--search-campaigns" href="#">Search campaigns</a>
+							</li>
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--statistics" href="#">Statistics</a>
+							</li>
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--orders" href="#">
+									<span class="counter-wrap">Orders
+										<span class="counter">1</span>
+									</span>
+								</a>
+							</li>
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--wallet" href="#">Wallet</a>
+							</li>
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--settings" href="#">Settings</a>
+							</li>
+						</ul>
+					</li>
+					<li class="sidebar-menu__item opened">
+						<a class="sidebar-menu__link js-toggle-submenu" href="">More</a>
+						<ul class="sidebar-submenu js-toggle-me">
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--support" href="#">Support</a>
+							</li>
+							<li class="sidebar-submenu__item">
+								<a class="sidebar-submenu__link sidebar-submenu__link--help" href="#">Help</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<div class="wrapper__right">
+			<header class="header">
+				<div class="balance">Balance:
+					<span>38.5$</span>
+				</div>
+				<div class="notifications js-toggle-notifications">
+					<div class="counter-wrap">
+						<div class="icon icon-bell"></div>
+						<span class="counter counter--small">21</span>
+					</div>
+					<div class="notifications__dropdown">Order for confirmation:
+						<span class="notifications__number">1</span>
+					</div>
+				</div>
+				<div class="user js-toggle-dropdown">
+					<div class="user__photo">
+						<img src="img/avatar.png" alt="">
+					</div>
+					<div class="user__name-wrap">
+						<div class="user__name">Stephen Amell</div>
+						<div class="user__dropdown">
+							<ul class="user-dropdown-list">
+								<li class="user-dropdown-list__item">
+									<a class="user-dropdown-list__link" href="#">Edit Profile</a>
+								</li>
+								<li class="user-dropdown-list__item">
+									<a class="user-dropdown-list__link user-dropdown-list__link--logoff" href="#">Log off</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</header>
+			<main class="content js-init-scrollable">
+				<div class="box box--wide">
+					<div class="box__header">
+						<h1>Channels</h1>
+					</div>
+					<div class="box__content">
+						<table class="respond js-init-responsive-table">
+							<thead>
+								<tr>
+									<th>No.</th>
+									<th>Name</th>
+									<th>Channel Name</th>
+									<th>Category</th>
+									<th>Platform</th>
+									<th>Status</th>
+									<th>Balance</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>00150</td>
+									<td>
+										<span class="cell-name">Stephen Amell</span>
+									</td>
+									<td>
+										<span class="cell-channel">stepstep_Amell</span>
+									</td>
+									<td>Gaming</td>
+									<td>Twitch.TV</td>
+									<td>
+										<div class="status status--green">verified</div>
+									</td>
+									<td>
+										<span class="cell-balance">$38.5</span>
+									</td>
+									<td>
+										<select class="select js-init-selectric">
+											<option value="Actions" data-content="Actions">Actions</option>
+											<option value="Layers" data-content="Layers">Layers</option>
+											<option value="Edit" data-content="Edit">Edit</option>
+											<option value="Remove channel" data-content="Remove channel">Remove channel</option>
+											<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>00150</td>
+									<td>
+										<span class="cell-name">Stephen Amell</span>
+									</td>
+									<td>
+										<span class="cell-channel">stepstep_Amell</span>
+									</td>
+									<td>Gaming</td>
+									<td>Twitch.TV</td>
+									<td>
+										<div class="status status--green">verified</div>
+									</td>
+									<td>
+										<span class="cell-balance">$38.5</span>
+									</td>
+									<td>
+										<select class="select js-init-selectric">
+											<option value="Actions" data-content="Actions">Actions</option>
+											<option value="Layers" data-content="Layers">Layers</option>
+											<option value="Edit" data-content="Edit">Edit</option>
+											<option value="Remove channel" data-content="Remove channel">Remove channel</option>
+											<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
+										</select>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</main>
+			<footer class="footer">
+				<div class="container"></div>
+			</footer>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="vendor/jquery.min.js"></script>
+	<script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="vendor/jquery.selectric/jquery.selectric.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/jquery.datepicker.extension.range.min.js"></script>
+	<script src="js/js.js"></script>
+</body>
+
+</html>
