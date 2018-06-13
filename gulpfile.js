@@ -134,6 +134,9 @@ gulp.task('vendor', function() {
     gulp.src("build/src/js-no-concat/**/*.*")
         .pipe(gulp.dest("build/dest/js"))
 
+    gulp.src("build/src/vendor/**/*.*")
+        .pipe(gulp.dest("build/dest/vendor"))
+
     // bower files
     var bc = "bower_components/";
     var pathToSave = "build/dest/vendor/";
@@ -159,7 +162,7 @@ gulp.task('vendor', function() {
         .pipe(gulp.dest(pathToSave + 'malihu-custom-scrollbar-plugin'))
     gulp.src(bc + "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css")
         .pipe(gulp.dest(pathToSave + 'malihu-custom-scrollbar-plugin'))
-
+    
 
 
     // gulp.src(bc + "components-font-awesome/css/font-awesome.min.css")

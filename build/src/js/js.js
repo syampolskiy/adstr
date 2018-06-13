@@ -26,8 +26,6 @@ $(function() {
     // init selectric --/
 
     // init responsive table
-    $('.js-init-responsive-table').basictable({
-        breakpoint: 1199
-    });
+    // $('.js-init-responsive-table')
     // init responsive table --/
 });
