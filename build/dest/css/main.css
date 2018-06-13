@@ -660,6 +660,7 @@ h1 {
 .status--red {
 	background-color: #f11313;
 }
+<<<<<<< HEAD
 
 .chart-cnvs {
 	display: none !important;
@@ -788,3 +789,5 @@ label + input[type=radio] + label {
 	border-radius: 10px;
 	overflow: hidden;
 }
+=======
+>>>>>>> 130d6e861ff0b186f15841179281008d77929001

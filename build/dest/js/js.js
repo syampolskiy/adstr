@@ -28,6 +28,7 @@ $(function() {
 	// init responsive table
 	// $('.js-init-responsive-table')
 	// init responsive table --/
+<<<<<<< HEAD
 
 	// tabs
 	$("#tabs").tabs();
@@ -35,6 +36,8 @@ $(function() {
 
 
 
+=======
+>>>>>>> 130d6e861ff0b186f15841179281008d77929001
 });
 $(function() {
 	// dropdowns
