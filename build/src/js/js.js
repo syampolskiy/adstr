@@ -30,8 +30,13 @@ $(function() {
     // init responsive table --/
 
     // tabs
-    $("#tabs").tabs();
+     $("#tabs").tabs();
+     $('#date_range').hide();
+     // $('#date_range').enable();
 
+        $('#startDay,#endDay').click(function(){
+        $('#date_range').toggle('slow');
+        })
 
 
 

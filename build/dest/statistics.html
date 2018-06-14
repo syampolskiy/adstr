@@ -99,76 +99,173 @@
 					</div>
 				</div>
 			</header>
-			<div id="tabs">
-				<ul>
-					<li>
-						<a href="#tabs-1">Nunc tincidunt</a>
-					</li>
-					<li>
-						<a href="#tabs-2">Proin dolor</a>
-					</li>
-					<li>
-						<a href="#tabs-3">Streamer-Income</a>
-					</li>
-				</ul>
-				<div id="tabs-1">
-					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper
-						leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum.
-						Nunc tristique tempus lectus.</p>
-				</div>
-				<div id="tabs-2">
-					<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean
-						aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat.
-						Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-				</div>
-				<div id="tabs-3">
-					<div class="streamer-incoms-block">
-						<div class="filters-block">
-							<input class="start-day" id="startDay" name="startDate">
-							<input class="end-day" id="endDay" name="endDate">
-							<div id="date_range"></div>
-							<form>
-								<div class="radio-group" id="graphLayer">
-									<input id="days" type="radio" name="radio" value="Days" checked="">
-									<label for="days">Days</label>
-									<input id="weeks" type="radio" name="radio" value="Weeks">
-									<label for="weeks">Weeks</label>
-								</div>
-							</form>
-							<dl class="dropdown">
-								<dt>
-									<a href="#">
-										<span class="hida">Select</span>
-										<p class="multiSel"></p>
-									</a>
-								</dt>
-								<dd>
-									<div class="mutliSelect">
-										<ul>
-											<li>
-												<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
-											<li>
-												<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
-											<li>
-												<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
-											<li>
-												<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
-											<li>
-												<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
-											<li>
-												<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
-										</ul>
+			<main class="content">
+				<div class="box">
+					<div id="tabs">
+						<ul>
+							<li>
+								<a href="#tabs-1">Time</a>
+							</li>
+							<li>
+								<a href="#tabs-2">Views, Followers</a>
+							</li>
+							<li>
+								<a href="#tabs-3">Income</a>
+							</li>
+						</ul>
+						<div id="tabs-1">
+							<div class="streamer-time-block">
+								<div class="filters-block">
+									<div class="datapicker-block">
+										<input class="start-day" id="startDayTime" name="startDateTime" readonly>
+										<input class="end-day" id="endDayTime" name="endDateTime" readonly>
+										<div id="date_range_time"></div>
 									</div>
-								</dd>
-							</dl>
+									<dl class="timeChartIdsMenu dropdown">
+										<dt>
+											<a href="#">
+												<span class="hida">Select</span>
+												<p class="timeChart"></p>
+											</a>
+										</dt>
+										<dd>
+											<div class="timeChart_select">
+												<ul>
+													<li>
+														<input class="banner" id="channel_2701" type="checkbox" value="channel 1">channel 1</li>
+													<li>
+														<input class="banner" id="channel_2202" type="checkbox" value="channel 2">channel 2</li>
+													<li>
+														<input class="banner" id="channel_28703" type="checkbox" value="channel 3">channel 3</li>
+													<li>
+														<input class="banner" id="channel_2204" type="checkbox" value="channel 4 ">channel 4</li>
+													<li>
+														<input class="banner" id="channel_2705" type="checkbox" value="channel 5">channel 5</li>
+													<li>
+														<input class="banner" id="channel_2706" type="checkbox" value="channel 6">channel 6</li>
+												</ul>
+											</div>
+										</dd>
+									</dl>
+									<div class="toggle-chart">
+										<label for="days">Days</label>
+										<span class="toggle-bg" id="graphLayerTime">
+											<input id="daysTime" type="radio" name="toggle" value="Days" checked="">
+											<input id="weeksTime" type="radio" name="toggle" value="Weeks">
+											<span class="switch"></span>
+										</span>
+										<label for="weeks">Weeks</label>
+									</div>
+								</div>
+								<div class="time-chart">
+									<canvas class="chart-cnvs show" id="stream-time"></canvas>
+									<canvas class="chart-cnvs" id="stream-time2"></canvas>
+								</div>
+							</div>
 						</div>
-						<div class="income-chart">
-							<canvas class="chart-cnvs show" id="stream-incoms"></canvas>
-							<canvas class="chart-cnvs" id="stream-incoms2"></canvas>
+						<div id="tabs-2">
+							<div class="streamer-followers-block">
+								<div class="filters-block">
+									<div class="datapicker-block">
+										<input class="start-day" id="startDayFollowers" name="startDate" readonly>
+										<input class="end-day" id="endDayFollowers" name="endDate" readonly>
+										<div id="date_range_followers"></div>
+									</div>
+									<dl class="dropdown folowwers">
+										<dt>
+											<a href="#">
+												<span class="hida">Select</span>
+												<p class="multiSel"></p>
+											</a>
+										</dt>
+										<dd>
+											<div class="mutliSelect_followers">
+												<ul>
+													<li>
+														<input class="banner" id="channel_287" type="checkbox" value="channel 1">channel 1</li>
+													<li>
+														<input class="banner" id="channel_28" type="checkbox" value="channel 2">channel 2</li>
+													<li>
+														<input class="banner" id="channel_228" type="checkbox" value="channel 3">channel 3</li>
+													<li>
+														<input class="banner" id="channel_224" type="checkbox" value="channel 4 ">channel 4</li>
+													<li>
+														<input class="banner" id="channel_8705" type="checkbox" value="channel 5">channel 5</li>
+													<li>
+														<input class="banner" id="channel_2206" type="checkbox" value="channel 6">channel 6</li>
+												</ul>
+											</div>
+										</dd>
+									</dl>
+									<div class="toggle-chart">
+										<label for="days">Followers</label>
+										<span class="toggle-bg" id="graphLayerFollowers">
+											<input id="daysFollowers" type="radio" name="toggle" value="Followers" checked="">
+											<input id="weeksFollowers" type="radio" name="toggle" value="Views">
+											<span class="switch"></span>
+										</span>
+										<label for="weeks">Views</label>
+									</div>
+								</div>
+								<div class="followers-chart">
+									<canvas class="chart-cnvs show" id="stream-followers"></canvas>
+									<canvas class="chart-cnvs" id="stream-followers2"></canvas>
+								</div>
+							</div>
+						</div>
+						<div id="tabs-3">
+							<div class="streamer-incoms-block">
+								<div class="filters-block">
+									<div class="datapicker-block">
+										<input class="start-day" id="startDay" name="startDate" readonly>
+										<input class="end-day" id="endDay" name="endDate" readonly>
+										<div id="date_range"></div>
+									</div>
+									<dl class="dropdown">
+										<dt>
+											<a href="#">
+												<span class="hida">Select</span>
+												<p class="multiSel"></p>
+											</a>
+										</dt>
+										<dd>
+											<div class="mutliSelect">
+												<ul>
+													<li>
+														<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
+													<li>
+														<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
+													<li>
+														<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
+													<li>
+														<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
+													<li>
+														<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
+													<li>
+														<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
+												</ul>
+											</div>
+										</dd>
+									</dl>
+									<div class="toggle-chart">
+										<label for="days">Days</label>
+										<span class="toggle-bg" id="graphLayer">
+											<input id="days" type="radio" name="toggle" value="Days" checked="">
+											<input id="weeks" type="radio" name="toggle" value="Weeks">
+											<span class="switch"></span>
+										</span>
+										<label for="weeks">Weeks</label>
+									</div>
+								</div>
+								<div class="income-chart">
+									<canvas class="chart-cnvs show" id="stream-incoms"></canvas>
+									<canvas class="chart-cnvs" id="stream-incoms2"></canvas>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</main>
 			<footer class="footer">
 				<div class="container"></div>
 			</footer>
@@ -181,6 +278,7 @@
 	<script src="vendor/jquery.selectric/jquery.selectric.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="js/jquery.datepicker.extension.range.min.js"></script>
+	<script src="js/streamers-time.js"></script>
 	<script src="js/streamers-incomes.js"></script>
 	<script src="js/js.js"></script>
 </body>
