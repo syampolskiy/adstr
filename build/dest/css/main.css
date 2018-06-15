@@ -682,7 +682,7 @@ h1 {
 .followers-chart,
 .time-chart {
 	display: block;
-	width: 70%;
+	width: 65%;
 }
 
 .filters-block {
@@ -716,9 +716,8 @@ h1 {
 }
 
 .dropdown {
-	margin: 0;
 	margin: 50px 0 50px 0;
-	width: 100%;
+	width: 95%;
 }
 
 .dropdown dd,
@@ -756,7 +755,7 @@ h1 {
 
 .dropdown dt a span,
 .timeChart,
-.multiSel span {
+.multiSel {
 	cursor: pointer;
 	display: inline-block;
 	padding: 0 3px 2px 0;

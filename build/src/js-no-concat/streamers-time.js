@@ -34,8 +34,8 @@ function rndColor() {
   return '#' + ('00000' + (Math.random() * 16777216 << 0).toString(16)).substr(-6);
 }
 
-function ShowFirstChecboxTime(chkBx) {
-  var title = chkBx.val() + ",";
+function ShowFirstChecboxTime(chkBxTime) {
+  var title = chkBxTime.val() + ",";
   var html = '<span title="' + title + '">' + title + '</span>';
   $('.timeChart').append(html);
   $(".hida").hide();
@@ -130,13 +130,13 @@ function setWeeksDataTime(chrtStngs, dataArr, data, chrt){
 }
 
 
-// function dateforWeeks(){
-//   var tmp = [];
-//   $.each($("#date_range_time td.selected"), function (i) {
-//     tmp.push($(this).children("a").text()+"."+$(this).attr("data-month")+"."+$(this).attr("data-year"));
-//   });
-//   return tmp;
-// }
+function dateforWeeks(){
+  var tmp = [];
+  $.each($("#date_range_time td.selected"), function (i) {
+    tmp.push($(this).children("a").text()+"."+$(this).attr("data-month")+"."+$(this).attr("data-year"));
+  });
+  return tmp;
+}
 
 function handleDateChangeTime(s_date, e_date, chS, chDD, chDW){
   setTimeout(function() {
@@ -190,7 +190,7 @@ $(function () {
 
   var chartsSettingsTime = {};
   chartsSettingsTime.TimeDays = {
-    type: 'bars',
+    type: 'bar',
     data: {
       labels: [],
       datasets: []
@@ -225,7 +225,7 @@ $(function () {
 
   };
   chartsSettingsTime.timeWeeks = {
-    type: 'bars',
+    type: 'bar',
     data: {
       labels: [],
 
@@ -264,19 +264,6 @@ $(function () {
     window.timeChartLine2 = new Chart(Timectx2, settings);
   };
 
-  $(".timeChartIdsMenu dt a").on('click', function () {
-    $(".timeChartIdsMenu dd ul").slideToggle('fast');
-  });
-
-  $(".timeChartIdsMenu dd ul li a").on('click', function () {
-    $(".timeChartIdsMenu dd ul").hide();
-  });
-
-  $(document).bind('click', function (e) {
-    var $clicked = $(e.target);
-    if (!$clicked.parents().hasClass("timeChartIdsMenu")) $(".timeChartIdsMenu dd ul").hide();
-  });
-
   // SELECT CHECKBOX IN timeChartIdsMenu
   $('.timeChart_select input[type="checkbox"]').on('click', function () {
     var title = $(this).closest('.timeChart_select').find('input[type="checkbox"]').val(),
@@ -291,7 +278,6 @@ $(function () {
       $('.timeChartIdsMenu dt a').append(ret);
     }
   });
-
 
   // Toggle chars DAYS || WEEKS
   $("input[name='toggle']").change(function () {

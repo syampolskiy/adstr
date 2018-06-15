@@ -264,19 +264,6 @@ $(function () {
     window.myLine2 = new Chart(ctx2, settings);
   };
 
-  $(".dropdown dt a").on('click', function () {
-    $(".dropdown dd ul").slideToggle('fast');
-  });
-
-  $(".dropdown dd ul li a").on('click', function () {
-    $(".dropdown dd ul").hide();
-  });
-
-  $(document).bind('click', function (e) {
-    var $clicked = $(e.target);
-    if (!$clicked.parents().hasClass("dropdown")) $(".dropdown dd ul").hide();
-  });
-
   // SELECT CHECKBOX IN DROPDOWN
   $('.mutliSelect input[type="checkbox"]').on('click', function () {
     var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),

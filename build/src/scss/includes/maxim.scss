@@ -16,7 +16,7 @@
 .income-chart,.followers-chart,.time-chart {
   display: block;
   //width: 1000px;
-  width: 70%;
+  width: 65%;
   //height: 500px;
   //border: 1px solid blue;
 }
@@ -41,6 +41,7 @@
 .ui-datepicker-multi-2 {
   width: 30em !important;
 }
+
 .datapicker-block input,.toggle-bg,.ui-datepicker-multi  {
   background: #f6f8f9;
   background: -moz-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
@@ -52,10 +53,9 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
 }
 
-.dropdown {
-  margin: 0;
+.dropdown{
   margin: 50px 0 50px 0;
-  width: 100%;
+  width: 95%;
 }
 
 .dropdown dd,
@@ -93,7 +93,7 @@
 
 .dropdown dt a span,
 .timeChart,
-.multiSel span {
+.multiSel  {
   cursor: pointer;
   display: inline-block;
   padding: 0 3px 2px 0;
