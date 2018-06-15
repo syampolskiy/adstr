@@ -3,7 +3,7 @@ $(function() {
     initScrollable();
 
     function initScrollable() {
-        $(".js-init-scrollable").each(function(){
+        $(".js-init-scrollable").each(function() {
             var axis = $(this).attr('data-axis');
             var position = $(this).attr('data-position');
             $(this).mCustomScrollbar({
@@ -19,13 +19,13 @@ $(function() {
     // init selectric
     $('.js-init-selectric').selectric({
         optionsItemBuilder: function(itemData, element, index) {
-        	var content = $(itemData.element).data('content');
+            var content = $(itemData.element).data('content');
             return content;
         }
     });
     // init selectric --/
 
     // init responsive table
-    // $('.js-init-responsive-table')
+    $('.js-init-responsive-table').rtResponsiveTables();
     // init responsive table --/
 });

@@ -8,6 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" href="vendor/jquery.selectric/selectric.min.css">
+	<link rel="stylesheet" href="vendor/jquery.rtResponsiveTables/jquery.rtResponsiveTables.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -99,12 +100,12 @@
 				</div>
 			</header>
 			<main class="content js-init-scrollable">
-				<div class="box box--wide">
+				<div class="box">
 					<div class="box__header">
 						<h1>Channels</h1>
 					</div>
-					<div class="box__content">
-						<table class="respond js-init-responsive-table">
+					<div class="box__content no-pad-lr">
+						<table class="standard-table js-init-responsive-table" data-rtContainerBreakPoint="400">
 							<thead>
 								<tr>
 									<th>No.</th>
@@ -114,19 +115,26 @@
 									<th>Platform</th>
 									<th>Status</th>
 									<th>Balance</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>00150</td>
+									<td>
+										<span class="cell-number">00150</span>
+									</td>
 									<td>
 										<span class="cell-name">Stephen Amell</span>
 									</td>
 									<td>
 										<span class="cell-channel">stepstep_Amell</span>
 									</td>
-									<td>Gaming</td>
-									<td>Twitch.TV</td>
+									<td>
+										<span class="cell-category">Gaming</span>
+									</td>
+									<td>
+										<span class="cell-platform">Twitch.TV</span>
+									</td>
 									<td>
 										<div class="status status--green">verified</div>
 									</td>
@@ -134,13 +142,15 @@
 										<span class="cell-balance">$38.5</span>
 									</td>
 									<td>
-										<select class="select js-init-selectric">
-											<option value="Actions" data-content="Actions">Actions</option>
-											<option value="Layers" data-content="Layers">Layers</option>
-											<option value="Edit" data-content="Edit">Edit</option>
-											<option value="Remove channel" data-content="Remove channel">Remove channel</option>
-											<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
-										</select>
+										<div class="select-wrap">
+											<select class="js-init-selectric">
+												<option value="Actions" data-content="Actions">Actions</option>
+												<option value="Layers" data-content="Layers">Layers</option>
+												<option value="Edit" data-content="Edit">Edit</option>
+												<option value="Remove channel" data-content="Remove channel">Remove channel</option>
+												<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
+											</select>
+										</div>
 									</td>
 								</tr>
 								<tr>
@@ -160,13 +170,15 @@
 										<span class="cell-balance">$38.5</span>
 									</td>
 									<td>
-										<select class="select js-init-selectric">
-											<option value="Actions" data-content="Actions">Actions</option>
-											<option value="Layers" data-content="Layers">Layers</option>
-											<option value="Edit" data-content="Edit">Edit</option>
-											<option value="Remove channel" data-content="Remove channel">Remove channel</option>
-											<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
-										</select>
+										<div class="select-wrap">
+											<select class="js-init-selectric">
+												<option value="Actions" data-content="Actions">Actions</option>
+												<option value="Layers" data-content="Layers">Layers</option>
+												<option value="Edit" data-content="Edit">Edit</option>
+												<option value="Remove channel" data-content="Remove channel">Remove channel</option>
+												<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
+											</select>
+										</div>
 									</td>
 								</tr>
 							</tbody>
@@ -182,6 +194,7 @@
 	<script src="vendor/jquery.min.js"></script>
 	<script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="vendor/jquery.selectric/jquery.selectric.min.js"></script>
+	<script src="vendor/jquery.rtResponsiveTables/jquery.rtResponsiveTables.min.js"></script>
 	<script src="js/js.js"></script>
 </body>
 

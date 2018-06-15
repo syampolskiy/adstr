@@ -181,6 +181,7 @@ gulp.task('watch', function() {
     gulp.watch(['build/src/**/*.pug'], ['pug']);
     gulp.watch(['build/src/**/*.scss'], ['css']);
     gulp.watch(['build/src/**/*.js'], ['js']);
+    gulp.watch(['build/src/vendor/**/*.*'], ['vendor']);
 });
 
 gulp.task('default', [

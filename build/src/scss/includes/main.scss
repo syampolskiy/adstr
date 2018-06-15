@@ -26,6 +26,7 @@ body {
 		.mCSB_container {
 			padding-top: 0;
 			padding-bottom: 0;
+			overflow: visible;
 		}
 		.mCSB_inside>.mCSB_container{
 			margin-right: 0;
@@ -100,75 +101,49 @@ h1{
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 	border-radius: 5px;
 	background-color: #f2f6fc;
-	width: 1500px;
+	width: 1552px;
 	max-width: 100%;
-	&--wide{
-		max-width: none;
-	}
 	&__header{
 		border-bottom: solid 2px #e1e7f0;
 		padding: 16px 31px 12px;
 	}
 	&__content{
 		padding: 29px 32px 37px 32px;
+		width: 100%;
 	}
 }
 
-.table{
-	&__header{
-		display: flex;
-		justify-content: space-between;
-		color: #7f8fa4;
-		font-size: 19px;
-		line-height: 19px;
-		font-weight: 400;
-		border-bottom: solid 1.5px #dfe2e5;
-		padding-bottom: 21px;
-	}
-	&__header-cell{
-		width: 12.5%;
-	}
-	&__content{
-		color: #7f8fa4;
-		font-family: "ProximaNova";
-		font-size: 17px;
-		font-weight: 400;
-		line-height: 17px;
-		.table__row:last-child{
-			border-bottom: none;
-		}
-	}
-	&__cell{
-		display: flex;
-		align-items: center;
-		width: 12.5%;
-	}
-	&__row{
-		display: flex;
-		justify-content: space-between;
-		border-bottom: solid 1px #dfe2e5;
-		padding: 8px 0 19px;
-	}
+.cell-number{
+	font-family:'ProximaNova';
+	font-size: 17px;
 }
-
 .cell-name{
-	font-family: 'Noto Sans', sans-serif;
 	font-size: 19px;
 }
 .cell-channel{
 	color: #515974;
-	font-family: 'Noto Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 700;
+}
+.cell-category{
+	font-family: "ProximaNova";
+	font-size: 17px;
+	font-weight: 400;
+}
+.cell-platform{
+	font-family: "ProximaNova";
+	font-size: 17px;
 }
 .cell-balance{
 	color: #354052;
 	font-family: "ProximaNova";
 	font-size: 17px;
-	line-height: 17px;
 }
 .status{
 	width: 114px;
+	cursor: default;
+	user-select: none;
+	max-width: 100%;
 	color: #ffffff;
 	font-family: "ProximaNovaBold";
 	font-size: 12px;
@@ -180,6 +155,7 @@ h1{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 0 auto;
 	&--green{
 		background-color: #36af47;
 	}
@@ -188,5 +164,148 @@ h1{
 	}
 	&--red{
 		background-color: #f11313;
+	}
+}
+
+.standard-table{
+	float: none !important;
+	overflow: visible !important;
+	width: 100%;
+	font-family: 'Noto Sans', sans-serif;
+	table-layout: fixed;
+	text-align: center;
+	color: #7f8fa4;
+	word-break: break-all;
+	&:after {
+	    content: "";
+	    clear: both;
+	    display: table;
+	}
+	td{
+		overflow: visible !important;
+	}
+	tr{
+		overflow: visible !important;
+	}
+	tbody{
+		overflow: visible !important;
+		tr{
+			border-bottom: solid 1px #dfe2e5;
+			td{
+				padding: 18px 10px;
+				&:first-child{
+					padding-left: 32px;
+					text-align: left;
+				}
+				&:last-child{
+					padding-right: 32px;
+				}
+			}
+		}
+	}
+	thead{
+		overflow: visible !important;
+		text-align: center;
+		tr{
+			border-bottom: solid 1px #dfe2e5;
+		}
+		th{
+			font-size: 19px;
+			font-weight: 400;
+			line-height: 21px;
+			padding: 0 10px 18px;
+			&:first-child{
+				padding-left: 32px;
+				text-align: left;
+			}
+			&:last-child{
+				padding-right: 32px;
+			}
+
+			&:nth-child(1){
+				width: 7.8%;
+			}
+			&:nth-child(2){
+				width: 15.5%;
+			}
+			&:nth-child(3){
+				width: 11%;
+			}
+			&:nth-child(4){
+				width: 13.5%;
+			}
+			&:nth-child(5){
+				width: 10.5%;
+			}
+			&:nth-child(6){
+				width: 10.5%;
+			}
+			&:nth-child(7){
+				width: 12.5%;
+			}
+			&:nth-child(8){
+				width: 12.5%;
+			}
+		}
+		tr th{
+			&:first-child{
+				text-align: left;
+			}
+		}
+	}
+}
+.select-wrap{
+	text-align: left;
+	word-break: normal;
+	.selectric-items{
+		border-radius: 3px;
+		border: 1px solid #ced0da;
+		background-color: #b7c0cd;
+		background-image: linear-gradient(to top, #f1f3f7 0%, #ffffff 100%);
+		li{
+			color: #8796aa;
+			font-size: 13px;
+			line-height: 15px;
+			font-weight: 400;
+			background-color: #ffffff;
+			border-bottom: 1px solid #dfe3e9;
+			padding: 0 17px;
+			display: flex;
+			align-items: center;
+		}
+	}
+	.selectric {
+		width: 138px;
+		height: 45px;
+		padding-right: 33px;
+		padding-left: 17px;
+		max-width: 100%;
+		border-radius: 3px;
+		border: 1px solid #ced0da;
+		background-color: #b7c0cd;
+		background-image: linear-gradient(to top, #f1f3f7 0%, #ffffff 100%);
+		.button{
+			background: none;
+			height: 100%;
+			width: 29px;
+			&:after{
+				@include sprite($dropdown);
+				border: none;
+				right: 19px;
+			}
+		}
+		.label{
+			color: #354052;
+			font-family: "ProximaNovaSemibold";
+			font-size: 17px;
+			line-height: 17px;
+			font-weight: 400;
+			height: 100%;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			margin: 0;
+			padding-top: 13px;
+		}
 	}
 }
