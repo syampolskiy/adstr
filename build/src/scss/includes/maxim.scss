@@ -1,0 +1,239 @@
+
+.chart-cnvs{
+  display: none!important;
+}
+
+.chart-cnvs.show{
+  display: block!important;
+}
+.streamer-incoms-block,.streamer-followers-block,.streamer-time-block{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.income-chart,.followers-chart,.time-chart {
+  display: block;
+  //width: 1000px;
+  width: 65%;
+  //height: 500px;
+  //border: 1px solid blue;
+}
+
+.filters-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 35%;
+  .datapicker-block input {
+    height: 30px;
+    width: 14.9em;
+    padding-left: 10px;
+    border: 1px solid #e2e3e9;
+  }
+  label {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+.ui-datepicker-multi-2 {
+  width: 30em !important;
+}
+
+.datapicker-block input,.toggle-bg,.ui-datepicker-multi  {
+  background: #f6f8f9;
+  background: -moz-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(50%,#e5ebee), color-stop(51%,#d7dee3), color-stop(100%,#f5f7f9));
+  background: -webkit-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+  background: -o-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+  background: -ms-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+  background: linear-gradient(to bottom, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
+}
+
+.dropdown{
+  margin: 50px 0 50px 0;
+  width: 95%;
+}
+
+.dropdown dd,
+.dropdown dt {
+  margin: 0px;
+  padding: 0px;
+}
+
+.dropdown ul {
+  margin: -1px 0 0 0;
+}
+
+.dropdown dd {
+  position: relative;
+}
+
+.dropdown a,
+.dropdown a:visited {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+  font-size: 12px;
+}
+
+.dropdown dt a {
+  background-color: #4F6877;
+  display: block;
+  padding: 8px 20px 5px 10px;
+  min-height: 25px;
+  line-height: 24px;
+  overflow: hidden;
+  border: 0;
+  width: 100%;
+}
+
+.dropdown dt a span,
+.timeChart,
+.multiSel  {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 3px 2px 0;
+}
+
+.dropdown dd ul {
+  background-color: #4F6877;
+  border: 0;
+  color: #fff;
+  display: none;
+  left: 0px;
+  padding: 2px 15px 2px 5px;
+  position: absolute;
+  top: 2px;
+  width: 100%;
+  list-style: none;
+  height: 100px;
+  overflow: auto;
+  z-index: 999;
+}
+
+.dropdown span.value {
+  display: none;
+}
+
+.dropdown dd ul li a {
+  padding: 5px;
+  display: block;
+}
+
+.dropdown dd ul li a:hover {
+  background-color: #fff;
+}
+
+button {
+  background-color: #6BBE92;
+  width: 302px;
+  border: 0;
+  padding: 10px 0;
+  margin: 5px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+
+.toggle-bg{
+  -khtml-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  -khtml-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  -moz-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  -ms-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  -o-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  -webkit-box-shadow: 0 1px 0 #fff, inset 0 0 2px #d7dee3, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  box-shadow: 0 1px 0 #fff, inset 0 0 2px #d7dee3, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  display: block; /* ...So that we can set a height and width */
+  float: left; /* ...So that it doesn't take up the full width of the page */
+  height: 30px; /* You can change this later if you want */
+  position: relative; /* Required to allow the switch to move around */
+  width: 70px; /* This can be changed later as well */
+}
+
+.toggle-bg input{
+  height: 30px;
+  left: 0;
+  margin: 0; /* Reset the margins and padding */
+  opacity: 0; /* Invisible! */
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 70px;
+  z-index: 2; /* We want the input to be over the span.switch, which we'll give a z-index of 1 */
+  /*IE*/
+  zoom: 1;
+  filter: alpha(opacity=0);
+}
+
+.switch{
+  background: #ffffff;
+  background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #fefefe 50%, #fdfdfd 51%, #ffffff 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(50%,#fefefe), color-stop(51%,#fdfdfd), color-stop(100%,#ffffff));
+  background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
+  background: -o-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
+  background: radial-gradient(ellipse at center, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+  /* gradient generated by http://www.colorzilla.com/gradient-editor/ */
+
+  -khtml-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+
+
+  -khtml-box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2;
+  -moz-box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2;
+  -ms-box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2;
+  -o-box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2;
+  -webkit-box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2;
+  box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2;
+
+  display: block;
+  float: left;
+  height: 30px;
+  left: -1px; /* This is the starting point. When adding a border radius, a small bit of the background is shown if we use left: 0;, so -1px is best.*/
+  position: relative;
+  top: 0; /* ...To keep it centered vertically */
+
+  -khtml-transition: left .2s ease;
+  -moz-transition: left .2s ease;
+  -ms-transition: left .2s ease;
+  -o-transition: left .2s ease;
+  -webkit-transition: left .2s ease;
+  transition: left .2s ease;
+
+  width: 30px;
+  z-index: 1; /* Remember, it must be below the invisible inputs */
+}
+
+.toggle-bg input:checked~.switch{left: -1px;} /* initial toggle position */
+
+.toggle-bg input~:checked~.switch{left: 41px;} /* final relative toggle position */
+
+.toggle-bg input:checked{z-index: 0;}
+
+.toggle-chart{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+
+}

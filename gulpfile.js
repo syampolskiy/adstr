@@ -185,6 +185,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', [
+    'sprites',
     'fonts',
     'iconfont',
     'img',
