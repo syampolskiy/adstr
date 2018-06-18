@@ -35,9 +35,9 @@ function rndColor() {
 }
 
 function ShowFirstChecboxVF(chkBx) {
-    var title = chkBx.val() + ",";
-    var html = '<span title="' + title + '">' + title + '</span>';
-    $('.VFChart').append(html);
+    var title_vf = chkBx.val() + ",";
+    var vf_show = '<span title_vf="' + title_vf + '">' + title_vf + '</span>';
+    $('.VFChart').append(vf_show);
     $(".hida").hide();
 }
 
@@ -266,16 +266,16 @@ $(function () {
 
     // SELECT CHECKBOX IN DROPDOWN
     $('.mutliSelect_followers input[type="checkbox"]').on('click', function () {
-        var title = $(this).closest('.mutliSelect_followers').find('input[type="checkbox"]').val(),
-            title = $(this).val() + ",";
+        var title_vf = $(this).closest('.mutliSelect_followers').find('input[type="checkbox"]').val(),
+            title_vf = $(this).val() + ",";
         if ($(this).is(':checked')) {
-            var html = '<span title="' + title + '">' + title + '</span>';
-            $('.VFChart').append(html);
+            var vf_show = '<span title_vf="' + title_vf + '">' + title_vf + '</span>';
+            $('.VFChart').append(vf_show);
             $(".hida").hide();
         } else {
-            $('span[title="' + title + '"]').remove();
+            $('span[title_vf="' + title_vf + '"]').remove();
             var ret = $(".hida");
-            $('.dropdown dt a').append(ret);
+            $('.mutliSelect_followers dt a').append(ret);
         }
     });
 

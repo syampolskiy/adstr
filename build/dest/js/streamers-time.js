@@ -35,9 +35,9 @@ function rndColor() {
 }
 
 function ShowFirstChecboxTime(chkBxTime) {
-  var title = chkBxTime.val() + ",";
-  var html = '<span title="' + title + '">' + title + '</span>';
-  $('.timeChart').append(html);
+  var title_t = chkBxTime.val() + ",";
+  var t_show = '<span title_t="' + title_t + '">' + title_t + '</span>';
+  $('.timeChart').append(t_show);
   $(".hida").hide();
 }
 
@@ -266,14 +266,14 @@ $(function () {
 
   // SELECT CHECKBOX IN timeChartIdsMenu
   $('.timeChart_select input[type="checkbox"]').on('click', function () {
-    var title = $(this).closest('.timeChart_select').find('input[type="checkbox"]').val(),
-     title = $(this).val() + ",";
+    var title_t = $(this).closest('.timeChart_select').find('input[type="checkbox"]').val(),
+     title_t = $(this).val() + ",";
     if ($(this).is(':checked')) {
-      var html = '<span title="' + title + '">' + title + '</span>';
-      $('.timeChart').append(html);
+      var t_show = '<span title_t="' + title_t + '">' + title_t + '</span>';
+      $('.timeChart').append(t_show);
       $(".hida").hide();
     } else {
-      $('span[title="' + title + '"]').remove();
+      $('span[title_t="' + title_t + '"]').remove();
       var ret = $(".hida");
       $('.timeChartIdsMenu dt a').append(ret);
     }
