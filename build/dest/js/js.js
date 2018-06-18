@@ -31,7 +31,7 @@ $(function() {
 
 	// tabs
 	$("#tabs").tabs();
-	$('#date_range, #date_range_time').hide();
+	$('#date_range, #date_range_time,#date_range_followers ').hide();
 	// $('#date_range').enable();
 
 	$('#startDay,#endDay').click(function() {
@@ -39,6 +39,9 @@ $(function() {
 	});
 	$('#startDayTime,#endDayTime').click(function() {
 		$('#date_range_time').toggle('slow');
+	});
+	$('#startDayFollowers,#endDayFollowers').click(function() {
+		$('#date_range_followers').toggle('slow');
 	});
 
 	// chart dropdown
@@ -156,18 +159,6 @@ $(function() {
 	}
 }(jQuery));
 $(function() {
-	// menu dropdowns
-	$('.js-toggle-submenu').click(function(e) {
-		e.preventDefault();
-
-		var self = $(this);
-		self.siblings('.js-toggle-me').slideToggle(100, function() {
-			self.parent().toggleClass('opened');
-		});
-	})
-	// menu dropdowns --/
-});
-$(function() {
 	// dropdowns
 	$('.js-toggle-dropdown').click(function() {
 		$(this).toggleClass('opened');
@@ -191,4 +182,16 @@ $(function() {
 		});
 	}
 	// dropdowns --/
+});
+$(function() {
+	// menu dropdowns
+	$('.js-toggle-submenu').click(function(e) {
+		e.preventDefault();
+
+		var self = $(this);
+		self.siblings('.js-toggle-me').slideToggle(100, function() {
+			self.parent().toggleClass('opened');
+		});
+	})
+	// menu dropdowns --/
 });

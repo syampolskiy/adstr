@@ -31,7 +31,7 @@ $(function() {
 
     // tabs
      $("#tabs").tabs();
-     $('#date_range, #date_range_time').hide();
+     $('#date_range, #date_range_time,#date_range_followers ').hide();
      // $('#date_range').enable();
 
         $('#startDay,#endDay').click(function(){
@@ -39,6 +39,9 @@ $(function() {
         });
         $('#startDayTime,#endDayTime').click(function(){
         $('#date_range_time').toggle('slow');
+        });
+        $('#startDayFollowers,#endDayFollowers').click(function(){
+        $('#date_range_followers').toggle('slow');
         });
 
         // chart dropdown

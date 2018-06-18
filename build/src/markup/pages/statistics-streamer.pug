@@ -1,6 +1,7 @@
 extends ../template
 block scripts
     script(src=jsnoConcate +  "streamers-time.js")
+    script(src=jsnoConcate +  "streamer-views-followers.js")
     script(src=jsnoConcate +  "streamers-incomes.js")
 
 block content
@@ -93,12 +94,12 @@ block content
                                                 input#channel_2206.banner(type='checkbox', value='channel 6')
                                                 | channel 6
                             .toggle-chart
-                                label(for='days') Followers
+                                label(for='days') Views
                                 span#graphLayerFollowers.toggle-bg
-                                    input#daysFollowers(type='radio', name='toggle', value='Followers', checked='')
-                                    input#weeksFollowers(type='radio', name='toggle', value='Views')
+                                    input#daysFollowers(type='radio', name='toggle', value='Views', checked='')
+                                    input#weeksFollowers(type='radio', name='toggle', value='Followers')
                                     span.switch
-                                label(for='weeks') Views
+                                label(for='weeks') Followers
 
                         .followers-chart
                             canvas#stream-followers.chart-cnvs.show
