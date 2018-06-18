@@ -37,7 +37,7 @@ function rndColor() {
 function ShowFirstChecboxVF(chkBx) {
     var title = chkBx.val() + ",";
     var html = '<span title="' + title + '">' + title + '</span>';
-    $('.multiSel').append(html);
+    $('.VFChart').append(html);
     $(".hida").hide();
 }
 
@@ -266,11 +266,11 @@ $(function () {
 
     // SELECT CHECKBOX IN DROPDOWN
     $('.mutliSelect_followers input[type="checkbox"]').on('click', function () {
-        var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
+        var title = $(this).closest('.mutliSelect_followers').find('input[type="checkbox"]').val(),
             title = $(this).val() + ",";
         if ($(this).is(':checked')) {
             var html = '<span title="' + title + '">' + title + '</span>';
-            $('.multiSel').append(html);
+            $('.VFChart').append(html);
             $(".hida").hide();
         } else {
             $('span[title="' + title + '"]').remove();
