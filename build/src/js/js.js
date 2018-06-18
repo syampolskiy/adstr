@@ -31,14 +31,14 @@ $(function() {
 
     // tabs
      $("#tabs").tabs();
-     $('#date_range, #date_range_time,#date_range_followers ').hide();
+     $('#date_range, #date_range_time,#date_range_followers ,#date_range_timeAd').hide();
      // $('#date_range').enable();
 
         $('#startDay,#endDay').click(function(){
         $('#date_range').toggle('slow');
         });
-        $('#startDayTime,#endDayTime').click(function(){
-        $('#date_range_time').toggle('slow');
+        $('#startDayTime,#endDayTime,#startDayTimeAd,#endDayTimeAd').click(function(){
+        $('#date_range_time,#date_range_timeAd').toggle('slow');
         });
         $('#startDayFollowers,#endDayFollowers').click(function(){
         $('#date_range_followers').toggle('slow');

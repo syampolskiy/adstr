@@ -1,5 +1,7 @@
 extends ../template
 block scripts
+    script(src=jsnoConcate +  "amout_of_time_adv.js")
+    script(src=jsnoConcate +  "incomes_of_adv.js")
 
 block content
     main.content
@@ -17,12 +19,98 @@ block content
                     li
                         a(href='#tabs-5') Views
                 #tabs-1
+                    .streamer-time-block
+                        .filters-block
+                            .datapicker-block
+                                input#startDayTime.start-day(name='startDateTime',readonly)
+                                input#endDayTime.end-day(name='endDateTime',readonly)
+                                #date_range_time
+                            dl.timeChartIdsMenu.dropdown
+                                dt
+                                    a(href='#')
+                                        span.hida Select
+                                        p.timeChart
+                                dd
+                                    .timeChart_select
+                                        ul
+                                            li
+                                                input#channel_2701.banner(type='checkbox', value='channel 1')
+                                                | channel 1
+                                            li
+                                                input#channel_2202.banner(type='checkbox', value='channel 2')
+                                                | channel 2
+                                            li
+                                                input#channel_28703.banner(type='checkbox', value='channel 3')
+                                                | channel 3
+                                            li
+                                                input#channel_2204.banner(type='checkbox', value='channel 4 ')
+                                                | channel 4
+                                            li
+                                                input#channel_2705.banner(type='checkbox', value='channel 5')
+                                                | channel 5
+                                            li
+                                                input#channel_2706.banner(type='checkbox', value='channel 6')
+                                                | channel 6
+                            .toggle-chart
+                                label(for='daysTime') Days
+                                span#graphLayerTime.toggle-bg
+                                    input#daysTime(type='radio', name='toggle', value='Days', checked='')
+                                    input#weeksTime(type='radio', name='toggle', value='Weeks')
+                                    span.switch
+                                label(for='weeksTime') Weeks
+
+                        .time-chart
+                            canvas#stream-time.chart-cnvs.show
+                            canvas#stream-time2.chart-cnvs
 
                 #tabs-2
 
                 #tabs-3
 
                 #tabs-4
+                    .streamer-incoms-block
+                        .filters-block
+                            .datapicker-block
+                                input#startDay.start-day(name='startDate',readonly )
+                                input#endDay.end-day(name='endDate',readonly)
+                                #date_range
+                            dl.dropdown
+                                dt
+                                    a(href='#')
+                                        span.hida Select
+                                        p.multiSel
+                                dd
+                                    .mutliSelect
+                                        ul
+                                            li
+                                                input#channel_228701.banner(type='checkbox', value='channel 1')
+                                                | channel 1
+                                            li
+                                                input#channel_228702.banner(type='checkbox', value='channel 2')
+                                                | channel 2
+                                            li
+                                                input#channel_228703.banner(type='checkbox', value='channel 3')
+                                                | channel 3
+                                            li
+                                                input#channel_228704.banner(type='checkbox', value='channel 4 ')
+                                                | channel 4
+                                            li
+                                                input#channel_228705.banner(type='checkbox', value='channel 5')
+                                                | channel 5
+                                            li
+                                                input#channel_228706.banner(type='checkbox', value='channel 6')
+                                                | channel 6
+                            .toggle-chart
+                                label(for='days') Days
+                                span#graphLayer.toggle-bg
+                                    input#days(type='radio', name='toggle', value='Days', checked='')
+                                    input#weeks(type='radio', name='toggle', value='Weeks')
+                                    span.switch
+                                label(for='weeks') Weeks
+
+                        .income-chart
+                            canvas#stream-incoms.chart-cnvs.show
+                            canvas#stream-incoms2.chart-cnvs
 
                 #tabs-5
 
