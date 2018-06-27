@@ -115,11 +115,12 @@
 							</li>
 						</ul>
 						<div id="tabs-1">
+							<div class="over"></div>
 							<div class="streamer-time-block">
 								<div class="filters-block">
 									<div class="datapicker-block">
-										<input class="start-day" id="startDayTime" name="startDateTime" readonly>
-										<input class="end-day" id="endDayTime" name="endDateTime" readonly>
+										<input class="start-day" id="startDayTime" name="startDateTime" readonly="">
+										<input class="end-day" id="endDayTime" name="endDateTime" readonly="">
 										<div id="date_range_time"></div>
 									</div>
 									<dl class="timeChartIdsMenu dropdown">
@@ -133,11 +134,11 @@
 											<div class="timeChart_select">
 												<ul>
 													<li>
-														<input class="banner" id="channel_2701" type="checkbox" value="channel 1">channel 1</li>
+														<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
 													<li>
-														<input class="banner" id="channel_2202" type="checkbox" value="channel 2">channel 2</li>
+														<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
 													<li>
-														<input class="banner" id="channel_28703" type="checkbox" value="channel 3">channel 3</li>
+														<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
 													<li>
 														<input class="banner" id="channel_2204" type="checkbox" value="channel 4 ">channel 4</li>
 													<li>
@@ -151,8 +152,8 @@
 									<div class="toggle-chart">
 										<label for="days">Days</label>
 										<span class="toggle-bg" id="graphLayerTime">
-											<input id="daysTime" type="radio" name="toggle" value="Days" checked="">
-											<input id="weeksTime" type="radio" name="toggle" value="Weeks">
+											<input class="time_chart" id="daysTime" type="radio" name="toggle" value="Days" checked="">
+											<input class="time_chart" id="weeksTime" type="radio" name="toggle" value="Weeks">
 											<span class="switch"></span>
 										</span>
 										<label for="weeks">Weeks</label>
@@ -168,11 +169,11 @@
 							<div class="streamer-followers-block">
 								<div class="filters-block">
 									<div class="datapicker-block">
-										<input class="start-day" id="startDayFollowers" name="startDate" readonly>
-										<input class="end-day" id="endDayFollowers" name="endDate" readonly>
+										<input class="start-day" id="startDayFollowers" name="startDate" readonly="">
+										<input class="end-day" id="endDayFollowers" name="endDate" readonly="">
 										<div id="date_range_followers"></div>
 									</div>
-									<dl class="dropdown folowwers">
+									<dl class="dropdown followersMenu">
 										<dt>
 											<a href="#">
 												<span class="hida">Select</span>
@@ -183,11 +184,11 @@
 											<div class="mutliSelect_followers">
 												<ul>
 													<li>
-														<input class="banner" id="channel_287" type="checkbox" value="channel 1">channel 1</li>
+														<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
 													<li>
-														<input class="banner" id="channel_28" type="checkbox" value="channel 2">channel 2</li>
+														<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
 													<li>
-														<input class="banner" id="channel_228" type="checkbox" value="channel 3">channel 3</li>
+														<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
 													<li>
 														<input class="banner" id="channel_224" type="checkbox" value="channel 4 ">channel 4</li>
 													<li>
@@ -199,13 +200,13 @@
 										</dd>
 									</dl>
 									<div class="toggle-chart">
-										<label for="">Views</label>
+										<label for="ViewsC">Views</label>
 										<span class="toggle-bg" id="graphLayerFollowers">
-											<input id="daysFollowers" type="radio" name="toggle" value="Views" checked="">
-											<input id="weeksFollowers" type="radio" name="toggle" value="Followers">
+											<input class="vfchart" id="ViewsC" type="radio" name="toggle" value="Views" checked="">
+											<input class="vfchart" id="FollowersC" type="radio" name="toggle" value="Followers">
 											<span class="switch"></span>
 										</span>
-										<label for="">Followers</label>
+										<label for="FollowersC">Followers</label>
 									</div>
 								</div>
 								<div class="followers-chart">
@@ -218,8 +219,8 @@
 							<div class="streamer-incoms-block">
 								<div class="filters-block">
 									<div class="datapicker-block">
-										<input class="start-day" id="startDay" name="startDate" readonly>
-										<input class="end-day" id="endDay" name="endDate" readonly>
+										<input class="start-day" id="startDay" name="startDate" readonly="">
+										<input class="end-day" id="endDay" name="endDate" readonly="">
 										<div id="date_range"></div>
 									</div>
 									<dl class="dropdown">
@@ -251,8 +252,8 @@
 									<div class="toggle-chart">
 										<label for="days">Days</label>
 										<span class="toggle-bg" id="graphLayer">
-											<input id="days" type="radio" name="toggle" value="Days" checked="">
-											<input id="weeks" type="radio" name="toggle" value="Weeks">
+											<input class="income_chart" id="days" type="radio" name="toggle" value="Days" checked="">
+											<input class="income_chart" id="weeks" type="radio" name="toggle" value="Weeks">
 											<span class="switch"></span>
 										</span>
 										<label for="weeks">Weeks</label>

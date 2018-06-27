@@ -1,17 +1,17 @@
-function addChartTime(chrtStngs, chkbxVl, chrtDataWeek, cnvs){
-    var newDataset = {
+function addTimeChart(chrtStngs, chkbxVl, chrtDataWeek, cnvs){
+    var newTimeDataset = {
         label: chkbxVl.val(),
-        borderColor: rndColor(),
-        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        backgroundColor: rndColor(),
         data: chrtDataWeek,
     };
 
     var tmp = chrtStngs.data.datasets;
-    tmp[tmp.length] = newDataset;
+    tmp[tmp.length] = newTimeDataset;
     cnvs.update();
 }
 
-function removeChartTime(chrtStngs, chkbxVl, cnvs){
+function removeTimeChart(chrtStngs, chkbxVl, cnvs){
     chrtStngs.data.datasets.forEach(function (currentValue, i) {
         if (chrtStngs.data.datasets[i].label == chkbxVl.val()) {
             chrtStngs.data.datasets.splice(i, 1);
@@ -21,7 +21,7 @@ function removeChartTime(chrtStngs, chkbxVl, cnvs){
 
 }
 
-function getCheckedIDsTIME() {
+function getCheckedTimeChIDs() {
     var res = [];
     $.each($('.timeChart_select input[type="checkbox"]:checked'), function (i) {
         var id = parseInt($(this).attr("id").split("_")[1]);
@@ -34,8 +34,8 @@ function rndColor() {
     return '#' + ('00000' + (Math.random() * 16777216 << 0).toString(16)).substr(-6);
 }
 
-function ShowFirstChecboxTime(chkBxTime) {
-    var title_t = chkBxTime.val() + ",";
+function ShowFirstTimeChartChecbox(chkBx) {
+    var title_t = chkBx.val() + ",";
     var t_show = '<span title_t="' + title_t + '">' + title_t + '</span>';
     $('.timeChart').append(t_show);
     $(".hida").hide();
@@ -45,67 +45,65 @@ function div(val, by){
     return (val - val % by) / by;
 }
 
-function getChartsDataTime(checkboxesID, dateStart, dateEnd){
-    var colors = ['#D36969','#8F9BFF','#B76298','#56A555','#DEAC17','#FD72FE','#7278FE','#fe98e5','#2C1395','#DA70D6','#E9967A','#64078D','#00E62C','#E60091','#007069','#700400'];
+function getChartsTimeData(checkboxesID, dateStart, dateEnd){
     var ordID = checkboxesID.join(",");
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultTimeChart = {
-        timedays: {
+        days: {
             labels: [],
-            TimechannelsId: {}
+            channelsId: {}
         },
-        timeweeks: {
+        weeks: {
             labels: [],
-            TimechannelsId: {}
+            channelsId: {}
         }
     };
-    // $(".loading-overlay").addClass('hide');
     $.ajax({
-        url: "http://rusvald.ddns.ukrtel.net/Admin/ChartsStreamer/Income",
+        url: "/Admin/ChartsAdvertiser/AmountOfTime",
         type: "POST",
         data: {orderId: ordID,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
+            console.log(data);
             if(!data.error){
                 //Labels for CHART
-                resultTimeChart.timedays.labels = data.chartData.timedays.labels.slice(0);
-                var TimedaysLabels = resultTimeChart.timedays.labels;
-                var TimedaysLabelsLen = TimedaysLabels.length;
+                resultTimeChart.days.labels = data.chartData.days.labels.slice(0);
+                var daysLabels = resultTimeChart.days.labels;
+                var daysLabelsLen = daysLabels.length;
 
-                for(i = 0; i < Math.ceil(TimedaysLabelsLen/7); ++i){
+                for(i = 0; i < Math.ceil(daysLabelsLen/7); ++i){
                     var ind = i*7;
-                    resultTimeChart.timeweeks.labels[i] = TimedaysLabels[ind];
+                    resultTimeChart.weeks.labels[i] = daysLabels[ind];
                 }
-
                 //Values for CHART
-                resultTimeChart.timedays.TimechannelsId = JSON.stringify(data.chartData.timedays.TimechannelsId);
-                resultTimeChart.timedays.TimechannelsId = JSON.parse(resultTimeChart.timedays.TimechannelsId);
+                resultTimeChart.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
+                resultTimeChart.days.channelsId = JSON.parse(resultTimeChart.days.channelsId);
             } else {
                 console.log(data);
             }
+            console.log(data);
         }, error: function (data) {
             console.log(data);
         }
     });
-    // $(".loading-overlay").removeClass('hide');
     return resultTimeChart;
 }
 
-function setDaysDataTime(chrtStngs, dataArr, data, chrt){
-    chrtStngs.TimeDays.data.labels = data.timedays.labels;
+function setTimeDaysData(chrtStngs, dataArr, data, chrt){
+    chrtStngs.Days.data.labels = data.days.labels;
 
-    $.each(data.timedays.TimechannelsId, function (index, value) {
+    $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeChartTime(chrtStngs.TimeDays, $("#channel_"+index), chrt);
-        addChartTime(chrtStngs.TimeDays, $("#channel_"+index), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Days, $("#channel_"+index), chrt);
+        addTimeChart(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
     });
 }
 
-function setWeeksDataTime(chrtStngs, dataArr, data, chrt){
+function setTimeWeeksData(chrtStngs, dataArr, data, chrt){
 
-    $.each(data.timedays.TimechannelsId, function (index, value) {
+    $.each(data.days.channelsId, function (index, value) {
         var tmp = [],
             i = 0,
             k = 0;
@@ -121,11 +119,11 @@ function setWeeksDataTime(chrtStngs, dataArr, data, chrt){
         dataArr[index] = tmp;
 
 
-        chrtStngs.timeWeeks.data.labels = data.timeweeks.labels;
+        chrtStngs.Weeks.data.labels = data.weeks.labels;
 
 
-        removeChartTime(chrtStngs.timeWeeks, $("#channel_"+index), chrt);
-        addChartTime(chrtStngs.timeWeeks, $("#channel_"+index), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Weeks, $("#channel_"+index), chrt);
+        addTimeChart(chrtStngs.Weeks, $("#channel_"+index), dataArr[index], chrt);
     });
 }
 
@@ -138,13 +136,13 @@ function dateforWeeks(){
     return tmp;
 }
 
-function handleDateChangeTime(s_date, e_date, chS, chDD, chDW){
+function handleDateTimeChange(s_date, e_date, chS, chDD, chDW){
     setTimeout(function() {
-        var checkedIDs = getCheckedIDsTIME();
-        var data = getChartsDataTime(checkedIDs, s_date, e_date);
+        var checkedIDs = getCheckedTimeChIDs();
+        var data = getChartsTimeData(checkedIDs, s_date, e_date);
 
-        setDaysDataTime(chS, chDD, data, window.timeChartLine);
-        setWeeksDataTime(chS, chDW, data, window.timeChartLine2);
+        setTimeDaysData(chS, chDD, data, window.myLineTime);
+        setTimeWeeksData(chS, chDW, data, window.myLineTime2);
     }, 100);
 }
 
@@ -168,7 +166,7 @@ $(function () {
 
             if(extensionRange.startDateText !== extensionRange.endDateText) {
                 END_DATE_TIME = extensionRange.endDateText;
-                handleDateChangeTime(START_DATE, END_DATE, chartsSettingsTime, chartsDataDaysTime, chartsDataWeeksTime);
+                handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
             }
         }
 
@@ -181,15 +179,15 @@ $(function () {
     START_DATE_TIME = extensionRange.startDateText;
     END_DATE_TIME = extensionRange.endDateText;
 // vars init
-    var Timectx = document.getElementById('stream-time').getContext('2d');
-    var Timectx2 = document.getElementById('stream-time2').getContext('2d');
-    var TimeChecbox_element =  $('.timeChart_select input[type="checkbox"]') ;
-    var chartsDataDaysTime = {};
-    var chartsDataWeeksTime = {};
+    var ctx = document.getElementById('stream-time').getContext('2d');
+    var ctx2 = document.getElementById('stream-time2').getContext('2d');
+    var Checbox_element_time = $('.timeChart_select input[type="checkbox"]') ;
+    var chartsDataTimeDays = {};
+    var chartsDataTimeWeeks = {};
 //Days chart
 
-    var chartsSettingsTime = {};
-    chartsSettingsTime.TimeDays = {
+    var chartsTimeSettings = {};
+    chartsTimeSettings.Days = {
         type: 'bar',
         data: {
             labels: [],
@@ -216,7 +214,7 @@ $(function () {
                     ticks: {
                         beginAtZero: true,
                         callback: function (value) {
-                            return 'min' + value;
+                            return  value + ' min';
                         }
                     }
                 }]
@@ -224,7 +222,7 @@ $(function () {
         },
 
     };
-    chartsSettingsTime.timeWeeks = {
+    chartsTimeSettings.Weeks = {
         type: 'bar',
         data: {
             labels: [],
@@ -249,7 +247,7 @@ $(function () {
                     ticks: {
                         beginAtZero: true,
                         callback: function (value) {
-                            return 'min' + value;
+                            return  value + ' min';
                         }
                     }
                 }]
@@ -257,14 +255,14 @@ $(function () {
         }
     };
 
-    var TimeDays = function (settings) {
-        window.timeChartLine = new Chart(Timectx, settings);
+    var DaysTimeChart = function (settings) {
+        window.myLineTime = new Chart(ctx, settings);
     };
-    var TimeWeeks = function (settings) {
-        window.timeChartLine2 = new Chart(Timectx2, settings);
+    var WeeksTimeChart = function (settings) {
+        window.myLineTime2 = new Chart(ctx2, settings);
     };
 
-    // SELECT CHECKBOX IN timeChartIdsMenu
+    // SELECT CHECKBOX IN DROPDOWN
     $('.timeChart_select input[type="checkbox"]').on('click', function () {
         var title_t = $(this).closest('.timeChart_select').find('input[type="checkbox"]').val(),
             title_t = $(this).val() + ",";
@@ -279,37 +277,39 @@ $(function () {
         }
     });
 
+
+
     // Toggle chars DAYS || WEEKS
-    $("input[name='toggle']").change(function () {
+    $("input.time_chart").change(function () {
         $("#stream-time, #stream-time2").toggleClass("show");
     });
 
     //DRAWING
-    TimeWeeks(chartsSettingsTime.timeWeeks);
-    TimeDays(chartsSettingsTime.TimeDays);
-    Timectx.clearRect(0, 0, 800, 400);
-    Timectx2.clearRect(0, 0, 800, 400);
+    WeeksTimeChart(chartsTimeSettings.Weeks);
+    DaysTimeChart(chartsTimeSettings.Days);
+    ctx.clearRect(0, 0, 800, 400);
+    ctx2.clearRect(0, 0, 800, 400);
 
-    TimeChecbox_element[0].checked = true;
-    if (TimeChecbox_element[0].checked){
-        ShowFirstChecboxTime(TimeChecbox_element);
-        handleDateChangeTime(START_DATE_TIME, END_DATE_TIME, chartsSettingsTime, chartsDataDaysTime, chartsDataWeeksTime);
+    Checbox_element_time[0].checked = true;
+    if (Checbox_element_time[0].checked){
+        ShowFirstTimeChartChecbox(Checbox_element_time);
+        handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
     }
 
     //Действие  после изменения чекбокса
     $('.timeChart_select input[type="checkbox"]').change(function () {
         var t = $(this);
         if(t[0].checked){
-            var checkedInputTimeID = t.attr("id");
-            if(typeof chartsDataDaysTime[checkedInputTimeID] === "undefined" && typeof chartsDataWeeksTime[checkedInputTimeID] === "undefined"){
-                handleDateChangeTime(START_DATE_TIME, END_DATE_TIME, chartsSettingsTime, chartsDataDaysTime, chartsDataWeeksTime);
+            var checkedInputID = t.attr("id");
+            if(typeof chartsDataTimeDays[checkedInputID] === "undefined" && typeof chartsDataTimeWeeks[checkedInputID] === "undefined"){
+                handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
             }
 
-            addChartTime(chartsSettingsTime.TimeDays, t, chartsDataDaysTime[checkedInputTimeID], window.timeChartLine);
-            addChartTime(chartsSettingsTime.timeWeeks, t, chartsDataWeeksTime[checkedInputTimeID], window.timeChartLine2);
+            addTimeChart(chartsTimeSettings.Days, t, chartsDataTimeDays[checkedInputID], window.myLineTime);
+            addTimeChart(chartsTimeSettings.Weeks, t, chartsDataTimeWeeks[checkedInputID], window.myLineTime2);
         } else {
-            removeChartTime(chartsSettingsTime.TimeDays, t, window.timeChartLine);
-            removeChartTime(chartsSettingsTime.timeWeeks, t, window.timeChartLine2);
+            removeTimeChart(chartsTimeSettings.Days, t, window.myLineTime);
+            removeTimeChart(chartsTimeSettings.Weeks, t, window.myLineTime2);
         }
     });
 });
