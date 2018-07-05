@@ -1,0 +1,40 @@
+extends ../template
+
+block content
+    main.content.js-init-scrollable
+        //.success
+        //    img
+        //    span.success-text Success!
+        .box
+            .page-title
+                span.title Wallet
+            .chart-area
+                .chart-info
+                    form#wallet-chart
+                        .inputs
+                            .img-box
+                                img(src='img/User Icon.png')
+                            input.username(type='text' name='' placeholder = "Stephen Amell " )
+                            input(type='text' name='' )
+                            input(type='text' name='' )
+                        .radiobtn
+                            .radio-box
+                                label
+                                    input.radio(type='radio', name='pay')
+                                    span.radio-custom
+                                    span.label Lorem ipsum dolor sit amet, consectetur
+                            .radio-box
+                                label
+                                    input.radio(type='radio', name='pay')
+                                    span.radio-custom
+                                    span.label Lorem ipsum dolor sit amet, consectetur
+                            .radio-box
+                                label
+                                    input.radio(type='radio', name='pay')
+                                    span.radio-custom
+                                    span.label Lorem ipsum dolor sit amet, consectetur
+                        input(type='submit' value="Withdraw")
+
+                chart-container
+                    .chart-place
+                        canvas#wallet-chart

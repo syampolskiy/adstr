@@ -1009,3 +1009,122 @@ button {
 	align-items: center;
 	height: 30px;
 }
+
+.page-title {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e1e7f0;
+	width: 100%;
+}
+
+span.title {
+	font-size: 28px;
+	color: #515974;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	margin-left: 40px;
+}
+
+.chart-area {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-left: 40px;
+	padding-bottom: 40px;
+}
+
+.chart-info {
+	display: flex;
+	flex-direction: column;
+}
+.chart-info .inputs .img-box {
+	width: 45px;
+	height: 48px;
+	background: #f2f4f7;
+	position: relative;
+	top: 49px;
+	left: 0;
+	border: 1px solid #dfe3e9;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+.chart-info input[type='text'] {
+	width: 330px;
+	height: 50px;
+	margin-bottom: 14px;
+	display: block;
+	border: 1px solid  #dfe3e9;
+	border-radius: 4px;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 22px;
+}
+.chart-info .radiobtn {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+}
+.chart-info .radiobtn .radio-box {
+	display: flex;
+}
+.chart-info input[type='submit'] {
+	width: 140px;
+	height: 50px;
+	background: #39b54a;
+	border: 1px solid #249533;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 19px;
+	font-family: 'Noto Sans', sans-serif;
+	margin-top: 40px;
+}
+
+.username {
+	font-size: 16px;
+	padding-left: 60px;
+}
+
+.checkbox,
+.radio {
+	display: none;
+}
+
+.checkbox-custom,
+.radio-custom {
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ced0da;
+	border-radius: 3px;
+	position: relative;
+	background: #fff;
+	background: radial-gradient(ellipse at center, #fff 0%, #fefefe 50%, #fdfdfd 51%, #fff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+}
+
+.checkbox-custom,
+.radio-custom,
+.label {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.checkbox:checked + .checkbox-custom::before,
+.radio:checked + .radio-custom::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	bottom: 2px;
+	left: 2px;
+	background: #36af47;
+	border-radius: 2px;
+}
+
+.radio-custom,
+.radio:checked + .radio-custom::before {
+	border-radius: 50%;
+}
