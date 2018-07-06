@@ -1052,7 +1052,53 @@ span.title {
 	border-bottom-left-radius: 4px;
 	border-top-left-radius: 4px;
 }
-.chart-info input[type='text'] {
+.chart-info .inputs .grey-box {
+	width: 115px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #f2f4f7;
+	position: relative;
+	top: 49px;
+	left: 0;
+	border: 1px solid #dfe3e9;
+	text-align: center;
+	color: #354052;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+}
+.chart-info .select-box {
+	width: 115px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	background: #f2f4f7;
+	position: relative;
+	border: 1px solid #dfe3e9;
+	float: right;
+	right: 115px;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.chart-info .select-box select {
+	background: transparent;
+	outline: none;
+	border: none;
+	color: #354052;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	display: block;
+	margin: 0 auto;
+}
+.chart-info span.info-red {
+	color: #f11313;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 20px;
+	font-weight: lighter;
+}
+.chart-info input.username,
+.chart-info input.balance,
+.chart-info input.amount {
 	width: 330px;
 	height: 50px;
 	margin-bottom: 14px;
@@ -1063,7 +1109,7 @@ span.title {
 	font-size: 22px;
 }
 .chart-info .radiobtn {
-	margin-top: 50px;
+	margin-top: 40px;
 	display: flex;
 	flex-direction: column;
 }
@@ -1085,6 +1131,15 @@ span.title {
 .username {
 	font-size: 16px;
 	padding-left: 60px;
+}
+
+.balance {
+	padding-left: 130px;
+	font-size: 16px;
+}
+
+.amount {
+	padding-left: 20px;
 }
 
 .checkbox,
@@ -1109,6 +1164,7 @@ span.title {
 .label {
 	display: inline-block;
 	vertical-align: middle;
+	margin-top: 15px;
 }
 
 .checkbox:checked + .checkbox-custom::before,
@@ -1127,4 +1183,9 @@ span.title {
 .radio-custom,
 .radio:checked + .radio-custom::before {
 	border-radius: 50%;
+}
+
+span.label {
+	margin-left: 15px;
+	font-family: 'Noto Sans', sans-serif;
 }

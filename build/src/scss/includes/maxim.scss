@@ -129,22 +129,6 @@
   background-color: #fff;
 }
 
-button {
-  background-color: #6BBE92;
-  width: 302px;
-  border: 0;
-  padding: 10px 0;
-  margin: 5px 0;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-}
-
-.hide {
-  display: none;
-}
-
-
 .toggle-bg{
   -khtml-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -289,9 +273,58 @@ span.title {
     justify-content: center;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
+  }
+  .inputs .grey-box {
+    width: 115px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #f2f4f7;
+    position: relative;
+    top: 49px;
+    left: 0;
+    border: 1px solid #dfe3e9;
+    text-align: center;
+    color: #354052;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 
   }
-  input[type = "text"]{
+  .select-box {
+    width: 115px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background: #f2f4f7;
+    position: relative;
+    border: 1px solid #dfe3e9;
+    //top: 49px;
+    float: right;
+    right: 115px ;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    select {
+      background: transparent;
+      outline: none;
+      border: none;
+      color: #354052;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      display: block;
+      margin: 0 auto;
+      option {
+
+      }
+    }
+  }
+  span.info-red {
+    color: #f11313;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  input.username, input.balance, input.amount{
     width: 330px;
     height: 50px;
     margin-bottom: 14px;
@@ -302,7 +335,7 @@ span.title {
     font-size: 22px;
   }
   .radiobtn {
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
    .radio-box {
@@ -326,6 +359,15 @@ span.title {
   font-size: 16px;
   padding-left: 60px;
 }
+.balance {
+  padding-left: 130px;
+  font-size: 16px;
+}
+.amount {
+  padding-left: 20px;
+}
+
+
 
 .checkbox,
 .radio {
@@ -352,6 +394,7 @@ span.title {
 .label {
   display: inline-block;
   vertical-align: middle;
+  margin-top: 15px;
 }
 .checkbox:checked + .checkbox-custom::before,
 .radio:checked + .radio-custom::before {
@@ -368,4 +411,8 @@ span.title {
 .radio-custom,
 .radio:checked + .radio-custom::before {
   border-radius: 50%;
+}
+span.label {
+  margin-left: 15px;
+  font-family: 'Noto Sans', sans-serif;
 }
