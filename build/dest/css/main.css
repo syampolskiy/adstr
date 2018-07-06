@@ -915,21 +915,6 @@ h1 {
 	background-color: #fff;
 }
 
-button {
-	background-color: #6bbe92;
-	width: 302px;
-	border: 0;
-	padding: 10px 0;
-	margin: 5px 0;
-	text-align: center;
-	color: #fff;
-	font-weight: bold;
-}
-
-.hide {
-	display: none;
-}
-
 .toggle-bg {
 	border-radius: 30px;
 	-ms-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
@@ -1052,20 +1037,21 @@ span.title {
 	border-bottom-left-radius: 4px;
 	border-top-left-radius: 4px;
 }
-.chart-info .inputs .grey-box {
+.chart-info .inputs .balance-box {
 	width: 115px;
-	padding-top: 10px;
+	padding-top: 11px;
 	padding-bottom: 10px;
 	background: #f2f4f7;
 	position: relative;
-	top: 49px;
-	left: 0;
 	border: 1px solid #dfe3e9;
-	text-align: center;
-	color: #354052;
+	float: left;
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: bold;
 	font-size: 20px;
+	text-align: center;
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+	color: #354052;
 }
 .chart-info .select-box {
 	width: 115px;
@@ -1075,7 +1061,7 @@ span.title {
 	position: relative;
 	border: 1px solid #dfe3e9;
 	float: right;
-	right: 115px;
+	right: 181px;
 	border-bottom-right-radius: 4px;
 	border-top-right-radius: 4px;
 }
@@ -1096,9 +1082,9 @@ span.title {
 	font-size: 20px;
 	font-weight: lighter;
 }
-.chart-info input.username,
-.chart-info input.balance,
-.chart-info input.amount {
+.chart-info input.username-i,
+.chart-info input.balance-i,
+.chart-info input.amount-i {
 	width: 330px;
 	height: 50px;
 	margin-bottom: 14px;
@@ -1108,8 +1094,15 @@ span.title {
 	font-family: 'Noto Sans', sans-serif;
 	font-size: 22px;
 }
+.chart-info input.balance-i {
+	width: 215px;
+	border-radius: 0;
+	border-left: none;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
 .chart-info .radiobtn {
-	margin-top: 40px;
+	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
 }
@@ -1128,18 +1121,30 @@ span.title {
 	margin-top: 40px;
 }
 
-.username {
+.coast-p-m {
+	padding-top: 15px;
+	margin-left: 15px;
+	color: #f11313;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.username-i {
 	font-size: 16px;
 	padding-left: 60px;
 }
 
-.balance {
-	padding-left: 130px;
+.balance-i {
+	padding-left: 20px;
 	font-size: 16px;
 }
 
-.amount {
+.amount-i {
 	padding-left: 20px;
+}
+
+.amount-box {
+	display: flex;
+	flex-direction: row;
 }
 
 .checkbox,
@@ -1188,4 +1193,23 @@ span.title {
 span.label {
 	margin-left: 15px;
 	font-family: 'Noto Sans', sans-serif;
+}
+
+.chart-place {
+	background: #fff;
+	width: 425px;
+	height: 410px;
+	margin-top: 40px;
+	box-shadow: 0 0 8px 0 #889cb0;
+}
+
+span.name-of-chart {
+	font-family: 'Noto Sans', sans-serif;
+	color: #34474f;
+	padding-left: 15px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	display: block;
 }

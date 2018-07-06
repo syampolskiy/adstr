@@ -274,21 +274,21 @@ span.title {
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
   }
-  .inputs .grey-box {
+  .inputs .balance-box{
     width: 115px;
-    padding-top: 10px;
+    padding-top: 11px;
     padding-bottom: 10px;
     background: #f2f4f7;
     position: relative;
-    top: 49px;
-    left: 0;
     border: 1px solid #dfe3e9;
-    text-align: center;
-    color: #354052;
+    float: left;
     font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     font-size: 20px;
-
+    text-align: center;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    color: #354052;
   }
   .select-box {
     width: 115px;
@@ -299,7 +299,7 @@ span.title {
     border: 1px solid #dfe3e9;
     //top: 49px;
     float: right;
-    right: 115px ;
+    right: 181px ;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
     select {
@@ -324,7 +324,7 @@ span.title {
     font-weight: lighter;
   }
 
-  input.username, input.balance, input.amount{
+  input.username-i, input.balance-i, input.amount-i{
     width: 330px;
     height: 50px;
     margin-bottom: 14px;
@@ -334,8 +334,17 @@ span.title {
     font-family: 'Noto Sans', sans-serif;
     font-size: 22px;
   }
+  input.balance-i {
+    width: 215px;
+    border-radius: 0;
+    border-left: none;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+
   .radiobtn {
-    margin-top: 40px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
    .radio-box {
@@ -354,17 +363,28 @@ span.title {
     margin-top: 40px;
 
   }
+
 }
-.username {
+.coast-p-m {
+  padding-top: 15px;
+  margin-left: 15px;
+  color: #f11313;
+  font-family: 'Noto Sans', sans-serif;
+}
+.username-i {
   font-size: 16px;
   padding-left: 60px;
 }
-.balance {
-  padding-left: 130px;
+.balance-i {
+  padding-left: 20px;
   font-size: 16px;
 }
-.amount {
+.amount-i {
   padding-left: 20px;
+}
+.amount-box {
+  display: flex;
+  flex-direction: row;
 }
 
 
@@ -415,4 +435,22 @@ span.title {
 span.label {
   margin-left: 15px;
   font-family: 'Noto Sans', sans-serif;
+}
+
+.chart-place {
+  background: #fff;
+  width: 425px;
+  height: 410px;
+  margin-top: 40px;
+  box-shadow: 0 0 8px 0 #889cb0;
+}
+span.name-of-chart {
+  font-family: 'Noto Sans', sans-serif;
+  color: #34474f;
+  padding-left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: block;
 }
