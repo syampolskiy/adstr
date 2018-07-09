@@ -1,12 +1,19 @@
+var walletStreamData = [12, 19, 3, 5, 2, 3,7];
+var date = new Date(), labels = [], daysOfTheWeek = ["MO", "TU", "WD", "TH", "FR", "SA", "SU"];
+    labels = daysOfTheWeek.slice(date.getDay(), daysOfTheWeek.length);
+    daysOfTheWeek.splice(date.getDay(), daysOfTheWeek.length);
+        for (var i = 0; i < daysOfTheWeek.length; i++)
+            labels.push(daysOfTheWeek[i]);
 
+var totalVal = '75$';
 var ctx = document.getElementById("wallet").getContext('2d');
-var myChart = new Chart(ctx, {
+var WalletChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['m','t','w','t','f','s','s'],
+        labels:labels,
         datasets: [{
             label: '',
-            data: [12, 19, 3, 5, 2, 3,7],
+            data: walletStreamData,
             backgroundColor: 'transparent',
             borderColor: "#976fcf",
             pointBackgroundColor:"#976fcf",
@@ -16,7 +23,7 @@ var myChart = new Chart(ctx, {
     options: {
         title: {
             display: true,
-            text: '75$',
+            text: totalVal,
             fontSize: 20,
             position: 'top',
             fontFamily: "Noto Sans",
