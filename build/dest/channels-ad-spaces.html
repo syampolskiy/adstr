@@ -111,148 +111,98 @@
 				</div>
 			</header>
 			<main class="content content--with-notify-bar js-set-padd-top">
-				<div class="notify-bar notify-bar--error">
-					<ul class="notify-msgs">
-						<li class="notify-msgs__item">
-							<i class="icon-info-icon notify-msgs__info"></i>
-							<span class="notify-msgs__text">Error. Please create a channel</span>
-							<button class="btn btn--foggy" type="button">Add Channel</button>
-						</li>
-						<li class="notify-msgs__item">
-							<i class="icon-info-icon notify-msgs__info"></i>
-							<span class="notify-msgs__text">Error. Please confirm a channel</span>
-							<button class="btn btn--foggy" type="button">Click to confirm</button>
-						</li>
-					</ul>
-				</div>
 				<div class="scrollable js-init-scrollable">
 					<div class="box">
 						<div class="box__header">
-							<h1>Channels</h1>
+							<h1>Channel Ad Spaces</h1>
 						</div>
-						<div class="box__content box__content--with-table no-pad-lr">
-							<table class="standard-table js-init-responsive-table" data-rtContainerBreakPoint="1309">
-								<thead>
-									<tr>
-										<th>No.</th>
-										<th>Name</th>
-										<th>Channel Name</th>
-										<th>Category</th>
-										<th>Platform</th>
-										<th>Status</th>
-										<th>Balance</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<span class="cell-number">00150</span>
-										</td>
-										<td>
-											<span class="cell-name">Stephen Amell</span>
-										</td>
-										<td>
-											<span class="cell-channel">stepstep_Amell</span>
-										</td>
-										<td>
-											<span class="cell-category">Gaming</span>
-										</td>
-										<td>
-											<span class="cell-platform">Twitch.TV</span>
-										</td>
-										<td>
-											<div class="status status--green">verified</div>
-										</td>
-										<td>
-											<span class="cell-balance">$38.5</span>
-										</td>
-										<td class="td-under-empty-th">
-											<div class="select-wrap">
-												<select class="js-init-selectric">
-													<option value="Actions" data-content="Actions">Actions</option>
-													<option value="Layers" data-content="Layers">Layers</option>
-													<option value="Edit" data-content="Edit">Edit</option>
-													<option value="Remove channel" data-content="Remove channel">Remove channel</option>
-													<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
-												</select>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<span class="cell-number">00142</span>
-										</td>
-										<td>
-											<span class="cell-name">Stephen Amell</span>
-										</td>
-										<td>
-											<span class="cell-channel">stepstep_Amell</span>
-										</td>
-										<td>
-											<span class="cell-category">Gaming</span>
-										</td>
-										<td>
-											<span class="cell-platform">Twitch.TV</span>
-										</td>
-										<td>
-											<div class="status status--blue">in processing</div>
-										</td>
-										<td>
-											<span class="cell-balance">$74</span>
-										</td>
-										<td class="td-under-empty-th">
-											<div class="select-wrap">
-												<select class="js-init-selectric">
-													<option value="Actions" data-content="Actions">Actions</option>
-													<option value="Layers" data-content="Layers">Layers</option>
-													<option value="Edit" data-content="Edit">Edit</option>
-													<option value="Remove channel" data-content="Remove channel">Remove channel</option>
-													<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
-												</select>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<span class="cell-number">00075</span>
-										</td>
-										<td>
-											<span class="cell-name">Stephen Amell</span>
-										</td>
-										<td>
-											<span class="cell-channel">stepstep_Amell</span>
-										</td>
-										<td>
-											<span class="cell-category">Gaming</span>
-										</td>
-										<td>
-											<span class="cell-platform">Twitch.TV</span>
-										</td>
-										<td>
-											<div class="status status--red">unconfirmed</div>
-										</td>
-										<td>
-											<span class="cell-balance">$2</span>
-										</td>
-										<td class="td-under-empty-th">
-											<div class="select-wrap">
-												<select class="js-init-selectric">
-													<option value="Actions" data-content="Actions">Actions</option>
-													<option value="Layers" data-content="Layers">Layers</option>
-													<option value="Edit" data-content="Edit">Edit</option>
-													<option value="Remove channel" data-content="Remove channel">Remove channel</option>
-													<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
-												</select>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="box__content">
+							<button class="btn btn--white" type="button">Add Ad Spaces</button>
+							<div class="spaces">
+								<div class="spaces__box">
+									<button class="spaces__box-close">
+										<i class="icon-close"></i>
+									</button>
+									<table class="standard-table spaces-table js-init-responsive-table" data-rtContainerBreakPoint="707">
+										<thead>
+											<tr>
+												<th>Image</th>
+												<th>Name</th>
+												<th>Price</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<div class="spaces__box-img">
+														<img src="img/space.png" alt="">
+													</div>
+												</td>
+												<td>
+													<div class="spaces__box-name">My_banner</div>
+												</td>
+												<td>
+													<div class="spaces__box-price">0.85$</div>
+												</td>
+												<td>
+													<div class="select-wrap">
+														<select class="js-init-selectric">
+															<option value="Actions" data-content="Actions">Actions</option>
+															<option value="Layers" data-content="Layers">Layers</option>
+															<option value="Edit" data-content="Edit">Edit</option>
+															<option value="Remove channel" data-content="Remove channel">Remove channel</option>
+															<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
+														</select>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="spaces__box">
+									<button class="spaces__box-close">
+										<i class="icon-close"></i>
+									</button>
+									<table class="standard-table spaces-table js-init-responsive-table" data-rtContainerBreakPoint="707">
+										<thead>
+											<tr>
+												<th>Image</th>
+												<th>Name</th>
+												<th>Price</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<div class="spaces__box-img">
+														<img src="img/space.png" alt="">
+													</div>
+												</td>
+												<td>
+													<div class="spaces__box-name">My_banner</div>
+												</td>
+												<td>
+													<div class="spaces__box-price">0.85$</div>
+												</td>
+												<td>
+													<div class="select-wrap">
+														<select class="js-init-selectric">
+															<option value="Actions" data-content="Actions">Actions</option>
+															<option value="Layers" data-content="Layers">Layers</option>
+															<option value="Edit" data-content="Edit">Edit</option>
+															<option value="Remove channel" data-content="Remove channel">Remove channel</option>
+															<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
+														</select>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="under-box">
-						<button class="btn" type="button">Add Channel</button>
 					</div>
 				</div>
 			</main>

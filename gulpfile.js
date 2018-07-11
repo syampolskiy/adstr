@@ -91,7 +91,7 @@ gulp.task('sprites', function() {
 });
 
 gulp.task('js', function() {
-    gulp.src(['build/src/**/*.js', '!build/src/js-no-concat/**/*'])
+    gulp.src(['build/src/**/*.js', '!build/src/js-no-concat/**/*', '!build/src/vendor/**/*'])
         .pipe(concat('js.js'))
         .pipe(beautify({
             indent_char: '\t',
@@ -163,6 +163,12 @@ gulp.task('vendor', function() {
     gulp.src(bc + "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css")
         .pipe(gulp.dest(pathToSave + 'malihu-custom-scrollbar-plugin'))
     
+
+    gulp.src(bc + "magnific-popup/dist/jquery.magnific-popup.min.js")
+        .pipe(gulp.dest(pathToSave + 'magnific-popup'))
+    gulp.src(bc + "magnific-popup/dist/magnific-popup.css")
+        .pipe(gulp.dest(pathToSave + 'magnific-popup'))
+
 
 
     // gulp.src(bc + "components-font-awesome/css/font-awesome.min.css")

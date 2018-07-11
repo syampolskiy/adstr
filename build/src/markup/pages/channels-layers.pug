@@ -1,0 +1,67 @@
+extends ../template
+
+block content
+	main.content.content--with-notify-bar.js-set-padd-top
+		.mfp-hide.white-popup-block.popup.confirm-popup
+			| content
+		.scrollable.js-init-scrollable
+			.box
+				.box__header
+					h1 Channel Layers
+				.box__content
+					button.btn.btn--white(type="button") Add Layer
+					.spaces
+						.spaces__box
+							button.spaces__box-close
+								i.icon-close
+							table.standard-table.spaces-table.js-init-responsive-table(data-rtContainerBreakPoint="707")
+								thead
+									tr
+										th Image
+										th Name
+										th Game
+										th 
+								tbody
+									tr
+										td
+											.spaces__box-img
+												img(src=i + "space.png", alt="")
+										td
+											.spaces__box-name My_banner
+										td
+											.spaces__box-price Dota 2
+										td
+											.select-wrap
+												select.js-init-selectric
+													option(value="Actions" data-content="Actions") Actions
+													option(value="Ad Spaces" data-content="Ad Spaces") Ad Spaces
+													option(value="Edit" data-content="Edit") Edit
+													option(value="Remove Layer" data-content="Remove Layer") Remove Layer
+													option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
+						.spaces__box
+							button.spaces__box-close
+								i.icon-close
+							table.standard-table.spaces-table.js-init-responsive-table(data-rtContainerBreakPoint="707")
+								thead
+									tr
+										th Image
+										th Name
+										th Game
+										th 
+								tbody
+									tr
+										td
+											.spaces__box-img
+												img(src=i + "space.png", alt="")
+										td
+											.spaces__box-name My_banner
+										td
+											.spaces__box-price Dota 2
+										td
+											.select-wrap
+												select.js-init-selectric
+													option(value="Actions" data-content="Actions") Actions
+													option(value="Ad Spaces" data-content="Ad Spaces") Ad Spaces
+													option(value="Edit" data-content="Edit") Edit
+													option(value="Remove Layer" data-content="Remove Layer") Remove Layer
+													option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link

@@ -2,17 +2,17 @@ aside.sidebar
 	.sidebar__header
 		a.logo(href="/")
 			img(src=i + "adstrm.png", alt="")
-		//- button.sidebar-toggle
-		//- 	span.sidebar-toggle__bar
-		//- 	span.sidebar-toggle__bar
-		//- 	span.sidebar-toggle__bar
-	.sidebar__content.js-init-scrollable
+		button.sidebar-toggle.js-toggle-sidebar
+			span.sidebar-toggle__bar
+			span.sidebar-toggle__bar
+			span.sidebar-toggle__bar
+	.sidebar__content.js-init-scrollable.js-toggle-it-on-mobile
 		ul.sidebar-menu
 			li.sidebar-menu__item.opened
 				a.sidebar-menu__link.js-toggle-submenu(href="") Main
 				ul.sidebar-submenu.js-toggle-me
 					li.sidebar-submenu__item
-						a.sidebar-submenu__link.sidebar-submenu__link--dashboard(href="#") Dashboard
+						a.sidebar-submenu__link.sidebar-submenu__link--dashboard.active(href="#") Dashboard
 					li.sidebar-submenu__item
 						a.sidebar-submenu__link.sidebar-submenu__link--channels(href="#") Channels
 					li.sidebar-submenu__item

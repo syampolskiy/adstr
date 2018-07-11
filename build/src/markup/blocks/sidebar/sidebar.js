@@ -9,4 +9,11 @@ $(function(){
 		});
 	})	
 	// menu dropdowns --/
+
+	// toggle sidebar
+	$('.js-toggle-sidebar').click(function(){
+		$('.js-toggle-it-on-mobile').slideToggle(100);
+		$(this).toggleClass('collapsed');
+	});
+	// toggle sidebar --/
 });

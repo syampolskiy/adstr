@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" href="vendor/jquery.selectric/selectric.min.css">
 	<link rel="stylesheet" href="vendor/jquery.rtResponsiveTables/jquery.rtResponsiveTables.css">
+	<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -20,14 +21,19 @@
 				<a class="logo" href="/">
 					<img src="img/adstrm.png" alt="">
 				</a>
+				<button class="sidebar-toggle js-toggle-sidebar">
+					<span class="sidebar-toggle__bar"></span>
+					<span class="sidebar-toggle__bar"></span>
+					<span class="sidebar-toggle__bar"></span>
+				</button>
 			</div>
-			<div class="sidebar__content js-init-scrollable">
+			<div class="sidebar__content js-init-scrollable js-toggle-it-on-mobile">
 				<ul class="sidebar-menu">
 					<li class="sidebar-menu__item opened">
 						<a class="sidebar-menu__link js-toggle-submenu" href="">Main</a>
 						<ul class="sidebar-submenu js-toggle-me">
 							<li class="sidebar-submenu__item">
-								<a class="sidebar-submenu__link sidebar-submenu__link--dashboard" href="#">Dashboard</a>
+								<a class="sidebar-submenu__link sidebar-submenu__link--dashboard active" href="#">Dashboard</a>
 							</li>
 							<li class="sidebar-submenu__item">
 								<a class="sidebar-submenu__link sidebar-submenu__link--channels" href="#">Channels</a>
@@ -68,34 +74,38 @@
 			</div>
 		</aside>
 		<div class="wrapper__right">
-			<header class="header">
-				<div class="balance">Balance:
-					<span>38.5$</span>
-				</div>
-				<div class="notifications js-toggle-notifications">
-					<div class="counter-wrap">
-						<div class="icon icon-bell"></div>
-						<span class="counter counter--small">21</span>
+			<header class="header js-toggle-it-on-mobile">
+				<div class="header__inner">
+					<div class="balance-n-notifications">
+						<div class="balance">Balance:
+							<span>38.5$</span>
+						</div>
+						<div class="notifications js-toggle-notifications">
+							<div class="counter-wrap">
+								<div class="icon icon-bell"></div>
+								<span class="counter counter--small">21</span>
+							</div>
+							<div class="notifications__dropdown">Order for confirmation:
+								<span class="notifications__number">1</span>
+							</div>
+						</div>
 					</div>
-					<div class="notifications__dropdown">Order for confirmation:
-						<span class="notifications__number">1</span>
-					</div>
-				</div>
-				<div class="user js-toggle-dropdown">
-					<div class="user__photo">
-						<img src="img/avatar.png" alt="">
-					</div>
-					<div class="user__name-wrap">
-						<div class="user__name">Stephen Amell</div>
-						<div class="user__dropdown">
-							<ul class="user-dropdown-list">
-								<li class="user-dropdown-list__item">
-									<a class="user-dropdown-list__link" href="#">Edit Profile</a>
-								</li>
-								<li class="user-dropdown-list__item">
-									<a class="user-dropdown-list__link user-dropdown-list__link--logoff" href="#">Log off</a>
-								</li>
-							</ul>
+					<div class="user js-toggle-dropdown">
+						<div class="user__photo">
+							<img src="img/avatar.png" alt="">
+						</div>
+						<div class="user__name-wrap">
+							<div class="user__name">Stephen Amell</div>
+							<div class="user__dropdown">
+								<ul class="user-dropdown-list">
+									<li class="user-dropdown-list__item">
+										<a class="user-dropdown-list__link" href="#">Edit Profile</a>
+									</li>
+									<li class="user-dropdown-list__item">
+										<a class="user-dropdown-list__link user-dropdown-list__link--logoff" href="#">Log off</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -279,6 +289,7 @@
 	<script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="vendor/jquery.selectric/jquery.selectric.min.js"></script>
 	<script src="vendor/jquery.rtResponsiveTables/jquery.rtResponsiveTables.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="js/jquery.datepicker.extension.range.min.js"></script>
 	<script src="js/streamers-time.js"></script>
