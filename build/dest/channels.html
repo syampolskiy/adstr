@@ -116,12 +116,12 @@
 						<li class="notify-msgs__item">
 							<i class="icon-info-icon notify-msgs__info"></i>
 							<span class="notify-msgs__text">Error. Please create a channel</span>
-							<button class="btn btn--foggy" type="button">Add Channel</button>
+							<a class="btn btn--foggy popup" href="#addChannel">Add Channel</a>
 						</li>
 						<li class="notify-msgs__item">
 							<i class="icon-info-icon notify-msgs__info"></i>
 							<span class="notify-msgs__text">Error. Please confirm a channel</span>
-							<button class="btn btn--foggy" type="button">Click to confirm</button>
+							<a class="btn btn--foggy popup" href="#confirmChannel">Click to confirm</a>
 						</li>
 					</ul>
 				</div>
@@ -252,7 +252,52 @@
 						</div>
 					</div>
 					<div class="under-box">
-						<button class="btn" type="button">Add Channel</button>
+						<a class="popup btn" href="#addChannel">Add Channel</a>
+						<div class="hidden">
+							<div id="addChannel">
+								<form class="channel-form" id="add-chanenel-form">
+									<span>Add Channel</span>
+									<input type="text" name="" placeholder="Name">
+									<input type="text" name="" placeholder="Channel or user name">
+									<label>Language</label>
+									<select>
+										<option>Russian</option>
+										<option>test</option>
+									</select>
+									<label>Channel category</label>
+									<select>
+										<option>Gaming</option>
+										<option>test</option>
+									</select>
+									<label>Channel platform</label>
+									<select>
+										<option>Twitch.TV</option>
+										<option>test</option>
+									</select>
+									<div class="chbox">
+										<input id="check1" type="checkbox" name="check" value="" checked>
+										<label for="check1">Allow Automatic Placement</label>
+									</div>
+									<div class="btn-block">
+										<a class="btn btn-modal btn-modal-blue" href="">Save</a>
+										<a class="btn btn-modal" href="">Cancel</a>
+									</div>
+								</form>
+							</div>
+							<div id="confirmChannel">
+								<form class="confirm-form" id="cinfirm">
+									<span>Confirm Channel</span>
+									<label>Image Width</label>
+									<input type="text" name="" placeholder="0px">
+									<label>Image Height</label>
+									<input type="text" name="" placeholder="0px">
+									<div class="btn-block">
+										<a class="btn btn-modal btn-modal-blue" href="">Save</a>
+										<a class="btn btn-modal" href="">Cancel</a>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</main>

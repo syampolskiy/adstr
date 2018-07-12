@@ -12,11 +12,11 @@ block content
 				li.notify-msgs__item
 					i.icon-info-icon.notify-msgs__info
 					span.notify-msgs__text Error. Please create a channel
-					button.btn.btn--foggy(type="button") Add Channel
+					a.btn.btn--foggy(class='popup' href='#addChannel') Add Channel
 				li.notify-msgs__item
 					i.icon-info-icon.notify-msgs__info
 					span.notify-msgs__text Error. Please confirm a channel
-					button.btn.btn--foggy(type="button") Click to confirm
+					a.btn.btn--foggy(class='popup' href='#confirmChannel') Click to confirm
 		//- .notify-bar.notify-bar--error
 		//- 	ul.notify-msgs
 		//- 		li.notify-msgs__item
@@ -110,4 +110,40 @@ block content
 											option(value="Remove channel" data-content="Remove channel") Remove channel
 											option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
 			.under-box
-				button.btn(type="button") Add Channel
+				a(class='popup btn' href='#addChannel') Add Channel
+				.hidden
+					#addChannel
+						form#add-chanenel-form.channel-form
+							span Add Channel
+							input(type='text' name='' placeholder = "Name")
+							input(type='text' name='' placeholder = "Channel or user name")
+							label Language
+							select
+								option Russian
+								option test
+							label Channel category
+							select
+								option Gaming
+								option test
+							label Channel platform
+							select
+								option Twitch.TV
+								option test
+							.chbox
+								input#check1(type='checkbox' name='check' value='' checked)
+								label(for='check1') Allow Automatic Placement
+							.btn-block
+								a(class='btn btn-modal btn-modal-blue' href='') Save
+								a(class='btn btn-modal' href='') Cancel
+					#confirmChannel
+						form#cinfirm.confirm-form
+							span Confirm Channel
+							label Image Width
+							input(type='text' name='' placeholder = "0px")
+							label Image Height
+							input(type='text' name='' placeholder = "0px")
+							.btn-block
+								a(class='btn btn-modal btn-modal-blue' href='') Save
+								a(class='btn btn-modal' href='') Cancel
+
+

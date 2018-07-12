@@ -85,6 +85,10 @@ $(function() {
 		$(".js-set-padd-top .scrollable").css('padding-top', pt + "px");
 	}
 	// padding for content with notify bar --/
+
+	$('.popup').magnificPopup();
+
+
 });
 $(function() {
 	// dropdowns
