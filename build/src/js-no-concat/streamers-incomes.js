@@ -47,24 +47,24 @@ function div(val, by){
 
 function getChartsData(checkboxesID, dateStart, dateEnd){
     var colors = ['#D36969','#8F9BFF','#B76298','#56A555','#DEAC17','#FD72FE','#7278FE','#fe98e5','#2C1395','#DA70D6','#E9967A','#64078D','#00E62C','#E60091','#007069','#700400'];
-    var ordID = checkboxesID.join(",");
+    var ordID = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var result = {
         days: {
             labels: [],
-            channelsId: {}
+            ordersId: {}
         },
         weeks: {
             labels: [],
-            channelsId: {}
+            ordersId: {}
         }
     };
     $(".loading-overlay").addClass('hide');
     $.ajax({
         url: "/Admin/ChartsStreamer/Income",
         type: "POST",
-        data: {orderId: ordID,  startDate: dateStart, endDate:  dateEnd},
+        data: {ordersId: ordID,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
@@ -80,8 +80,8 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
                 }
 
                 //Values for CHART
-                result.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
-                result.days.channelsId = JSON.parse(result.days.channelsId);
+                result.days.ordersId = JSON.stringify(data.chartData.days.ordersId);
+                result.days.ordersId = JSON.parse(result.days.ordersId);
             } else {
                 console.log(data);
             }
@@ -96,7 +96,7 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
 function setDaysData(chrtStngs, dataArr, data, chrt){
     chrtStngs.Days.data.labels = data.days.labels;
 
-    $.each(data.days.channelsId, function (index, value) {
+    $.each(data.days.ordersId, function (index, value) {
         dataArr[index] =  value;
         removeChart(chrtStngs.Days, $("#channel_"+index), chrt);
         addChart(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
@@ -105,7 +105,7 @@ function setDaysData(chrtStngs, dataArr, data, chrt){
 
 function setWeeksData(chrtStngs, dataArr, data, chrt){
 
-    $.each(data.days.channelsId, function (index, value) {
+    $.each(data.days.ordersId, function (index, value) {
         var tmp = [],
             i = 0,
             k = 0;
@@ -294,7 +294,7 @@ $(function () {
     Checbox_element[0].checked = true;
     if (Checbox_element[0].checked){
         ShowFirstChecbox(Checbox_element);
-        handleDateChange(START_DATE, END_DATE, chartsSettings, chartsDataDays, chartsDataWeeks);
+        // handleDateChange(START_DATE, END_DATE, chartsSettings, chartsDataDays, chartsDataWeeks);
     }
 
     //Действие  после изменения чекбокса
@@ -312,6 +312,9 @@ $(function () {
             removeChart(chartsSettings.Days, t, window.myLine);
             removeChart(chartsSettings.Weeks, t, window.myLine2);
         }
+    });
+    $("#income-chart").click(function(){
+        handleDateChange(START_DATE, END_DATE, chartsSettings, chartsDataDays, chartsDataWeeks);
     });
 });
 

@@ -46,8 +46,7 @@ function div(val, by){
 }
 
 function getChartsTimeData(checkboxesID, dateStart, dateEnd){
-    var colors = ['#D36969','#8F9BFF','#B76298','#56A555','#DEAC17','#FD72FE','#7278FE','#fe98e5','#2C1395','#DA70D6','#E9967A','#64078D','#00E62C','#E60091','#007069','#700400'];
-    var ordID = checkboxesID.join(",");
+    var Id = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultTimeChart = {
@@ -63,13 +62,14 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
     // $(".loading-overlay").addClass('hide');
     console.log('Loading');
     $.ajax({
-        url: "/Admin/ChartsStreamer/IncomeTest",
+        url: "/Admin/ChartsStreamer/AmountOfTime",
         type: "POST",
-        data: {orderId: ordID,  startDate: dateStart, endDate:  dateEnd},
+        data: {ids: Id,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
             if(!data.error){
+
                 //Labels for CHART
                 resultTimeChart.days.labels = data.chartData.days.labels.slice(0);
                 var daysLabels = resultTimeChart.days.labels;
@@ -79,20 +79,22 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
                     var ind = i*7;
                     resultTimeChart.weeks.labels[i] = daysLabels[ind];
                 }
-
                 //Values for CHART
                 resultTimeChart.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
                 resultTimeChart.days.channelsId = JSON.parse(resultTimeChart.days.channelsId);
+                console.log(data);
             } else {
                 console.log(data);
             }
         }, error: function (data) {
             console.log(data);
         }
+
     });
     // $(".loading-overlay").removeClass('hide');
     console.log('Ready');
     return resultTimeChart;
+
 }
 
 function setTimeDaysData(chrtStngs, dataArr, data, chrt){
@@ -177,7 +179,7 @@ $(function () {
         }
 
     });
-    $('#date_range_time').datepicker('setDate', ['-1w', '+1w']);
+    $('#date_range_time').datepicker('setDate', ['-6d', '+6d']);
     // Datapicker value
     var extensionRange = $('#date_range_time').datepicker('widget').data('datepickerExtensionRange');
     if (extensionRange.startDateText) $('#startDayTime').val(extensionRange.startDateText);
@@ -299,7 +301,7 @@ $(function () {
     Checbox_element_time[0].checked = true;
     if (Checbox_element_time[0].checked){
         ShowFirstTimeChartChecbox(Checbox_element_time);
-        handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
+        // handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
     }
 
     //Действие  после изменения чекбокса
@@ -318,6 +320,13 @@ $(function () {
             removeTimeChart(chartsTimeSettings.Weeks, t, window.myLineTime2);
         }
     });
+
+
+    $("#time-chart").click(function(){
+        handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
+    });
+
+    $("#time-chart").click();
 });
 
 
