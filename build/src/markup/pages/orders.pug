@@ -1,0 +1,158 @@
+extends ../template
+
+block content
+    main.content.content--with-notify-bar.js-set-padd-top
+        //- .notify-bar.notify-bar--success
+        //- 	ul.notify-msgs
+        //- 		li.notify-msgs__item
+        //- 			i.icon-info-icon.notify-msgs__info
+        //- 			span.notify-msgs__text Success
+
+        //.notify-bar.notify-bar--error
+        //    ul.notify-msgs
+        //        li.notify-msgs__item
+        //            i.icon-info-icon.notify-msgs__info
+        //            span.notify-msgs__text Error. Please create a channel
+        //            a.btn.btn--foggy(class='popup' href='#addChannel') Add Channel
+        //        li.notify-msgs__item
+        //            i.icon-info-icon.notify-msgs__info
+        //            span.notify-msgs__text Error. Please confirm a channel
+        //            a.btn.btn--foggy(class='popup' href='#confirmChannel') Click to confirm
+
+        //- .notify-bar.notify-bar--error
+        //- 	ul.notify-msgs
+        //- 		li.notify-msgs__item
+        //- 			i.icon-info-icon.notify-msgs__info
+        //- 			span.notify-msgs__text You should place a test banner on your channel (link to the banner). if you have done it, please click Done
+        //- 			button.btn.btn--foggy(type="button") Done
+        .scrollable.js-init-scrollable
+            .box
+                .box__header
+                    h1 Orders
+                .box__content.box__content--with-table.no-pad-lr
+                    table.standard-table.order-table.js-init-responsive-table(data-rtContainerBreakPoint="1309")
+                        thead.orders
+                            tr
+                                th App
+                                th Categories
+                                th Banner
+                                th Banner size
+                                th Banner price
+                                th Budget Total Price
+                                th Date Finished
+                                th Status
+                                th
+                        tbody
+                            tr.white
+                                td
+                                    span.cell-app Twitch.TV
+                                td
+                                    span.cell-categories gaming
+                                td
+                                    img.cell-banner(src=i + "bunner_img.png", alt="")
+
+                                td
+                                    span.cell-banner-size 500&#215;500
+                                td
+                                    span.cell-banner-price 10$
+                                td
+                                    span.cell-budget-total-price
+                                    .info-bar
+                                        span.target Target
+                                        span.coast
+                                            span.black $5
+                                            span.normal /$50
+                                    progress.blue(max = "100" value='5')
+                                td
+                                    span.cell-finish-data 28March,
+                                    |
+                                    br
+                                    |
+                                    span.finish-data-year 2018
+                                td
+                                    .status.order-status.status--green RUNNING
+
+                                td.td-under-empty-th
+                                    .select-wrap
+                                        select.js-init-selectric
+                                            option(value="Actions" data-content="Actions") Actions
+                                            option(value="Layers" data-content="Layers") Layers
+                                            option(value="Edit" data-content="Edit") Edit
+                                            option(value="Remove channel" data-content="Remove channel") Remove channel
+                                            option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
+                            tr
+                                tr
+                                    td
+                                        span.cell-app Twitch.TV
+                                    td
+                                        span.cell-categories gaming
+                                    td
+                                        img.cell-banner(src=i + "bunner_img.png", alt="")
+
+                                    td
+                                        span.cell-banner-size 500&#215;500
+                                    td
+                                        span.cell-banner-price 10$
+                                    td
+                                        span.cell-budget-total-price
+                                        .info-bar
+                                            span.target Target
+                                            span.coast
+                                                span.black $50
+                                                span.normal /$40
+                                        progress.green(max = "50" value='50')
+                                    td
+                                        span.cell-finish-data 28March,
+                                        |
+                                        br
+                                        |
+                                        span.finish-data-year 2018
+                                    td
+                                        .status.order-status.status--red STOPPED
+
+                                    td.td-under-empty-th
+                                        .select-wrap
+                                            select.js-init-selectric
+                                                option(value="Actions" data-content="Actions") Actions
+                                                option(value="Layers" data-content="Layers") Layers
+                                                option(value="Edit" data-content="Edit") Edit
+                                                option(value="Remove channel" data-content="Remove channel") Remove channel
+                                                option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
+                            tr.white
+                                td
+                                    span.cell-app Twitch.TV
+                                td
+                                    span.cell-categories gaming
+                                td
+                                    img.cell-banner(src=i + "bunner_img.png", alt="")
+
+                                td
+                                    span.cell-banner-size 500&#215;500
+                                td
+                                    span.cell-banner-price 10$
+                                td
+                                    span.cell-budget-total-price
+                                    .info-bar
+                                        span.target Target
+                                        span.coast
+                                            span.black $120
+                                            span.normal /$100
+                                    progress.green(max = "100" value='100')
+                                td
+                                    span.cell-finish-data 28March,
+                                    |
+                                    br
+                                    |
+                                    span.finish-data-year 2018
+                                td
+                                    .status.order-status.status--grey PAUSED
+
+                                td.td-under-empty-th
+                                    .select-wrap
+                                        select.js-init-selectric
+                                            option(value="Actions" data-content="Actions") Actions
+                                            option(value="Layers" data-content="Layers") Layers
+                                            option(value="Edit" data-content="Edit") Edit
+                                            option(value="Remove channel" data-content="Remove channel") Remove channel
+                                            option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
+

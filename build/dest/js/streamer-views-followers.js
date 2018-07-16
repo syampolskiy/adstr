@@ -46,7 +46,7 @@ function div(val, by){
 }
 
 function getChartsViewsData(checkboxesID, dateStart, dateEnd){
-    var ordID = checkboxesID.join(",");
+    var ordID = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultVFChart = {
@@ -61,9 +61,9 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
     };
     // $(".loading-overlay").addClass('hide');
     $.ajax({
-        url: "/Admin/ChartsStreamer/IncomeTest",
+        url: "/Admin/ChartsStreamer/Views",
         type: "POST",
-        data: {orderId: ordID,  startDate: dateStart, endDate:  dateEnd},
+        data: {ordersId: ordID,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
@@ -71,10 +71,10 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
                 //Labels for CHART
                 resultVFChart.days.labels = data.chartData.days.labels.slice(0);
 
-
                 //Values for CHART
-                resultVFChart.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
+                resultVFChart.days.channelsId = JSON.stringify(data.chartData.days.ordersId);
                 resultVFChart.days.channelsId = JSON.parse(resultVFChart.days.channelsId);
+
             } else {
                 console.log(data);
             }
@@ -87,7 +87,7 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
 }
 
 function getChartsFollowersData(checkboxesID, dateStart, dateEnd){
-    var ordID2 = checkboxesID.join(",");
+    var ordID2 = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultFollowersChart = {
@@ -98,9 +98,9 @@ function getChartsFollowersData(checkboxesID, dateStart, dateEnd){
     };
     // $(".loading-overlay").addClass('hide');
     $.ajax({
-        url: "/Admin/ChartsStreamer/Income",
+        url: "/Admin/ChartsStreamer/Followers",
         type: "POST",
-        data: {orderId: ordID2,  startDate: dateStart, endDate:  dateEnd},
+        data: {ordersId: ordID2,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
@@ -110,7 +110,7 @@ function getChartsFollowersData(checkboxesID, dateStart, dateEnd){
 
 
                 //Values for CHART
-                resultFollowersChart.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
+                resultFollowersChart.days.channelsId = JSON.stringify(data.chartData.days.ordersId);
                 resultFollowersChart.days.channelsId = JSON.parse(resultFollowersChart.days.channelsId);
             } else {
                 console.log(data);
@@ -305,7 +305,7 @@ $(function () {
     Checbox_element_views[0].checked = true;
     if (Checbox_element_views[0].checked){
         ShowFirstViewChartChecbox(Checbox_element_views);
-        handleDateViewsChange(START_DATE_Views, END_DATE_Views, chartsViewsSettings, chartsDataTimeDays, chartsDataTimeWeeks);
+        // handleDateViewsChange(START_DATE_Views, END_DATE_Views, chartsViewsSettings, chartsDataTimeDays, chartsDataTimeWeeks);
     }
 
     //Действие  после изменения чекбокса
@@ -323,6 +323,9 @@ $(function () {
             removeViewsChart(chartsViewsSettings.Views, t, window.myLineVF);
             removeViewsChart(chartsViewsSettings.Followers, t, window.myLineVF2);
         }
+    });
+    $("#view-folowers-chart").click(function(){
+        handleDateViewsChange(START_DATE_Views, END_DATE_Views, chartsViewsSettings, chartsDataTimeDays, chartsDataTimeWeeks);
     });
 });
 
