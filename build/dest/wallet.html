@@ -110,62 +110,64 @@
 					</div>
 				</div>
 			</header>
-			<main class="content js-init-scrollable">
-				<div class="box">
-					<div class="page-title">
-						<span class="title">Wallet</span>
-					</div>
-					<div class="chart-area">
-						<div class="chart-info">
-							<form id="wallet-chart">
-								<div class="inputs">
-									<div class="img-box">
-										<img src="img/User Icon.png">
-									</div>
-									<input class="username-i" type="text" name="" placeholder="Stephen Amell" readonly>
-									<div class="balance-box">Balance</div>
-									<input class="balance-i" type="text" name="" placeholder="38.5" readonly>
-									<div class="select-box">
-										<select>
-											<option>USD</option>
-											<option>EUR</option>
-										</select>
-									</div>
-									<div class="amount-box">
-										<input class="amount-i" type="text" name="" placeholder="Amount" readonly>
-										<div class="coast-p-m">5$ min</div>
-									</div>
-								</div>
-								<div class="radiobtn">
-									<div class="radio-box">
-										<label>
-											<input class="radio" type="radio" name="pay" checked>
-											<span class="radio-custom"></span>
-											<span class="label">WebMoney</span>
-										</label>
-									</div>
-									<div class="radio-box">
-										<label>
-											<input class="radio" type="radio" name="pay">
-											<span class="radio-custom"></span>
-											<span class="label">Paypal</span>
-										</label>
-									</div>
-									<div class="radio-box">
-										<label>
-											<input class="radio" type="radio" name="pay">
-											<span class="radio-custom"></span>
-											<span class="label">Skrill</span>
-										</label>
-									</div>
-								</div>
-								<input type="submit" value="Withdraw">
-							</form>
+			<main class="content">
+				<div class="scrollable js-init-scrollable">
+					<div class="box">
+						<div class="page-title">
+							<span class="title">Wallet</span>
 						</div>
-						<div class="chart-container">
-							<div class="chart-place">
-								<span class="name-of-chart">Total Income</span>
-								<canvas id="wallet"></canvas>
+						<div class="chart-area">
+							<div class="chart-info">
+								<form id="wallet-chart">
+									<div class="inputs">
+										<div class="img-box">
+											<img src="img/User Icon.png">
+										</div>
+										<input class="username-i" type="text" name="" placeholder="Stephen Amell" readonly>
+										<div class="balance-box">Balance</div>
+										<input class="balance-i" type="text" name="" placeholder="38.5" readonly>
+										<div class="select-box">
+											<select>
+												<option>USD</option>
+												<option>EUR</option>
+											</select>
+										</div>
+										<div class="amount-box">
+											<input class="amount-i" type="text" name="" placeholder="Amount" readonly>
+											<div class="coast-p-m">5$ min</div>
+										</div>
+									</div>
+									<div class="radiobtn">
+										<div class="radio-box">
+											<label>
+												<input class="radio" type="radio" name="pay" checked>
+												<span class="radio-custom"></span>
+												<span class="label">WebMoney</span>
+											</label>
+										</div>
+										<div class="radio-box">
+											<label>
+												<input class="radio" type="radio" name="pay">
+												<span class="radio-custom"></span>
+												<span class="label">Paypal</span>
+											</label>
+										</div>
+										<div class="radio-box">
+											<label>
+												<input class="radio" type="radio" name="pay">
+												<span class="radio-custom"></span>
+												<span class="label">Skrill</span>
+											</label>
+										</div>
+									</div>
+									<input type="submit" value="Withdraw">
+								</form>
+							</div>
+							<div class="chart-container">
+								<div class="chart-place">
+									<span class="name-of-chart">Total Income</span>
+									<canvas id="wallet"></canvas>
+								</div>
 							</div>
 						</div>
 					</div>

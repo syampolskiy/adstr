@@ -111,189 +111,191 @@
 				</div>
 			</header>
 			<main class="content">
-				<div class="box">
-					<div id="tabs">
-						<ul>
-							<li>
-								<a href="#tabs-1">Amount of time</a>
-							</li>
-							<li>
-								<a href="#tabs-2">Cost</a>
-							</li>
-							<li>
-								<a href="#tabs-3">Banners</a>
-							</li>
-							<li>
-								<a href="#tabs-4">Views</a>
-							</li>
-						</ul>
-						<div id="tabs-1">
-							<div class="streamer-time-block">
-								<div class="filters-block">
-									<div class="datapicker-block">
-										<input class="start-day" id="startDayTime" name="startDateTime" readonly="">
-										<input class="end-day" id="endDayTime" name="endDateTime" readonly="">
-										<div id="date_range_time"></div>
+				<div class="scrollable js-init-scrollable">
+					<div class="box">
+						<div id="tabs">
+							<ul>
+								<li>
+									<a href="#tabs-1">Amount of time</a>
+								</li>
+								<li>
+									<a href="#tabs-2">Cost</a>
+								</li>
+								<li>
+									<a href="#tabs-3">Banners</a>
+								</li>
+								<li>
+									<a href="#tabs-4">Views</a>
+								</li>
+							</ul>
+							<div id="tabs-1">
+								<div class="streamer-time-block">
+									<div class="filters-block">
+										<div class="datapicker-block">
+											<input class="start-day" id="startDayTime" name="startDateTime" readonly="">
+											<input class="end-day" id="endDayTime" name="endDateTime" readonly="">
+											<div id="date_range_time"></div>
+										</div>
+										<dl class="timeChartIdsMenu dropdown">
+											<dt>
+												<a href="#">
+													<span class="hida">Select</span>
+													<p class="timeChart"></p>
+												</a>
+											</dt>
+											<dd>
+												<div class="timeChart_select">
+													<ul>
+														<li>
+															<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
+														<li>
+															<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
+														<li>
+															<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
+														<li>
+															<input class="banner" id="channel_2204" type="checkbox" value="channel 4 ">channel 4</li>
+														<li>
+															<input class="banner" id="channel_2705" type="checkbox" value="channel 5">channel 5</li>
+														<li>
+															<input class="banner" id="channel_2706" type="checkbox" value="channel 6">channel 6</li>
+													</ul>
+												</div>
+											</dd>
+										</dl>
+										<div class="toggle-chart">
+											<label for="days">Days</label>
+											<span class="toggle-bg" id="graphLayerTime">
+												<input class="time_chart" id="daysTime" type="radio" name="toggle" value="Days" checked="">
+												<input class="time_chart" id="weeksTime" type="radio" name="toggle" value="Weeks">
+												<span class="switch"></span>
+											</span>
+											<label for="weeks">Weeks</label>
+										</div>
 									</div>
-									<dl class="timeChartIdsMenu dropdown">
-										<dt>
-											<a href="#">
-												<span class="hida">Select</span>
-												<p class="timeChart"></p>
-											</a>
-										</dt>
-										<dd>
-											<div class="timeChart_select">
-												<ul>
-													<li>
-														<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
-													<li>
-														<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
-													<li>
-														<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
-													<li>
-														<input class="banner" id="channel_2204" type="checkbox" value="channel 4 ">channel 4</li>
-													<li>
-														<input class="banner" id="channel_2705" type="checkbox" value="channel 5">channel 5</li>
-													<li>
-														<input class="banner" id="channel_2706" type="checkbox" value="channel 6">channel 6</li>
-												</ul>
-											</div>
-										</dd>
-									</dl>
-									<div class="toggle-chart">
-										<label for="days">Days</label>
-										<span class="toggle-bg" id="graphLayerTime">
-											<input class="time_chart" id="daysTime" type="radio" name="toggle" value="Days" checked="">
-											<input class="time_chart" id="weeksTime" type="radio" name="toggle" value="Weeks">
-											<span class="switch"></span>
-										</span>
-										<label for="weeks">Weeks</label>
+									<div class="time-chart">
+										<canvas class="chart-cnvs show" id="stream-time"></canvas>
+										<canvas class="chart-cnvs" id="stream-time2"></canvas>
 									</div>
-								</div>
-								<div class="time-chart">
-									<canvas class="chart-cnvs show" id="stream-time"></canvas>
-									<canvas class="chart-cnvs" id="stream-time2"></canvas>
 								</div>
 							</div>
-						</div>
-						<div id="tabs-2">
-							<div class="streamer-incoms-block">
-								<div class="filters-block">
-									<div class="datapicker-block">
-										<input class="start-day" id="startDayCoast" name="startDate" readonly="">
-										<input class="end-day" id="endDayCoast" name="endDate" readonly="">
-										<div id="date_range_coast"></div>
+							<div id="tabs-2">
+								<div class="streamer-incoms-block">
+									<div class="filters-block">
+										<div class="datapicker-block">
+											<input class="start-day" id="startDayCoast" name="startDate" readonly="">
+											<input class="end-day" id="endDayCoast" name="endDate" readonly="">
+											<div id="date_range_coast"></div>
+										</div>
+										<dl class="dropdown coast-dropdown">
+											<dt>
+												<a href="#">
+													<span class="hida">Select</span>
+													<p class="coast-sel"></p>
+												</a>
+											</dt>
+											<dd>
+												<div class="coast-select">
+													<ul>
+														<li>
+															<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
+														<li>
+															<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
+														<li>
+															<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
+														<li>
+															<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
+														<li>
+															<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
+														<li>
+															<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
+													</ul>
+												</div>
+											</dd>
+										</dl>
 									</div>
-									<dl class="dropdown coast-dropdown">
-										<dt>
-											<a href="#">
-												<span class="hida">Select</span>
-												<p class="coast-sel"></p>
-											</a>
-										</dt>
-										<dd>
-											<div class="coast-select">
-												<ul>
-													<li>
-														<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
-													<li>
-														<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
-													<li>
-														<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
-													<li>
-														<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
-													<li>
-														<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
-													<li>
-														<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
-												</ul>
-											</div>
-										</dd>
-									</dl>
-								</div>
-								<div class="income-chart">
-									<canvas class="chart-cnvs show" id="coast-chart"></canvas>
+									<div class="income-chart">
+										<canvas class="chart-cnvs show" id="coast-chart"></canvas>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div id="tabs-3">
-							<div class="streamer-incoms-block">
-								<div class="filters-block">
-									<div class="datapicker-block">
-										<input class="start-day" id="startDayBunners" name="startDate" readonly="">
-										<input class="end-day" id="endDayBunners" name="endDate" readonly="">
-										<div id="date_range_bunners"></div>
+							<div id="tabs-3">
+								<div class="streamer-incoms-block">
+									<div class="filters-block">
+										<div class="datapicker-block">
+											<input class="start-day" id="startDayBunners" name="startDate" readonly="">
+											<input class="end-day" id="endDayBunners" name="endDate" readonly="">
+											<div id="date_range_bunners"></div>
+										</div>
+										<dl class="dropdown bunnersMenu">
+											<dt>
+												<a href="#">
+													<span class="hida">Select</span>
+													<p class="bunners-sel"></p>
+												</a>
+											</dt>
+											<dd>
+												<div class="bunners-select">
+													<ul>
+														<li>
+															<input class="banner" id="banners_22" type="checkbox" value="channel 1">channel 1</li>
+														<li>
+															<input class="banner" id="banners_23" type="checkbox" value="channel 2">channel 2</li>
+														<li>
+															<input class="banner" id="banners_24" type="checkbox" value="channel 3">channel 3</li>
+														<li>
+															<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
+														<li>
+															<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
+														<li>
+															<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
+													</ul>
+												</div>
+											</dd>
+										</dl>
 									</div>
-									<dl class="dropdown bunnersMenu">
-										<dt>
-											<a href="#">
-												<span class="hida">Select</span>
-												<p class="bunners-sel"></p>
-											</a>
-										</dt>
-										<dd>
-											<div class="bunners-select">
-												<ul>
-													<li>
-														<input class="banner" id="banners_22" type="checkbox" value="channel 1">channel 1</li>
-													<li>
-														<input class="banner" id="banners_23" type="checkbox" value="channel 2">channel 2</li>
-													<li>
-														<input class="banner" id="banners_24" type="checkbox" value="channel 3">channel 3</li>
-													<li>
-														<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
-													<li>
-														<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
-													<li>
-														<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
-												</ul>
-											</div>
-										</dd>
-									</dl>
-								</div>
-								<div class="income-chart">
-									<canvas class="chart-cnvs show" id="adv-bunners"></canvas>
+									<div class="income-chart">
+										<canvas class="chart-cnvs show" id="adv-bunners"></canvas>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div id="tabs-4">
-							<div class="streamer-incoms-block">
-								<div class="filters-block">
-									<div class="datapicker-block">
-										<input class="start-day" id="startDayView" name="startDate" readonly="">
-										<input class="end-day" id="endDayView" name="endDate" readonly="">
-										<div id="date_range_view"></div>
+							<div id="tabs-4">
+								<div class="streamer-incoms-block">
+									<div class="filters-block">
+										<div class="datapicker-block">
+											<input class="start-day" id="startDayView" name="startDate" readonly="">
+											<input class="end-day" id="endDayView" name="endDate" readonly="">
+											<div id="date_range_view"></div>
+										</div>
+										<dl class="dropdown view-dropdown">
+											<dt>
+												<a href="#">
+													<span class="hida">Select</span>
+													<p class="view-sel"></p>
+												</a>
+											</dt>
+											<dd>
+												<div class="views-select">
+													<ul>
+														<li>
+															<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
+														<li>
+															<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
+														<li>
+															<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
+														<li>
+															<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
+														<li>
+															<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
+														<li>
+															<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
+													</ul>
+												</div>
+											</dd>
+										</dl>
 									</div>
-									<dl class="dropdown view-dropdown">
-										<dt>
-											<a href="#">
-												<span class="hida">Select</span>
-												<p class="view-sel"></p>
-											</a>
-										</dt>
-										<dd>
-											<div class="views-select">
-												<ul>
-													<li>
-														<input class="banner" id="channel_228701" type="checkbox" value="channel 1">channel 1</li>
-													<li>
-														<input class="banner" id="channel_228702" type="checkbox" value="channel 2">channel 2</li>
-													<li>
-														<input class="banner" id="channel_228703" type="checkbox" value="channel 3">channel 3</li>
-													<li>
-														<input class="banner" id="channel_228704" type="checkbox" value="channel 4 ">channel 4</li>
-													<li>
-														<input class="banner" id="channel_228705" type="checkbox" value="channel 5">channel 5</li>
-													<li>
-														<input class="banner" id="channel_228706" type="checkbox" value="channel 6">channel 6</li>
-												</ul>
-											</div>
-										</dd>
-									</dl>
-								</div>
-								<div class="income-chart">
-									<canvas class="chart-cnvs show" id="adv-views"></canvas>
+									<div class="income-chart">
+										<canvas class="chart-cnvs show" id="adv-views"></canvas>
+									</div>
 								</div>
 							</div>
 						</div>

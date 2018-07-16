@@ -118,7 +118,7 @@
 							<h1>Channel Layers</h1>
 						</div>
 						<div class="box__content">
-							<button class="btn btn--white" type="button">Add Layer</button>
+							<a class="btn btn--white popup" href="#addLayer">Add Layer</a>
 							<div class="spaces">
 								<div class="spaces__box">
 									<button class="spaces__box-close">
@@ -203,6 +203,26 @@
 									</table>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="hidden">
+						<div id="addLayer">
+							<form class="confirm-layer-form" id="ConfirmLayer">
+								<span>Confirm Channel</span>
+								<label>Layers name</label>
+								<input type="text" name="" placeholder="My_banner">
+								<label>Tag</label>
+								<input type="text" name="" placeholder="dota">
+								<button class="upload-im">Upload Image</button>
+								<div class="load-img">
+									<img src="img/Check Icon.png">
+									<p>Image loaded</p>
+								</div>
+								<div class="btn-block">
+									<a class="btn btn-modal btn-modal-blue" href="">Save</a>
+									<a class="btn btn-modal" href="">Cancel</a>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>

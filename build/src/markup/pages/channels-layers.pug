@@ -9,7 +9,7 @@ block content
 				.box__header
 					h1 Channel Layers
 				.box__content
-					button.btn.btn--white(type="button") Add Layer
+					a.btn.btn--white(class='popup' href='#addLayer') Add Layer
 					.spaces
 						.spaces__box
 							button.spaces__box-close
@@ -38,6 +38,7 @@ block content
 													option(value="Edit" data-content="Edit") Edit
 													option(value="Remove Layer" data-content="Remove Layer") Remove Layer
 													option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
+
 						.spaces__box
 							button.spaces__box-close
 								i.icon-close
@@ -65,3 +66,18 @@ block content
 													option(value="Edit" data-content="Edit") Edit
 													option(value="Remove Layer" data-content="Remove Layer") Remove Layer
 													option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
+			.hidden
+				#addLayer
+					form#ConfirmLayer.confirm-layer-form
+						span Confirm Channel
+						label Layers name
+						input(type='text' name='' placeholder = "My_banner")
+						label Tag
+						input(type='text' name='' placeholder = "dota")
+						button.upload-im Upload Image
+						.load-img
+							img(src = "img/Check Icon.png")
+							p Image loaded
+						.btn-block
+							a(class='btn btn-modal btn-modal-blue' href='') Save
+							a(class='btn btn-modal' href='') Cancel

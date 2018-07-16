@@ -2,6 +2,7 @@ html {
   margin-right: 0 !important;
 }
 
+
 .chart-cnvs{
   display: none!important;
 }
@@ -31,34 +32,114 @@ html {
   align-items: flex-start;
   width: 35%;
   .datapicker-block input {
-    height: 30px;
+    height: 43px;
     width: 14.9em;
     padding-left: 10px;
-    border: 1px solid #e2e3e9;
+    border: 1px solid  #a5a6bb;
+    border-radius: 4px;
   }
   label {
     margin-left: 10px;
     margin-right: 10px;
   }
 }
+
+.datapicker-block .end-day {
+  background: url(../img/Dropdown.png) no-repeat 97% , linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+}
+
+.ui-tabs .ui-tabs-nav {
+  margin: 0;
+  padding: 0.2em 1.55em 0;
+}
+
+.ui-tabs .ui-tabs-nav li {
+  background: linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  color: #7f8fa4;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor, .ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor, .ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+  border-color: #a5a6bb;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor, .ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor, .ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+  cursor: text;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  color: #7f8fa4;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  float: left;
+  padding: .5em 1em;
+  text-decoration: none;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited, a.ui-button, a:link.ui-button, a:visited.ui-button, .ui-button {
+  color: #454545;
+  text-decoration: none;
+}
+.ui-widget-header a {
+  color: #333333;
+}
+.ui-widget-content a {
+  color: #333333;
+}
+a {
+  text-decoration: none;
+  transition: .2s;
+}
+* {
+  box-sizing: inherit;
+}
+user agent stylesheet
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.ui-tabs .ui-tabs-nav li {
+  list-style: none;
+  float: left;
+  position: relative;
+  top: 0;
+  margin: 1px .2em 0 0;
+  border-bottom-width: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+  border-color: #a5a6bb;
+}
+
 .ui-datepicker-multi-2 {
   width: 30em !important;
 }
 
 .datapicker-block input,.toggle-bg,.ui-datepicker-multi  {
-  background: #f6f8f9;
-  background: -moz-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(50%,#e5ebee), color-stop(51%,#d7dee3), color-stop(100%,#f5f7f9));
-  background: -webkit-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
-  background: -o-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
-  background: -ms-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
-  background: linear-gradient(to bottom, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
+  background: linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+
+
+}
+.ui-datepicker-calendar .ui-state-default {
+  background: transparent;
+}
+.ui-datepicker-calendar .ui-state-active {
+  background: #7f8fa4;
+  color: #fff;
 }
 
+.ui-datepicker-calendar .ui-state-highlight {
+  background: #7f8fa4 ;
+  color: #fff;
+}
 .dropdown{
   margin: 50px 0 50px 0;
-  width: 92%;
+  width: 30em;
 }
 
 .dropdown dd,
@@ -77,20 +158,22 @@ html {
 
 .dropdown a,
 .dropdown a:visited {
-  color: #fff;
   text-decoration: none;
   outline: none;
-  font-size: 12px;
+  color: #7f8fa4;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .dropdown dt a {
-  background-color: #4F6877;
+  background: url(../img/Dropdown.png) no-repeat 97% , transparent;
   display: block;
   padding: 8px 20px 5px 10px;
   min-height: 25px;
   line-height: 24px;
   overflow: hidden;
-  border: 0;
+  border: 1px solid #a5a6bb;
+  border-radius: 4px;
   width: 100%;
 }
 
@@ -104,11 +187,13 @@ html {
 }
 
 .dropdown dd ul {
-  background-color: #4F6877;
+  background-color: #f2f6fc;
+  color: #7f8fa4;
+  font-size: 16px;
+  font-weight: bold;
   border: 0;
-  color: #fff;
   display: none;
-  left: 0px;
+  left: 0;
   padding: 2px 15px 2px 5px;
   position: absolute;
   top: 2px;
@@ -118,6 +203,7 @@ html {
   overflow: auto;
   z-index: 999;
 }
+
 
 .dropdown span.value {
   display: none;
@@ -139,17 +225,18 @@ html {
   -o-border-radius: 30px;
   -webkit-border-radius: 30px;
   border-radius: 30px;
-  -khtml-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
-  -moz-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
-  -ms-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
-  -o-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
-  -webkit-box-shadow: 0 1px 0 #fff, inset 0 0 2px #d7dee3, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
-  box-shadow: 0 1px 0 #fff, inset 0 0 2px #d7dee3, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  //-khtml-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  //-moz-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  //-ms-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  //-o-box-shadow: 0 1px 0 #fff, inset 0 0 2px #3f4c6b, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  //-webkit-box-shadow: 0 1px 0 #fff, inset 0 0 2px #d7dee3, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
+  //box-shadow: 0 1px 0 #fff, inset 0 0 2px #d7dee3, inset 0 1px 0 #d7dee3, inset 0 1px 5px #d7dee3;
   display: block; /* ...So that we can set a height and width */
   float: left; /* ...So that it doesn't take up the full width of the page */
   height: 30px; /* You can change this later if you want */
   position: relative; /* Required to allow the switch to move around */
   width: 70px; /* This can be changed later as well */
+  background:  linear-gradient(to top,#34aa44 0%, #39b54a 100%);
 }
 
 .toggle-bg input{
@@ -168,14 +255,7 @@ html {
 }
 
 .switch{
-  background: #ffffff;
-  background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #fefefe 50%, #fdfdfd 51%, #ffffff 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(50%,#fefefe), color-stop(51%,#fdfdfd), color-stop(100%,#ffffff));
-  background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  background: -o-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  background: radial-gradient(ellipse at center, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+  background: linear-gradient(to top, #f1f3f7 0%, #fff 100%);
   /* gradient generated by http://www.colorzilla.com/gradient-editor/ */
 
   -khtml-border-radius: 30px;
@@ -223,19 +303,128 @@ html {
   justify-content: center;
   align-items: center;
   height: 30px;
+  color: #7f8fa4;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media  screen and (max-width: 1796px) {
+  .dropdown {
+    margin: 50px 0 50px 0;
+    width: 25em;
+  }
+  .ui-datepicker-multi-2 {
+    width: 25em !important;
+  }
+  .datapicker-block input {
+    width: 12.4em !important;
+  }
+}
+
+@media  screen and (max-width: 1568px) {
+  .streamer-incoms-block, .streamer-followers-block, .streamer-time-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .income-chart,.followers-chart,.time-chart {
+    display: block;
+    width: 100%;
+  }
+  .filters-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .dropdown {
+    margin: 0 10px;
+  }
+  .ui-datepicker-multi-2 {
+    position: absolute;
+    background: #f2f6fc !important;
+    z-index: 9999;
+  }
+  .datapicker-block input {
+    width: 48% !important;
+  }
+  .ui-datepicker-multi-2 {
+    width: 40% !important;
+  }
+}
+@media  screen and (max-width: 1737px) {
+  .ui-datepicker-multi-2 {
+    width: 30em !important;
+  }
+}
+
+@media  screen and (max-width: 1080px) {
+  .income-chart,.followers-chart,.time-chart {
+    display: block;
+    width: 100%;
+  }
+  .filters-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100% !important;
+  }
+
+  .datapicker-block input {
+    width: 49% !important;
+  }
+
+  .dropdown {
+    margin: 50px 0;
+    width: 99%;
+  }
+  .datapicker-block {
+    width: 100%;
+  }
+  .toggle-chart {
+    margin-bottom: 50px;
+  }
 
 }
 
 
+@media  screen and (max-width: 900px) {
+  .ui-datepicker-multi-2 {
+    width: 25em !important;
+  }
+}
+
+@media  screen and (max-width: 405px) {
+  .ui-datepicker-multi-2 {
+    width: 25em !important;
+  }
+  .ui-widget .ui-widget {
+    font-size: 0.8em;
+  }
+  .filters-block .datapicker-block input {
+    height: 30px;
+  }
+  .dropdown dt a {
+    padding: 4px 20px 0px 10px;
+  }
+  .dropdown {
+    margin: 25px 0;
+    width: 99%;
+  }
+}
+@media  screen and (max-width: 380px) {
+  .ui-datepicker-multi-2 {
+    width: 30em !important;
+  }
+  .ui-widget .ui-widget {
+    font-size: 0.5em;
+  }
+}
+
 //wallet
-//.success {
-//  padding-top: 30px;
-//  padding-bottom: 30px;
-//  width: 100%;
-//  background: #36af47;
-//  color: #fff;
-//  padding-left: 0 !important;
-//}
 .page-title {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -350,9 +539,9 @@ span.title {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-   .radio-box {
-       display: flex;
-     }
+    .radio-box {
+      display: flex;
+    }
   }
   input[type = "submit"] {
     width: 140px;
@@ -403,14 +592,7 @@ span.title {
   border: 1px solid #ced0da;
   border-radius: 3px;
   position: relative;
-  background: #ffffff;
-  background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #fefefe 50%, #fdfdfd 51%, #ffffff 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ffffff), color-stop(50%,#fefefe), color-stop(51%,#fdfdfd), color-stop(100%,#ffffff));
-  background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  background: -o-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  background: radial-gradient(ellipse at center, #ffffff 0%,#fefefe 50%,#fdfdfd 51%,#ffffff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+  background:  linear-gradient(to top,#34aa44 0%, #39b54a 100%);
 }
 .checkbox-custom,
 .radio-custom,
@@ -457,19 +639,29 @@ span.name-of-chart {
   padding-bottom: 20px;
   display: block;
 }
+.ui-widget-content {
+  background: transparent;
+  border: none;
+}
+.ui-widget.ui-widget-content {
+  border: none;
+}
+.ui-widget-header {
+  background: transparent;
+  border: none;
+}
 
-
-//add channel pop
+  //add channel pop
 
 .mfp-bg {
   background: rgba(255,255,255,0.5);
 }
-.channel-form, .confirm-form {
+.channel-form, .confirm-form, .confirm-layer-form {
   display: flex;
   flex-direction: column;
   width: 70%;
 }
-#addChannel,#confirmChannel {
+#addChannel,#confirmChannel, #addLayer{
   padding-top: 30px;
   padding-bottom: 40px;
   display: flex;
@@ -485,6 +677,7 @@ span.name-of-chart {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 30px;
+    text-transform: uppercase;
   }
   input[type = "text"] {
     height: 50px;
@@ -530,7 +723,7 @@ span.name-of-chart {
 
   label {
     padding-bottom: 5px;
-    color: #354052;
+    color: #000;
     font-width: bold;
     font-size: 20px;
   }
@@ -542,7 +735,7 @@ span.name-of-chart {
   padding: 0 !important;
 }
 
-input[type=checkbox] {
+.chbox input[type=checkbox] {
   display: none;
 }
 .chbox label:before {
@@ -584,6 +777,10 @@ input[type=checkbox]:checked + label:before {
       background-image: linear-gradient(to top,#269bf3 0%, #3193dd 100%);
     }
   }
+  a {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
 @media  screen and (max-width: 1638px) {
 
@@ -614,6 +811,33 @@ input[type=checkbox]:checked + label:before {
   .mfp-inline-holder .mfp-content {
     width: 90%;
   }
+}
+
+button.upload-im {
+  background: url(../img/upload_image.png) no-repeat 85% ,  linear-gradient(to top,#34aa44 0%, #39b54a 100%) ;
+  padding: 10px 25px 10px 20px;
+  width: 54%;
+  margin:  20px auto 0 auto;
+  border: 1px solid #249533;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+}
+.load-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  p{
+    display: inline-block;
+    font-size: 12px;
+    color: #1bb934;
+  }
+  * {
+    padding: 10px 5px 0;
+  }
+
 }
 
 

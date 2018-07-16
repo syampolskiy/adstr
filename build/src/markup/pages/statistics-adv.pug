@@ -4,162 +4,164 @@ block scripts
 
 block content
     main.content
-        .box
-            #tabs
-                ul
-                    li
-                        a(href='#tabs-1') Amount of time
-                    li
-                        a(href='#tabs-2') Cost
-                    li
-                        a(href='#tabs-3') Banners
-                    li
-                        a(href='#tabs-4') Views
-                #tabs-1
-                    .streamer-time-block
-                        .filters-block
-                            .datapicker-block
-                                input#startDayTime.start-day(name='startDateTime', readonly='')
-                                input#endDayTime.end-day(name='endDateTime', readonly='')
-                                #date_range_time
-                            dl.timeChartIdsMenu.dropdown
-                                dt
-                                    a(href='#')
-                                        span.hida Select
-                                        p.timeChart
-                                dd
-                                    .timeChart_select
-                                        ul
-                                            li
-                                                input#channel_228701.banner(type='checkbox', value='channel 1')
-                                                | channel 1
-                                            li
-                                                input#channel_228702.banner(type='checkbox', value='channel 2')
-                                                | channel 2
-                                            li
-                                                input#channel_228703.banner(type='checkbox', value='channel 3')
-                                                | channel 3
-                                            li
-                                                input#channel_2204.banner(type='checkbox', value='channel 4 ')
-                                                | channel 4
-                                            li
-                                                input#channel_2705.banner(type='checkbox', value='channel 5')
-                                                | channel 5
-                                            li
-                                                input#channel_2706.banner(type='checkbox', value='channel 6')
-                                                | channel 6
-                            .toggle-chart
-                                label(for='days') Days
-                                span#graphLayerTime.toggle-bg
-                                    input#daysTime.time_chart(type='radio', name='toggle', value='Days', checked='')
-                                    input#weeksTime.time_chart(type='radio', name='toggle', value='Weeks')
-                                    span.switch
-                                label(for='weeks') Weeks
-                        .time-chart
-                            canvas#stream-time.chart-cnvs.show
-                            canvas#stream-time2.chart-cnvs
-                #tabs-2
-                    .streamer-incoms-block
-                        .filters-block
-                            .datapicker-block
-                                input#startDayCoast.start-day(name='startDate', readonly='')
-                                input#endDayCoast.end-day(name='endDate', readonly='')
-                                #date_range_coast
-                            dl.dropdown.coast-dropdown
-                                dt
-                                    a(href='#')
-                                        span.hida Select
-                                        p.coast-sel
-                                dd
-                                    .coast-select
-                                        ul
-                                            li
-                                                input#channel_228701.banner(type='checkbox', value='channel 1')
-                                                | channel 1
-                                            li
-                                                input#channel_228702.banner(type='checkbox', value='channel 2')
-                                                | channel 2
-                                            li
-                                                input#channel_228703.banner(type='checkbox', value='channel 3')
-                                                | channel 3
-                                            li
-                                                input#channel_228704.banner(type='checkbox', value='channel 4 ')
-                                                | channel 4
-                                            li
-                                                input#channel_228705.banner(type='checkbox', value='channel 5')
-                                                | channel 5
-                                            li
-                                                input#channel_228706.banner(type='checkbox', value='channel 6')
-                                                | channel 6
-                        .income-chart
-                            canvas#coast-chart.chart-cnvs.show
-                #tabs-3
-                    .streamer-incoms-block
-                        .filters-block
-                            .datapicker-block
-                                input#startDayBunners.start-day(name='startDate', readonly='')
-                                input#endDayBunners.end-day(name='endDate', readonly='')
-                                #date_range_bunners
-                            dl.dropdown.bunnersMenu
-                                dt
-                                    a(href='#')
-                                        span.hida Select
-                                        p.bunners-sel
-                                dd
-                                    .bunners-select
-                                        ul
-                                            li
-                                                input#banners_22.banner(type='checkbox', value='channel 1')
-                                                | channel 1
-                                            li
-                                                input#banners_23.banner(type='checkbox', value='channel 2')
-                                                | channel 2
-                                            li
-                                                input#banners_24.banner(type='checkbox', value='channel 3')
-                                                | channel 3
-                                            li
-                                                input#channel_228704.banner(type='checkbox', value='channel 4 ')
-                                                | channel 4
-                                            li
-                                                input#channel_228705.banner(type='checkbox', value='channel 5')
-                                                | channel 5
-                                            li
-                                                input#channel_228706.banner(type='checkbox', value='channel 6')
-                                                | channel 6
-                        .income-chart
-                            canvas#adv-bunners.chart-cnvs.show
-                #tabs-4
-                    .streamer-incoms-block
-                        .filters-block
-                            .datapicker-block
-                                input#startDayView.start-day(name='startDate', readonly='')
-                                input#endDayView.end-day(name='endDate', readonly='')
-                                #date_range_view
-                            dl.dropdown.view-dropdown
-                                dt
-                                    a(href='#')
-                                        span.hida Select
-                                        p.view-sel
-                                dd
-                                    .views-select
-                                        ul
-                                            li
-                                                input#channel_228701.banner(type='checkbox', value='channel 1')
-                                                | channel 1
-                                            li
-                                                input#channel_228702.banner(type='checkbox', value='channel 2')
-                                                | channel 2
-                                            li
-                                                input#channel_228703.banner(type='checkbox', value='channel 3')
-                                                | channel 3
-                                            li
-                                                input#channel_228704.banner(type='checkbox', value='channel 4 ')
-                                                | channel 4
-                                            li
-                                                input#channel_228705.banner(type='checkbox', value='channel 5')
-                                                | channel 5
-                                            li
-                                                input#channel_228706.banner(type='checkbox', value='channel 6')
-                                                | channel 6
-                        .income-chart
-                            canvas#adv-views.chart-cnvs.show
+        .scrollable.js-init-scrollable
+            .box
+                #tabs
+                    ul
+                        li
+                            a(href='#tabs-1') Amount of time
+                        li
+                            a(href='#tabs-2') Cost
+                        li
+                            a(href='#tabs-3') Banners
+                        li
+                            a(href='#tabs-4') Views
+                    #tabs-1
+                        .streamer-time-block
+                            .filters-block
+                                .datapicker-block
+                                    input#startDayTime.start-day(name='startDateTime', readonly='')
+                                    input#endDayTime.end-day(name='endDateTime', readonly='')
+                                    #date_range_time
+                                dl.timeChartIdsMenu.dropdown
+                                    dt
+                                        a(href='#')
+                                            span.hida Select
+                                            p.timeChart
+                                    dd
+                                        .timeChart_select
+                                            ul
+                                                li
+                                                    input#channel_228701.banner(type='checkbox', value='channel 1')
+                                                    | channel 1
+                                                li
+                                                    input#channel_228702.banner(type='checkbox', value='channel 2')
+                                                    | channel 2
+                                                li
+                                                    input#channel_228703.banner(type='checkbox', value='channel 3')
+                                                    | channel 3
+                                                li
+                                                    input#channel_2204.banner(type='checkbox', value='channel 4 ')
+                                                    | channel 4
+                                                li
+                                                    input#channel_2705.banner(type='checkbox', value='channel 5')
+                                                    | channel 5
+                                                li
+                                                    input#channel_2706.banner(type='checkbox', value='channel 6')
+                                                    | channel 6
+                                .toggle-chart
+                                    label(for='days') Days
+                                    span#graphLayerTime.toggle-bg
+                                        input#daysTime.time_chart(type='radio', name='toggle', value='Days', checked='')
+                                        input#weeksTime.time_chart(type='radio', name='toggle', value='Weeks')
+                                        span.switch
+                                    label(for='weeks') Weeks
+                            .time-chart
+                                canvas#stream-time.chart-cnvs.show
+                                canvas#stream-time2.chart-cnvs
+                    #tabs-2
+                        .streamer-incoms-block
+                            .filters-block
+                                .datapicker-block
+                                    input#startDayCoast.start-day(name='startDate', readonly='')
+                                    input#endDayCoast.end-day(name='endDate', readonly='')
+                                    #date_range_coast
+                                dl.dropdown.coast-dropdown
+                                    dt
+                                        a(href='#')
+                                            span.hida Select
+                                            p.coast-sel
+                                    dd
+                                        .coast-select
+                                            ul
+                                                li
+                                                    input#channel_228701.banner(type='checkbox', value='channel 1')
+                                                    | channel 1
+                                                li
+                                                    input#channel_228702.banner(type='checkbox', value='channel 2')
+                                                    | channel 2
+                                                li
+                                                    input#channel_228703.banner(type='checkbox', value='channel 3')
+                                                    | channel 3
+                                                li
+                                                    input#channel_228704.banner(type='checkbox', value='channel 4 ')
+                                                    | channel 4
+                                                li
+                                                    input#channel_228705.banner(type='checkbox', value='channel 5')
+                                                    | channel 5
+                                                li
+                                                    input#channel_228706.banner(type='checkbox', value='channel 6')
+                                                    | channel 6
+                            .income-chart
+                                canvas#coast-chart.chart-cnvs.show
+                    #tabs-3
+                        .streamer-incoms-block
+                            .filters-block
+                                .datapicker-block
+                                    input#startDayBunners.start-day(name='startDate', readonly='')
+                                    input#endDayBunners.end-day(name='endDate', readonly='')
+                                    #date_range_bunners
+                                dl.dropdown.bunnersMenu
+                                    dt
+                                        a(href='#')
+                                            span.hida Select
+                                            p.bunners-sel
+                                    dd
+                                        .bunners-select
+                                            ul
+                                                li
+                                                    input#banners_22.banner(type='checkbox', value='channel 1')
+                                                    | channel 1
+                                                li
+                                                    input#banners_23.banner(type='checkbox', value='channel 2')
+                                                    | channel 2
+                                                li
+                                                    input#banners_24.banner(type='checkbox', value='channel 3')
+                                                    | channel 3
+                                                li
+                                                    input#channel_228704.banner(type='checkbox', value='channel 4 ')
+                                                    | channel 4
+                                                li
+                                                    input#channel_228705.banner(type='checkbox', value='channel 5')
+                                                    | channel 5
+                                                li
+                                                    input#channel_228706.banner(type='checkbox', value='channel 6')
+                                                    | channel 6
+                            .income-chart
+                                canvas#adv-bunners.chart-cnvs.show
+                    #tabs-4
+                        .streamer-incoms-block
+                            .filters-block
+                                .datapicker-block
+                                    input#startDayView.start-day(name='startDate', readonly='')
+                                    input#endDayView.end-day(name='endDate', readonly='')
+                                    #date_range_view
+                                dl.dropdown.view-dropdown
+                                    dt
+                                        a(href='#')
+                                            span.hida Select
+                                            p.view-sel
+                                    dd
+                                        .views-select
+                                            ul
+                                                li
+                                                    input#channel_228701.banner(type='checkbox', value='channel 1')
+                                                    | channel 1
+                                                li
+                                                    input#channel_228702.banner(type='checkbox', value='channel 2')
+                                                    | channel 2
+                                                li
+                                                    input#channel_228703.banner(type='checkbox', value='channel 3')
+                                                    | channel 3
+                                                li
+                                                    input#channel_228704.banner(type='checkbox', value='channel 4 ')
+                                                    | channel 4
+                                                li
+                                                    input#channel_228705.banner(type='checkbox', value='channel 5')
+                                                    | channel 5
+                                                li
+                                                    input#channel_228706.banner(type='checkbox', value='channel 6')
+                                                    | channel 6
+                            .income-chart
+                                canvas#adv-views.chart-cnvs.show
+
