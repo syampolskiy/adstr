@@ -1797,13 +1797,13 @@ span.title {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	margin-left: 40px;
 	padding-bottom: 40px;
 }
 
 .chart-info {
 	display: flex;
 	flex-direction: column;
+	margin-left: 40px;
 }
 .chart-info .inputs .img-box {
 	width: 45px;
@@ -1942,7 +1942,6 @@ span.title {
 	border: 1px solid #ced0da;
 	border-radius: 3px;
 	position: relative;
-	background: linear-gradient(to top, #34aa44 0%, #39b54a 100%);
 }
 
 .checkbox-custom,

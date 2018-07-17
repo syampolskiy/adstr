@@ -173,7 +173,7 @@ $(function () {
         }
 
     });
-    $('#date_range').datepicker('setDate', ['-1w', '+1w']);
+    $('#date_range').datepicker('setDate', ['-6d', '+6d']);
     // Datapicker value
     var extensionRange = $('#date_range').datepicker('widget').data('datepickerExtensionRange');
     if (extensionRange.startDateText) $('#startDay').val(extensionRange.startDateText);
