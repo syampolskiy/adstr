@@ -219,6 +219,9 @@ textarea:focus {
 .balance {
 	margin-right: 25px;
 }
+.balance a {
+	color: #fff;
+}
 
 .notifications {
 	position: relative;
@@ -1794,13 +1797,27 @@ span.title {
 }
 
 .chart-area {
-	width: 100%;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	padding-bottom: 40px;
 }
 
+.chart-container {
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+form#wallet-chart {
+	width: 330px;
+}
+
 .chart-info {
+	width: 400px;
+	margin-right: 40px;
 	display: flex;
 	flex-direction: column;
 	margin-left: 40px;
@@ -1841,10 +1858,11 @@ span.title {
 	padding-top: 9px;
 	padding-bottom: 9px;
 	background: #f2f4f7;
-	position: relative;
 	border: 1px solid #dfe3e9;
+	position: relative;
+	right: 0;
+	height: 50px;
 	float: right;
-	right: 181px;
 	border-bottom-right-radius: 4px;
 	border-top-right-radius: 4px;
 }
@@ -1867,8 +1885,8 @@ span.title {
 }
 .chart-info input.username-i,
 .chart-info input.balance-i,
-.chart-info input.amount-i {
-	width: 330px;
+.chart-info .input-select {
+	width: 100%;
 	height: 50px;
 	margin-bottom: 14px;
 	display: block;
@@ -1883,6 +1901,21 @@ span.title {
 	border-left: none;
 	border-bottom-right-radius: 4px;
 	border-top-right-radius: 4px;
+}
+.chart-info input.amount-i {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 14px;
+	display: block;
+	border: 1px solid  #dfe3e9;
+	border-right: none;
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 22px;
+}
+.chart-info .input-select {
+	position: absolute;
 }
 .chart-info .radiobtn {
 	margin-top: 10px;
@@ -1908,6 +1941,9 @@ span.title {
 	padding-top: 15px;
 	margin-left: 15px;
 	color: #f11313;
+	position: absolute;
+	right: -60px;
+	bottom: 10px;
 	font-family: 'Noto Sans', sans-serif;
 }
 
@@ -1975,11 +2011,18 @@ span.label {
 	font-family: 'Noto Sans', sans-serif;
 }
 
+.red-container {
+	width: 5%;
+}
+
+.p-m-mob {
+	display: none;
+}
+
 .chart-place {
 	background: #fff;
 	width: 425px;
 	height: 410px;
-	margin-top: 40px;
 	box-shadow: 0 0 8px 0 #889cb0;
 }
 
@@ -1992,6 +2035,52 @@ span.name-of-chart {
 	padding-top: 40px;
 	padding-bottom: 20px;
 	display: block;
+}
+
+@media screen and (max-width: 1351px) {
+	.chart-area {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.chart-info {
+		padding-bottom: 40px;
+	}
+	.chart-container {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.chart-area {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	form#wallet-chart {
+		transform: scale(.7);
+		display: block;
+		margin: 0 auto;
+	}
+	.coast-p-m {
+		display: none;
+	}
+	.chart-place {
+		transform: scale(.7);
+	}
+	.chart-info {
+		padding-bottom: 0;
+	}
+	.p-m-mob {
+		padding-top: 20px;
+		color: #f11313;
+		font-family: 'Noto Sans', sans-serif;
+		display: block;
+	}
 }
 
 .ui-widget-content {

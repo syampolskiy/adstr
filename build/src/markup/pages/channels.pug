@@ -57,9 +57,9 @@ block content
 									span.cell-balance $38.5
 								td.td-under-empty-th
 									.select-wrap
-										select.js-init-selectric
+										select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
 											option(value="Actions" data-content="Actions") Actions
-											option(value="Layers" data-content="Layers") Layers
+											option(value="https://google.com.ua" data-content="Layers") Layers
 											option(value="Edit" data-content="Edit") Edit
 											option(value="Remove channel" data-content="Remove channel") Remove channel
 											option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link

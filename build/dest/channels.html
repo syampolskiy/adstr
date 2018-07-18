@@ -47,7 +47,7 @@
 							<li class="sidebar-submenu__item">
 								<a class="sidebar-submenu__link sidebar-submenu__link--orders" href="#">
 									<span class="counter-wrap">Orders
-										<span class="counter">1</span>
+										<!--span.counter 1-->
 									</span>
 								</a>
 							</li>
@@ -78,13 +78,14 @@
 				<div class="header__inner">
 					<div class="balance-n-notifications">
 						<div class="balance">Balance:
-							<span>38.5$</span>
+							<span>
+								<a href="">38.5$</a>
+							</span>
 						</div>
 						<div class="notifications js-toggle-notifications">
-							<div class="counter-wrap">
-								<div class="icon icon-bell"></div>
-								<span class="counter counter--small">21</span>
-							</div>
+							<!--.counter-wrap-->
+							<!--	.icon.icon-bell-->
+							<!--	span.counter.counter--small 21-->
 							<div class="notifications__dropdown">Order for confirmation:
 								<span class="notifications__number">1</span>
 							</div>
@@ -169,9 +170,9 @@
 										</td>
 										<td class="td-under-empty-th">
 											<div class="select-wrap">
-												<select class="js-init-selectric">
+												<select class="js-init-selectric" onchange="window.location.href=this.options[this.selectedIndex].value">
 													<option value="Actions" data-content="Actions">Actions</option>
-													<option value="Layers" data-content="Layers">Layers</option>
+													<option value="https://google.com.ua" data-content="Layers">Layers</option>
 													<option value="Edit" data-content="Edit">Edit</option>
 													<option value="Remove channel" data-content="Remove channel">Remove channel</option>
 													<option value="Layout link" data-content="&lt;div class='select-option-inner'&gt;Layout link &lt;span class='exclamation'&gt;!&lt;/span&gt;&lt;/div&gt;">Layout link</option>
