@@ -366,6 +366,10 @@ textarea:focus {
 	color: #1b1b1b;
 }
 
+.notifications.js-toggle-notifications {
+	display: none;
+}
+
 .sidebar {
 	width: 272px;
 	height: 100%;
@@ -588,6 +592,10 @@ textarea:focus {
 	background-position: 0 -52px;
 	width: 18px;
 	height: 19px;
+}
+
+span.counter {
+	display: none;
 }
 
 body {
