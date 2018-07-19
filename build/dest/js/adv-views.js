@@ -46,30 +46,32 @@ function div(val, by){
 }
 
 function getViewChartsData(checkboxesID, dateStart, dateEnd){
-    var ordID = checkboxesID.join(",");
+    var viewID = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultViews = {
-        days: {
+        views: {
             labels: [],
-            channelsId: {}
+            viewsId: {}
         }
     };
     // $(".loading-overlay").addClass('hide');
     $.ajax({
-        url: "/Admin/ChartsStreamer/IncomeTest",
+        url: "/Admin/ChartsAdvertiser/Views",
         type: "POST",
-        data: {orderId: ordID,  startDate: dateStart, endDate:  dateEnd},
+        data: {campaignsId: viewID,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
+            console.log(data);
+
             if(!data.error){
                 //Labels for CHART
-                resultViews.days.labels = data.chartData.days.labels.slice(0);
-
+                resultViews.views.labels = data.chartData.labels.slice(0);
                 //Values for CHART
-                resultViews.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
-                resultViews.days.channelsId = JSON.parse(resultViews.days.channelsId);
+                resultViews.views.viewsId = JSON.stringify(data.chartData.campaignsId);
+                resultViews.views.viewsId = JSON.parse(resultViews.views.viewsId);
+
             } else {
                 console.log(data);
             }
@@ -82,9 +84,9 @@ function getViewChartsData(checkboxesID, dateStart, dateEnd){
 }
 
 function setViewsData(chrtStngs, dataArr, data, chrt){
-    chrtStngs.Days.data.labels = data.days.labels;
+    chrtStngs.Days.data.labels = data.views.labels;
 
-    $.each(data.days.channelsId, function (index, value) {
+    $.each(data.views.viewsId, function (index, value) {
         dataArr[index] =  value;
         removeChartViews(chrtStngs.Days, $("#channel_"+index), chrt);
         addChartViews(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
@@ -124,7 +126,7 @@ $(function () {
         }
 
     });
-    $('#date_range_view').datepicker('setDate', ['-1w', '+1w']);
+    $('#date_range_view').datepicker('setDate', ['-6d', '+6d']);
     // Datapicker value
     var extensionRange = $('#date_range_view').datepicker('widget').data('datepickerExtensionRange');
     if (extensionRange.startDateText) $('#startDayView').val(extensionRange.startDateText);

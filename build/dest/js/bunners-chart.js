@@ -51,7 +51,7 @@ function div(val, by){
 }
 
 function getBunnerChartsData(checkboxesID, dateStart, dateEnd){
-    var bannerss = checkboxesID.join(",");
+    var bannerss = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultBunners = {
@@ -75,14 +75,14 @@ function getBunnerChartsData(checkboxesID, dateStart, dateEnd){
                 //Values for CHART
                 resultBunners.days.banners = JSON.stringify(data.chartData.days.banners);
                 resultBunners.days.banners = JSON.parse(resultBunners.days.banners);
-                // console.log(data);
+                console.log(data);
 
             } else {
                 console.log(data)
             }
         }, error: function (data) {
-            console.log(data);
         }
+
     });
     // $(".loading-overlay").removeClass('hide');
     console.log('Ready');
@@ -99,12 +99,14 @@ function setBunnersData(chrtStngs, dataArr, data, chrt){
         };
 
         $.each(arr,function (i, a) {
-          tmp.values.push(a.value);
-          tmp.tooltips.push(a.tooltip) ;
+            tmp.values.push(a.value);
+            tmp.tooltips.push(a.tooltip) ;
         });
 
-        dataArr[index] =  tmp.values;
+        // dataArr[index] =  tmp.values;
+        VALUE[index] = dataArr[index] =  tmp.values ;
         TOOLTIPS[index] = tmp.tooltips;
+
 
         removeChartBunners(chrtStngs.Bunners, $("#banners_"+index), chrt);
         addChartBunners(chrtStngs.Bunners, $("#banners_"+index), dataArr[index], chrt);
@@ -146,7 +148,7 @@ $(function () {
         }
 
     });
-    $('#date_range_bunners').datepicker('setDate', ['-1w', '+1w']);
+    $('#date_range_bunners').datepicker('setDate',  ['-6d', '+6d']);
     // Datapicker value
     var extensionRange = $('#date_range_bunners').datepicker('widget').data('datepickerExtensionRange');
     if (extensionRange.startDateText) $('#startDayBunners').val(extensionRange.startDateText);
@@ -158,6 +160,7 @@ $(function () {
     var Checbox_element_b =  $('.bunners-select input[type="checkbox"]') ;
     var chartsBunnersDataDays = {};
     TOOLTIPS = {};
+    VALUE = {};
 
 
 //Days chart
@@ -187,7 +190,8 @@ $(function () {
                         if (label) {
                             label += '';
                         }
-                        return [label, TOOLTIPS[getBunnerCheckedIDs()[tooltipItem.datasetIndex]][tooltipItem.index]];
+
+                        return [label, 'total h ' + VALUE[getBunnerCheckedIDs()[tooltipItem.datasetIndex]][tooltipItem.index], 'periods p.d. ' +  TOOLTIPS[getBunnerCheckedIDs()[tooltipItem.datasetIndex]][tooltipItem.index]];
                     }
                 },
             },
@@ -256,6 +260,9 @@ $(function () {
         } else {
             removeChartBunners(chartsBunnersSettings.Bunners, t, window.myBunnersLine);
         }
+    });
+    $("#adv-banner").click(function(){
+        handleBunnersDateChange(START_DATE_Bunners, END_DATE_Bunners, chartsBunnersSettings, chartsBunnersDataDays);
     });
 });
 

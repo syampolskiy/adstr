@@ -46,7 +46,7 @@ function div(val, by){
 }
 
 function getChartsTimeData(checkboxesID, dateStart, dateEnd){
-    var ordID = checkboxesID.join(",");
+    var ordID = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultTimeChart = {
@@ -62,14 +62,14 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
     $.ajax({
         url: "/Admin/ChartsAdvertiser/AmountOfTime",
         type: "POST",
-        data: {orderId: ordID,  startDate: dateStart, endDate:  dateEnd},
+        data: {campaignsId: ordID,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
-            console.log(data);
             if(!data.error){
+                console.log(data);
                 //Labels for CHART
-                resultTimeChart.days.labels = data.chartData.days.labels.slice(0);
+                resultTimeChart.days.labels = data.chartData.labels.slice(0);
                 var daysLabels = resultTimeChart.days.labels;
                 var daysLabelsLen = daysLabels.length;
 
@@ -78,12 +78,11 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
                     resultTimeChart.weeks.labels[i] = daysLabels[ind];
                 }
                 //Values for CHART
-                resultTimeChart.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
+                resultTimeChart.days.channelsId = JSON.stringify(data.chartData.days.campaignsId);
                 resultTimeChart.days.channelsId = JSON.parse(resultTimeChart.days.channelsId);
             } else {
                 console.log(data);
             }
-            console.log(data);
         }, error: function (data) {
             console.log(data);
         }
@@ -96,8 +95,8 @@ function setTimeDaysData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeTimeChart(chrtStngs.Days, $("#channel_"+index), chrt);
-        addTimeChart(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Days, $("#bannerT2_"+index), chrt);
+        addTimeChart(chrtStngs.Days, $("#bannerT2_"+index), dataArr[index], chrt);
     });
 }
 
@@ -171,7 +170,7 @@ $(function () {
         }
 
     });
-    $('#date_range_time').datepicker('setDate', ['-1w', '+1w']);
+    $('#date_range_time').datepicker('setDate', ['-6d', '+6d']);
     // Datapicker value
     var extensionRange = $('#date_range_time').datepicker('widget').data('datepickerExtensionRange');
     if (extensionRange.startDateText) $('#startDayTime').val(extensionRange.startDateText);
