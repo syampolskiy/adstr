@@ -898,18 +898,44 @@ input[type=checkbox]:checked + label:before {
     width: 90%;
   }
 }
+//
+//.upload-file {
+//  background: linear-gradient(to top,#34aa44 0%, #39b54a 100%) ;
+//  padding: 10px 25px 10px 20px;
+//  width: 54%;
+//  margin:  20px auto 0 auto;
+//  border: 1px solid #249533;
+//  border-radius: 4px;
+//  color: #fff;
+//  font-size: 16px;
+//  text-align: left;
+//}
 
-button.upload-im {
-  background: url(../img/upload_image.png) no-repeat 85% ,  linear-gradient(to top,#34aa44 0%, #39b54a 100%) ;
-  padding: 10px 25px 10px 20px;
+.hide-in {
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+}
+.upload-label {
+  color: #fff !important;
+  background:url('../img/upload_image.png')  no-repeat 85%,  linear-gradient(to top,#34aa44 0%, #39b54a 100%) ;
   width: 54%;
   margin:  20px auto 0 auto;
   border: 1px solid #249533;
   border-radius: 4px;
-  color: #fff;
-  font-size: 16px;
+  padding: 10px 25px 10px 20px !important;
+  display: block;
+  cursor: pointer;
+  font-size: 16px !important;
   text-align: left;
+  &:hover {
+    background: url('../img/upload_image.png')  no-repeat 85%,  linear-gradient(to top, #39b54a 0%, #34aa44 100%);
+  }
 }
+
 .load-img {
   display: flex;
   flex-direction: row;
