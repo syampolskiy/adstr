@@ -30,7 +30,7 @@ block content
 											.spaces__box-price 0.85$
 										td
 											.select-wrap
-												select.js-init-selectric
+												select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
 													option(value="Actions" data-content="Actions") Actions
 													option(value="Layers" data-content="Layers") Layers
 													option(value="Edit" data-content="Edit") Edit
@@ -57,7 +57,7 @@ block content
 											.spaces__box-price 0.85$
 										td
 											.select-wrap
-												select.js-init-selectric
+												select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
 													option(value="Actions" data-content="Actions") Actions
 													option(value="Layers" data-content="Layers") Layers
 													option(value="Edit" data-content="Edit") Edit

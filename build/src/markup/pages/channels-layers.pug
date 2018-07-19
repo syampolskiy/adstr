@@ -32,7 +32,7 @@ block content
 											.spaces__box-price Dota 2
 										td
 											.select-wrap
-												select.js-init-selectric
+												select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
 													option(value="Actions" data-content="Actions") Actions
 													option(value="Ad Spaces" data-content="Ad Spaces") Ad Spaces
 													option(value="Edit" data-content="Edit") Edit
@@ -60,7 +60,7 @@ block content
 											.spaces__box-price Dota 2
 										td
 											.select-wrap
-												select.js-init-selectric
+												select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
 													option(value="Actions" data-content="Actions") Actions
 													option(value="Ad Spaces" data-content="Ad Spaces") Ad Spaces
 													option(value="Edit" data-content="Edit") Edit

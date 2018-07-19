@@ -89,6 +89,7 @@ $(function() {
 	$('.popup').magnificPopup();
 
 
+
 });
 $(function() {
 	// dropdowns
