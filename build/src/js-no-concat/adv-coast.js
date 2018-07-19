@@ -46,7 +46,7 @@ function div(val, by){
 }
 
 function getCoastChartsData(checkboxesID, dateStart, dateEnd){
-    var ordID = checkboxesID.join(",");
+    var ordID = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultViews = {
@@ -57,18 +57,18 @@ function getCoastChartsData(checkboxesID, dateStart, dateEnd){
     };
     // $(".loading-overlay").addClass('hide');
     $.ajax({
-        url: "/Admin/ChartsAdvertiser/Coast",
+        url: "/Admin/ChartsAdvertiser/Cost",
         type: "POST",
-        data: {orderId: ordID,  startDate: dateStart, endDate:  dateEnd},
+        data: {campaignsId: ordID,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",
         async: false,
         success: function (data) {
             if(!data.error){
+                console.log(data);
                 //Labels for CHART
                 resultViews.days.labels = data.chartData.days.labels.slice(0);
-
                 //Values for CHART
-                resultViews.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
+                resultViews.days.channelsId = JSON.stringify(data.chartData.days.campaignsId);
                 resultViews.days.channelsId = JSON.parse(resultViews.days.channelsId);
             } else {
                 console.log(data);
@@ -124,7 +124,7 @@ $(function () {
         }
 
     });
-    $('#date_range_coast').datepicker('setDate', ['-1w', '+1w']);
+    $('#date_range_coast').datepicker('setDate', ['-6d', '+6d']);
     // Datapicker value
     var extensionRange = $('#date_range_coast').datepicker('widget').data('datepickerExtensionRange');
     if (extensionRange.startDateText) $('#startDayCoast').val(extensionRange.startDateText);

@@ -36,7 +36,7 @@ block content
 													option(value="Actions" data-content="Actions") Actions
 													option(value="https://google.com.ua" data-content="Ad Spaces") Ad Spaces
 													option(value="https://ru.stackoverflow.com" data-content="Edit") Edit
-													option.blank(value="1" data-content="Remove Layer") Remove Layer
+													option.target-blank(value="https://google.com.ua" data-content="Remove Layer") Remove Layer
 													option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
 
 						.spaces__box
@@ -60,10 +60,10 @@ block content
 											.spaces__box-price Dota 2
 										td
 											.select-wrap
-												select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
+												select.js-init-selectric
 													option(value="Actions" data-content="Actions") Actions
 													option(value="Ad Spaces" data-content="Ad Spaces") Ad Spaces
-													option(value="Edit" data-content="Edit") Edit
+													option(value="Edit" data-content="Edit" data-function = 'edit') Edit
 													option(value="Remove Layer" data-content="Remove Layer") Remove Layer
 													option(value="Layout link" data-content="<div class='select-option-inner'>Layout link <span class='exclamation'>!</span></div>") Layout link
 			.hidden

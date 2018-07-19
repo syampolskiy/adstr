@@ -107,11 +107,20 @@ $(function() {
 		});
 	});
 
-	// $('select').on('change', function () {
-	//     if($(this).val() == '1'){
-	//         alert();
-	//     }
-	// })
+
+
+
+	$('.js-init-selectric').on('change', function() {
+
+		if ($('.js-init-selectric option:selected').attr('class') == 'target-blank') {
+			window.open($(this).val(), '_blank');
+		} else {
+			window.location.href = $(this).val()
+		}
+	});
+
+
+
 
 
 });
