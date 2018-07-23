@@ -19,7 +19,7 @@
 		<aside class="sidebar">
 			<div class="sidebar__header">
 				<a class="logo" href="/">
-					<img src="img/adstrm.png" alt="">
+					<img src="Content/images/adstrm.png" alt="">
 				</a>
 				<button class="sidebar-toggle js-toggle-sidebar">
 					<span class="sidebar-toggle__bar"></span>
@@ -42,7 +42,7 @@
 								<a class="sidebar-submenu__link sidebar-submenu__link--search-campaigns" href="#">Search campaigns</a>
 							</li>
 							<li class="sidebar-submenu__item">
-								<a class="sidebar-submenu__link sidebar-submenu__link--statistics" href="#">Statistics</a>
+								<!--a.sidebar-submenu__link.sidebar-submenu__link--statistics(href="#") Statistics-->
 							</li>
 							<li class="sidebar-submenu__item">
 								<a class="sidebar-submenu__link sidebar-submenu__link--orders" href="#">
@@ -94,7 +94,7 @@
 					</div>
 					<div class="user js-toggle-dropdown">
 						<div class="user__photo">
-							<img src="img/avatar.png" alt="">
+							<img src="Content/images/avatar.png" alt="">
 						</div>
 						<div class="user__name-wrap">
 							<div class="user__name">Stephen Amell</div>
@@ -112,63 +112,68 @@
 					</div>
 				</div>
 			</header>
-			<main class="content js-init-scrollable">
-				<div class="box">
-					<div class="page-title">
-						<span class="title">Wallet</span>
-					</div>
-					<div class="chart-area">
-						<div class="chart-info">
-							<form id="wallet-chart">
-								<div class="inputs">
-									<div class="img-box">
-										<img src="img/User Icon.png">
-									</div>
-									<input class="username-i" type="text" name="" placeholder="Stephen Amell" readonly>
-									<div class="balance-box">Balance</div>
-									<input class="balance-i" type="text" name="" placeholder="38.5" readonly>
-									<div class="select-box">
-										<select>
-											<option>USD</option>
-											<option>EUR</option>
-										</select>
-										<div class="coast-p-m">5$ min</div>
-									</div>
-									<div class="amount-box">
-										<input class="amount-i" type="text" name="" placeholder="Amount" readonly>
-									</div>
-								</div>
-								<div class="p-m-mob">5$ min</div>
-								<div class="radiobtn">
-									<div class="radio-box">
-										<label>
-											<input class="radio" type="radio" name="pay" checked>
-											<span class="radio-custom"></span>
-											<span class="label">WebMoney</span>
-										</label>
-									</div>
-									<div class="radio-box">
-										<label>
-											<input class="radio" type="radio" name="pay">
-											<span class="radio-custom"></span>
-											<span class="label">Paypal</span>
-										</label>
-									</div>
-									<div class="radio-box">
-										<label>
-											<input class="radio" type="radio" name="pay">
-											<span class="radio-custom"></span>
-											<span class="label">Skrill</span>
-										</label>
-									</div>
-								</div>
-								<input type="submit" value="Deposit">
-							</form>
+			<main class="content">
+				<div class="scrollable js-init-scrollable">
+					<div class="box">
+						<div class="page-title">
+							<span class="title">Wallet</span>
 						</div>
-						<div class="chart-container">
-							<div class="chart-place">
-								<span class="name-of-chart">Total Outcome</span>
-								<canvas id="wallet"></canvas>
+						<div class="chart-area">
+							<div class="chart-info">
+								<form id="wallet-chart">
+									<div class="inputs">
+										<div class="img-box">
+											<img src="img/User Icon.png">
+										</div>
+										<input class="username-i" type="text" name="" placeholder="Stephen Amell" readonly>
+										<div class="balance-box">Balance</div>
+										<input class="balance-i" type="text" name="" placeholder="38.5" readonly>
+										<div class="select-box">
+											<select>
+												<option>USD</option>
+												<option>EUR</option>
+											</select>
+											<div class="coast-p-m">5$ min</div>
+										</div>
+										<div class="amount-box">
+											<input class="amount-i" type="text" name="" placeholder="Amount" readonly>
+										</div>
+									</div>
+									<div class="p-m-mob">5$ min</div>
+									<div class="radiobtn">
+										<div class="radio-box">
+											<label>
+												<input class="radio" type="radio" name="pay" checked>
+												<span class="radio-custom"></span>
+												<span class="label">WebMoney</span>
+											</label>
+										</div>
+										<div class="radio-box">
+											<label>
+												<input class="radio" type="radio" name="pay">
+												<span class="radio-custom"></span>
+												<span class="label">Paypal</span>
+											</label>
+										</div>
+										<div class="radio-box">
+											<label>
+												<input class="radio" type="radio" name="pay">
+												<span class="radio-custom"></span>
+												<span class="label">Skrill</span>
+											</label>
+										</div>
+									</div>
+									<input type="submit" value="Deposit">
+								</form>
+							</div>
+							<div class="chart-container">
+								<div class="chart-place">
+									<span class="name-of-chart">Total Outcome</span>
+									<button class="chart-close">
+										<i class="icon-close"></i>
+									</button>
+									<canvas id="wallet"></canvas>
+								</div>
 							</div>
 						</div>
 					</div>

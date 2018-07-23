@@ -5,48 +5,52 @@ block scripts
 
 
 block content
-    main.content.js-init-scrollable
-        .box
-            .page-title
-                span.title Wallet
-            .chart-area
-                .chart-info
-                    form#wallet-chart
-                        .inputs
-                            .img-box
-                                img(src='img/User Icon.png')
-                            input.username-i(type='text' name='' placeholder = "Stephen Amell"  readonly)
+    main.content
+        .scrollable.js-init-scrollable
+            .box
+                .page-title
+                    span.title Wallet
+                .chart-area
+                    .chart-info
+                        form#wallet-chart
+                            .inputs
+                                .img-box
+                                    img(src='img/User Icon.png')
+                                input.username-i(type='text' name='' placeholder = "Stephen Amell"  readonly)
 
-                            .balance-box Balance
-                            input.balance-i(type='text' name='' placeholder = "38.5" readonly)
+                                .balance-box Balance
+                                input.balance-i(type='text' name='' placeholder = "38.5" readonly)
 
-                            .select-box
-                                select
-                                    option USD
-                                    option EUR
-                                .coast-p-m 5$ min
-                            .amount-box
-                                input.amount-i(type='text' name='' placeholder = "Amount" readonly)
-                        .p-m-mob 5$ min
-                        .radiobtn
-                            .radio-box
-                                label
-                                    input.radio(type='radio', name='pay' checked )
-                                    span.radio-custom
-                                    span.label WebMoney
-                            .radio-box
-                                label
-                                    input.radio(type='radio', name='pay')
-                                    span.radio-custom
-                                    span.label Paypal
-                            .radio-box
-                                label
-                                    input.radio(type='radio', name='pay')
-                                    span.radio-custom
-                                    span.label Skrill
-                        input(type='submit' value="Deposit")
+                                .select-box
+                                    select
+                                        option USD
+                                        option EUR
+                                    .coast-p-m 5$ min
+                                .amount-box
+                                    input.amount-i(type='text' name='' placeholder = "Amount" readonly)
+                            .p-m-mob 5$ min
+                            .radiobtn
+                                .radio-box
+                                    label
+                                        input.radio(type='radio', name='pay' checked )
+                                        span.radio-custom
+                                        span.label WebMoney
+                                .radio-box
+                                    label
+                                        input.radio(type='radio', name='pay')
+                                        span.radio-custom
+                                        span.label Paypal
+                                .radio-box
+                                    label
+                                        input.radio(type='radio', name='pay')
+                                        span.radio-custom
+                                        span.label Skrill
+                            input(type='submit' value="Deposit")
 
-                .chart-container
-                    .chart-place
-                        span.name-of-chart Total Outcome
-                        canvas#wallet
+                    .chart-container
+                        .chart-place
+                            span.name-of-chart Total Outcome
+                            button.chart-close
+                                i.icon-close
+                            canvas#wallet
+

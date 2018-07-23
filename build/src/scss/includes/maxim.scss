@@ -629,6 +629,7 @@ form#wallet-chart {
   position: relative;
   //background:  linear-gradient(to top,#34aa44 0%, #39b54a 100%);
 }
+
 .checkbox-custom,
 .radio-custom,
 .label {
@@ -671,6 +672,7 @@ span.label {
 }
 span.name-of-chart {
   font-family: 'Noto Sans', sans-serif;
+  display: inline-block;
   color: #34474f;
   padding-left: 15px;
   font-size: 20px;
@@ -678,6 +680,15 @@ span.name-of-chart {
   padding-top: 40px;
   padding-bottom: 20px;
   display: block;
+  float: left;
+}
+button.chart-close {
+  display: inline-block;
+  float: right;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+  background: transparent;
 }
 
 

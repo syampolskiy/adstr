@@ -82,7 +82,7 @@ gulp.task('sprites', function() {
             .pipe(spritesmith({
                 imgName: 'sprites.png',
                 cssName: 'sprites.scss',
-                imgPath: '/img/sprites.png',
+                imgPath: '/Content/images/sprites.png',
                 padding: 3
             }));
 
