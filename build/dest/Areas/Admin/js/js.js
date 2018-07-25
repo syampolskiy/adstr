@@ -46,7 +46,7 @@ $(function() {
 
 	// tabs
 	$("#tabs").tabs();
-	$('#date_range, #date_range_time,#date_range_followers ,#date_range_timeAd').hide();
+	$('#date_range, #date_range_time,#date_range_followers ,#date_range_timeAd, #date_range_coast, #date_range_bunners,#date_range_view').hide();
 	// $('#date_range').enable();
 
 	$('#startDay,#endDay').click(function() {
@@ -57,6 +57,15 @@ $(function() {
 	});
 	$('#startDayFollowers,#endDayFollowers').click(function() {
 		$('#date_range_followers').toggle('slow');
+	});
+	$('#startDayCoast,#endDayCoast').click(function() {
+		$('#date_range_coast').toggle('slow');
+	});
+	$('#startDayBunners,#endDayBunners').click(function() {
+		$('#date_range_bunners').toggle('slow');
+	});
+	$('#startDayView,#endDayView').click(function() {
+		$('#date_range_view').toggle('slow');
 	});
 
 	// chart dropdown
@@ -111,7 +120,6 @@ $(function() {
 
 
 	$('.js-init-selectric').on('change', function() {
-
 		if ($('.js-init-selectric option:selected').attr('class') == 'target-blank') {
 			window.open($(this).val(), '_blank');
 		} else {
@@ -121,27 +129,6 @@ $(function() {
 
 
 
-
-
-});
-$(function() {
-	// menu dropdowns
-	$('.js-toggle-submenu').click(function(e) {
-		e.preventDefault();
-
-		var self = $(this);
-		self.siblings('.js-toggle-me').slideToggle(100, function() {
-			self.parent().toggleClass('opened');
-		});
-	})
-	// menu dropdowns --/
-
-	// toggle sidebar
-	$('.js-toggle-sidebar').click(function() {
-		$('.js-toggle-it-on-mobile').slideToggle(100);
-		$(this).toggleClass('collapsed');
-	});
-	// toggle sidebar --/
 });
 $(function() {
 	// dropdowns
@@ -167,4 +154,23 @@ $(function() {
 		});
 	}
 	// dropdowns --/
+});
+$(function() {
+	// menu dropdowns
+	$('.js-toggle-submenu').click(function(e) {
+		e.preventDefault();
+
+		var self = $(this);
+		self.siblings('.js-toggle-me').slideToggle(100, function() {
+			self.parent().toggleClass('opened');
+		});
+	})
+	// menu dropdowns --/
+
+	// toggle sidebar
+	$('.js-toggle-sidebar').click(function() {
+		$('.js-toggle-it-on-mobile').slideToggle(100);
+		$(this).toggleClass('collapsed');
+	});
+	// toggle sidebar --/
 });

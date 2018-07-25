@@ -2360,7 +2360,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .order-table thead.orders th:nth-child(3) {
-	width: 9%;
+	width: 9.5%;
 }
 
 .order-table thead.orders th:nth-child(6) {
@@ -2375,7 +2375,7 @@ input[type=checkbox]:checked + label:before {
 	width: 10.5%;
 }
 
-tr.white {
+table.order-table tbody tr:nth-child(odd) {
 	background: #fff;
 }
 

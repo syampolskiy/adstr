@@ -203,7 +203,7 @@ $(function () {
     Checbox_element_coast[0].checked = true;
     if (Checbox_element_coast[0].checked){
         ShowFirstCoastChecbox(Checbox_element_coast);
-        handleCoastDateChange(START_DATE_COAST, END_DATE_COAST, chartsCoastSettings, chartsCoastDataDays);
+        // handleCoastDateChange(START_DATE_COAST, END_DATE_COAST, chartsCoastSettings, chartsCoastDataDays);
     }
 
     //Действие  после изменения чекбокса
@@ -220,6 +220,10 @@ $(function () {
 
         }
     });
+  $("#cost-chart").click(function(){
+    handleCoastDateChange(START_DATE_COAST, END_DATE_COAST, chartsCoastSettings, chartsCoastDataDays);
+  });
+
 });
 
 

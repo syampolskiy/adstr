@@ -1,6 +1,9 @@
 extends ../template
 block scripts
     script(src=jsnoConcate +  "amout_of_time_adv.js")
+    script(src=jsnoConcate +  "adv-coast.js")
+    script(src=jsnoConcate +  "bunners-chart.js")
+    script(src=jsnoConcate +  "adv-views.js")
 
 block content
     main.content
@@ -8,13 +11,13 @@ block content
             .box
                 #tabs
                     ul
-                        li
+                        li#time-chart-adv
                             a(href='#tabs-1') Amount of time
-                        li
-                            a(href='#tabs-2') Cost
-                        li
+                        li#cost-chart
+                            a(href='#tabs-2') Coast
+                        li#banner-chart
                             a(href='#tabs-3') Banners
-                        li
+                        li#views-chart-adv
                             a(href='#tabs-4') Views
                     #tabs-1
                         .streamer-time-block

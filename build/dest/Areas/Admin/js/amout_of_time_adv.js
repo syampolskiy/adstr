@@ -292,7 +292,7 @@ $(function () {
     Checbox_element_time[0].checked = true;
     if (Checbox_element_time[0].checked){
         ShowFirstTimeChartChecbox(Checbox_element_time);
-        handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
+        // handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
     }
 
     //Действие  после изменения чекбокса
@@ -311,6 +311,11 @@ $(function () {
             removeTimeChart(chartsTimeSettings.Weeks, t, window.myLineTime2);
         }
     });
+  $("#time-chart-adv").click(function(){
+    handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
+  });
+
+  $("#time-chart-adv").click();
 });
 
 

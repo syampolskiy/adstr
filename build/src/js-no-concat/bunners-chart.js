@@ -245,7 +245,7 @@ $(function () {
     Checbox_element_b[0].checked = true;
     if (Checbox_element_b[0].checked){
         ShowFirstBunnersChecbox(Checbox_element_b);
-        handleBunnersDateChange(START_DATE_Bunners, END_DATE_Bunners, chartsBunnersSettings, chartsBunnersDataDays);
+        // handleBunnersDateChange(START_DATE_Bunners, END_DATE_Bunners, chartsBunnersSettings, chartsBunnersDataDays);
     }
 
     //Действие  после изменения чекбокса
@@ -261,7 +261,7 @@ $(function () {
             removeChartBunners(chartsBunnersSettings.Bunners, t, window.myBunnersLine);
         }
     });
-    $("#adv-banner").click(function(){
+    $("#banner-chart").click(function(){
         handleBunnersDateChange(START_DATE_Bunners, END_DATE_Bunners, chartsBunnersSettings, chartsBunnersDataDays);
     });
 });

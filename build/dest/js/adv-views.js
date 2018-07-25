@@ -205,7 +205,7 @@ $(function () {
     Checbox_element[0].checked = true;
     if (Checbox_element[0].checked){
         ShowFirstViewChecbox(Checbox_element);
-        handleViewDateChange(START_DATE_VIEW, END_DATE_VIEW, chartsViewsSettings, chartsViewsDataDays);
+        // handleViewDateChange(START_DATE_VIEW, END_DATE_VIEW, chartsViewsSettings, chartsViewsDataDays);
     }
 
     //Действие  после изменения чекбокса
@@ -222,6 +222,9 @@ $(function () {
 
         }
     });
+  $("##views-chart-adv").click(function(){
+    handleViewDateChange(START_DATE_VIEW, END_DATE_VIEW, chartsViewsSettings, chartsViewsDataDays);
+  });
 });
 
 

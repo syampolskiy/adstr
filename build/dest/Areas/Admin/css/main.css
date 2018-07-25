@@ -2036,6 +2036,7 @@ span.label {
 
 span.name-of-chart {
 	font-family: 'Noto Sans', sans-serif;
+	display: inline-block;
 	color: #34474f;
 	padding-left: 15px;
 	font-size: 20px;
@@ -2043,6 +2044,16 @@ span.name-of-chart {
 	padding-top: 40px;
 	padding-bottom: 20px;
 	display: block;
+	float: left;
+}
+
+button.chart-close {
+	display: inline-block;
+	float: right;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	margin-right: 15px;
+	background: transparent;
 }
 
 @media screen and (max-width: 1351px) {
@@ -2349,7 +2360,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .order-table thead.orders th:nth-child(3) {
-	width: 9%;
+	width: 9.5%;
 }
 
 .order-table thead.orders th:nth-child(6) {
@@ -2364,7 +2375,7 @@ input[type=checkbox]:checked + label:before {
 	width: 10.5%;
 }
 
-tr.white {
+table.order-table tbody tr:nth-child(odd) {
 	background: #fff;
 }
 
