@@ -1,12 +1,13 @@
 body {
     min-width: 320px;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif !important;
     font-weight: 400;
     background: #E4EBF7;
     @include min(768){
 	    overflow: hidden;
     }
 }
+
 
 .wrapper{
 	padding-left: 272px;

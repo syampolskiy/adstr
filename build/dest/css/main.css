@@ -600,7 +600,7 @@ span.counter {
 
 body {
 	min-width: 320px;
-	font-family: 'Noto Sans', sans-serif;
+	font-family: 'Noto Sans', sans-serif !important;
 	font-weight: 400;
 	background: #e4ebf7;
 }
