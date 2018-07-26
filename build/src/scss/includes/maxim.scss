@@ -759,7 +759,29 @@ button.chart-close {
   flex-direction: column;
   width: 70%;
 }
-#addChannel,#confirmChannel, #addLayer{
+.modal-footer {
+  text-align: center;
+  border: none;
+}
+.modal-content {
+  width: auto;
+}
+.modal-header {
+  border-bottom: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 70%;
+  margin: 0 auto !important;
+}
+.modal-title {
+  color: #7f8fa4 ;
+  font-size: 20px ;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+.modal-content,#confirmChannel, #addLayer{
   padding-top: 30px;
   padding-bottom: 40px;
   display: flex;

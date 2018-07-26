@@ -2128,7 +2128,31 @@ button.chart-close {
 	width: 70%;
 }
 
-#addChannel,
+.modal-footer {
+	text-align: center;
+	border: none;
+}
+
+.modal-content {
+	width: auto;
+}
+
+.modal-header {
+	border-bottom: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	width: 70%;
+	margin: 0 auto !important;
+}
+
+.modal-title {
+	color: #7f8fa4;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.modal-content,
 #confirmChannel,
 #addLayer {
 	padding-top: 30px;
@@ -2142,7 +2166,7 @@ button.chart-close {
 	box-shadow: 0 0 4px 0 #f7f8f9;
 	font-family: 'Noto Sans', sans-serif;
 }
-#addChannel span,
+.modal-content span,
 #confirmChannel span,
 #addLayer span {
 	color: #7f8fa4;
@@ -2151,7 +2175,7 @@ button.chart-close {
 	margin-bottom: 30px;
 	text-transform: uppercase;
 }
-#addChannel input[type='text'],
+.modal-content input[type='text'],
 #confirmChannel input[type='text'],
 #addLayer input[type='text'] {
 	height: 50px;
@@ -2163,12 +2187,12 @@ button.chart-close {
 	padding-left: 20px;
 	padding-right: 20px;
 }
-#addChannel input[type='text']:focus,
+.modal-content input[type='text']:focus,
 #confirmChannel input[type='text']:focus,
 #addLayer input[type='text']:focus {
 	border: 1px solid #2ea2f8;
 }
-#addChannel select,
+.modal-content select,
 #confirmChannel select,
 #addLayer select {
 	height: 50px;
@@ -2192,14 +2216,14 @@ button.chart-close {
 	    -ms-appearance: none;
 	        appearance: none !important;
 }
-#addChannel select:focus,
+.modal-content select:focus,
 #confirmChannel select:focus,
 #addLayer select:focus {
 	border: 1px solid #2ea2f8;
 	border-radius: 4px;
 	background: url(../img/Dropdown.png) no-repeat 94%, linear-gradient(to top, #f1f3f7 0%, #fff 100%);
 }
-#addChannel label,
+.modal-content label,
 #confirmChannel label,
 #addLayer label {
 	padding-bottom: 5px;
