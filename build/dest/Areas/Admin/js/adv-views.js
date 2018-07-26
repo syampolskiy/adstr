@@ -222,7 +222,7 @@ $(function () {
 
         }
     });
-  $("##views-chart-adv").click(function(){
+  $("#views-chart-adv").click(function(){
     handleViewDateChange(START_DATE_VIEW, END_DATE_VIEW, chartsViewsSettings, chartsViewsDataDays);
   });
 });
