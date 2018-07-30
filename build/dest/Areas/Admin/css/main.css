@@ -1389,7 +1389,7 @@ html {
 }
 
 .datapicker-block .end-day {
-	background: url(../img/Dropdown.png) no-repeat 97%, linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+	background: url(/Content/images/Dropdown.png) no-repeat 97%, linear-gradient(to top, #f1f3f7 0%, #fff 100%);
 }
 
 .ui-tabs .ui-tabs-nav {
@@ -1539,7 +1539,7 @@ a:-webkit-any-link {
 }
 
 .dropdown dt a {
-	background: url(../img/Dropdown.png) no-repeat 97%, transparent;
+	background: url(/Content/images/Dropdown.png) no-repeat 97%, transparent;
 	display: block;
 	padding: 8px 20px 5px 10px;
 	min-height: 25px;
@@ -2014,7 +2014,7 @@ form#wallet-chart {
 	border-radius: 50%;
 }
 
-span.label {
+span.label.pay {
 	margin-left: 15px;
 	font-family: 'Noto Sans', sans-serif;
 }
@@ -2126,6 +2126,7 @@ button.chart-close {
 	display: flex;
 	flex-direction: column;
 	width: 70%;
+	margin: 0 auto !important;
 }
 
 .modal-footer {
@@ -2152,15 +2153,15 @@ button.chart-close {
 	text-transform: uppercase;
 }
 
+.modal-dialog {
+	width: 30%;
+}
+
 .modal-content,
 #confirmChannel,
 #addLayer {
 	padding-top: 30px;
 	padding-bottom: 40px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
 	background: #fff;
 	border-radius: 4px;
 	box-shadow: 0 0 4px 0 #f7f8f9;
@@ -2331,7 +2332,7 @@ input[type=checkbox]:checked + label:before {
 
 .upload-label {
 	color: #fff !important;
-	background: url('../img/upload_image.png') no-repeat 85%, linear-gradient(to top, #34aa44 0%, #39b54a 100%);
+	background: url('/Content/images/upload_image.png') no-repeat 85%, linear-gradient(to top, #34aa44 0%, #39b54a 100%);
 	width: 54%;
 	margin: 20px auto 0 auto;
 	border: 1px solid #249533;
@@ -2343,7 +2344,7 @@ input[type=checkbox]:checked + label:before {
 	text-align: left;
 }
 .upload-label:hover {
-	background: url('../img/upload_image.png') no-repeat 85%, linear-gradient(to top, #39b54a 0%, #34aa44 100%);
+	background: url('/Content/images/upload_image.png') no-repeat 85%, linear-gradient(to top, #39b54a 0%, #34aa44 100%);
 }
 
 .load-img {
@@ -2461,4 +2462,14 @@ span.cell-banner-price {
 
 .order-status {
 	width: 95px;
+}
+
+.dropdown-punct {
+	display: block;
+	text-align: center;
+	color: #000;
+}
+
+a .balance {
+	color: #fff;
 }

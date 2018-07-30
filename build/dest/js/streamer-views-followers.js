@@ -24,7 +24,8 @@ function removeViewsChart(chrtStngs, chkbxVl, cnvs){
 function getCheckedViewsChIDs() {
     var res = [];
     $.each($('.mutliSelect_followers input[type="checkbox"]:checked'), function (i) {
-        var id = parseInt($(this).attr("id").split("_")[1]);
+        // var id = parseInt($(this).attr("id").split("_")[1]);
+        var id = $(this).attr("data-obj-id");
         res.push(id);
     });
     return res;
@@ -60,6 +61,7 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
         }
     };
     // $(".loading-overlay").addClass('hide');
+    console.log('Loading');
     $.ajax({
         url: "/Admin/ChartsStreamer/Views",
         type: "POST",
@@ -67,6 +69,7 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
         dataType: "json",
         async: false,
         success: function (data) {
+            console.log(data);
             if(!data.error){
                 //Labels for CHART
                 resultVFChart.days.labels = data.chartData.days.labels.slice(0);
@@ -82,6 +85,7 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
             console.log(data);
         }
     });
+    console.log('Ready');
     // $(".loading-overlay").removeClass('hide');
     return resultVFChart;
 }
@@ -129,8 +133,8 @@ function setViewsData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeViewsChart(chrtStngs.Views, $("#channel_"+index), chrt);
-        addViewsChart(chrtStngs.Views, $("#channel_"+index), dataArr[index], chrt);
+        removeViewsChart(chrtStngs.Views, $("div.mutliSelect_followers input[type='checkbox'][data-f-id='"+index+"']"), chrt);
+        addViewsChart(chrtStngs.Views, $("div.mutliSelect_followers input[type='checkbox'][data-f-id='"+index+"']"), dataArr[index], chrt);
     });
 }
 
@@ -139,8 +143,8 @@ function setFollowersData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeViewsChart(chrtStngs.Followers, $("#channel_"+index), chrt);
-        addViewsChart(chrtStngs.Followers, $("#channel_"+index), dataArr[index], chrt);
+        removeViewsChart(chrtStngs.Followers, $("div.mutliSelect_followers input[type='checkbox'][data-f-id='"+index+"']"), chrt);
+        addViewsChart(chrtStngs.Followers, $("div.mutliSelect_followers input[type='checkbox'][data-f-id='"+index+"']"), dataArr[index], chrt);
     });
 
 

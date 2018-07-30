@@ -24,7 +24,7 @@ function removeTimeChart(chrtStngs, chkbxVl, cnvs){
 function getCheckedTimeChIDs() {
     var res = [];
     $.each($('.timeChart_select input[type="checkbox"]:checked'), function (i) {
-        var id = parseInt($(this).attr("id").split("_")[1]);
+        var id = $(this).attr("data-obj-id");//parseInt($(this).attr("id").split("_")[1]);
         res.push(id);
     });
     return res;
@@ -102,8 +102,8 @@ function setTimeDaysData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeTimeChart(chrtStngs.Days, $("#channel_"+index), chrt);
-        addTimeChart(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
 
     });
 }
@@ -129,18 +129,9 @@ function setTimeWeeksData(chrtStngs, dataArr, data, chrt){
         chrtStngs.Weeks.data.labels = data.weeks.labels;
 
 
-        removeTimeChart(chrtStngs.Weeks, $("#channel_"+index), chrt);
-        addTimeChart(chrtStngs.Weeks, $("#channel_"+index), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
     });
-}
-
-
-function dateforWeeks(){
-    var tmp = [];
-    $.each($("#date_range_time td.selected"), function (i) {
-        tmp.push($(this).children("a").text()+"."+$(this).attr("data-month")+"."+$(this).attr("data-year"));
-    });
-    return tmp;
 }
 
 function handleDateTimeChange(s_date, e_date, chS, chDD, chDW){
@@ -272,14 +263,13 @@ $(function () {
 
     // SELECT CHECKBOX IN DROPDOWN
     $('.timeChart_select input[type="checkbox"]').on('click', function () {
-        var title_t = $(this).closest('.timeChart_select').find('input[type="checkbox"]').val(),
-            title_t = $(this).val() + ",";
+        var title = $(this).val() + ", ";//$(this).closest('.timeChart_select').find('input[type="checkbox"]').val();
         if ($(this).is(':checked')) {
-            var t_show = '<span title_t="' + title_t + '">' + title_t + '</span>';
+            var t_show = '<span title_t="' + title + '">' + title + '</span>';
             $('.timeChart').append(t_show);
             $(".hida").hide();
         } else {
-            $('span[title_t="' + title_t + '"]').remove();
+            $('span[title_t="' + title + '"]').remove();
             var ret = $(".hida");
             $('.timeChartIdsMenu dt a').append(ret);
         }

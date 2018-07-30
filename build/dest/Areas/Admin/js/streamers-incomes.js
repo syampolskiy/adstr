@@ -24,7 +24,8 @@ function removeChart(chrtStngs, chkbxVl, cnvs){
 function getCheckedIDs() {
     var res = [];
     $.each($('.mutliSelect input[type="checkbox"]:checked'), function (i) {
-        var id = parseInt($(this).attr("id").split("_")[1]);
+        // var id = parseInt($(this).attr("id").split("_")[1]);
+        var id = $(this).attr("data-obj-id");
         res.push(id);
     });
     return res;
@@ -60,7 +61,7 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
             ordersId: {}
         }
     };
-    $(".loading-overlay").addClass('hide');
+    console.log('Loading');
     $.ajax({
         url: "/Admin/ChartsStreamer/Income",
         type: "POST",
@@ -69,6 +70,7 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
         async: false,
         success: function (data) {
             if(!data.error){
+                console.log(data);
                 //Labels for CHART
                 result.days.labels = data.chartData.days.labels.slice(0);
                 var daysLabels = result.days.labels;
@@ -89,7 +91,7 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
             console.log(data);
         }
     });
-    $(".loading-overlay").removeClass('hide');
+    console.log('Ready');
     return result;
 }
 
@@ -98,8 +100,8 @@ function setDaysData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.ordersId, function (index, value) {
         dataArr[index] =  value;
-        removeChart(chrtStngs.Days, $("#channel_"+index), chrt);
-        addChart(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
+        removeChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
     });
 }
 
@@ -124,8 +126,8 @@ function setWeeksData(chrtStngs, dataArr, data, chrt){
         chrtStngs.Weeks.data.labels = data.weeks.labels;
 
 
-        removeChart(chrtStngs.Weeks, $("#channel_"+index), chrt);
-        addChart(chrtStngs.Weeks, $("#channel_"+index), dataArr[index], chrt);
+        removeChart(chrtStngs.Weeks,$("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
     });
 }
 
