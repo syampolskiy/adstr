@@ -2,7 +2,7 @@ $(function () {
     var walletStreamData = [12, 19, 3, 5, 2, 3,7];
 
     $.ajax({
-        url: "/Admin/WalletStreamer/TotalIncome",
+        url: "/Admin/WalletAdvertiser/TotalIncome",
         type: "POST",
         // data: {ids: Id,  startDate: dateStart, endDate:  dateEnd},
         dataType: "json",

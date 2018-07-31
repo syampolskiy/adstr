@@ -63,7 +63,7 @@ function getBunnerChartsData(checkboxesID, dateStart, dateEnd){
     // $(".loading-overlay").addClass('hide');
     console.log('Loading');
     $.ajax({
-        url: "/Admin/ChartsAdvertiser/BannersTest",
+        url: "/Admin/ChartsAdvertiser/Banners",
         type: "POST",
         data: {startDate: dateStart, endDate:  dateEnd, bannersId: bannerss},
         dataType: "json",
@@ -108,9 +108,10 @@ function setBunnersData(chrtStngs, dataArr, data, chrt){
         TOOLTIPS[index] = tmp.tooltips;
 
 
-        removeChartBunners(chrtStngs.Bunners, $("#banners_"+index), chrt);
-        addChartBunners(chrtStngs.Bunners, $("#banners_"+index), dataArr[index], chrt);
+        removeChartBunners(chrtStngs.Bunners,  $("div.bunners-select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addChartBunners(chrtStngs.Bunners, $("div.bunners-select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
     });
+
     console.log(TOOLTIPS);
 }
 function handleBunnersDateChange(s_date, e_date, chS, chDD){

@@ -95,8 +95,8 @@ function setTimeDaysData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeTimeChart(chrtStngs.Days, $("#bannerT2_"+index), chrt);
-        addTimeChart(chrtStngs.Days, $("#bannerT2_"+index), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Days,  $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
     });
 }
 
@@ -121,8 +121,8 @@ function setTimeWeeksData(chrtStngs, dataArr, data, chrt){
         chrtStngs.Weeks.data.labels = data.weeks.labels;
 
 
-        removeTimeChart(chrtStngs.Weeks, $("#channel_"+index), chrt);
-        addTimeChart(chrtStngs.Weeks, $("#channel_"+index), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Weeks,  $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Weeks,  $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
     });
 }
 

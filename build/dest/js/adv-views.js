@@ -88,8 +88,8 @@ function setViewsData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.views.viewsId, function (index, value) {
         dataArr[index] =  value;
-        removeChartViews(chrtStngs.Days, $("#channel_"+index), chrt);
-        addChartViews(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
+        removeChartViews(chrtStngs.Days,  $("div.views-select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addChartViews(chrtStngs.Days, $("div.views-select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
     });
 }
 function handleViewDateChange(s_date, e_date, chS, chDD, chDW){

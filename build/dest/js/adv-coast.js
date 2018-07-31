@@ -86,8 +86,8 @@ function setCoastData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeChartCoast(chrtStngs.Days, $("#channel_"+index), chrt);
-        addChartCoast(chrtStngs.Days, $("#channel_"+index), dataArr[index], chrt);
+        removeChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        addChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
     });
 }
 function handleCoastDateChange(s_date, e_date, chS, chDD, chDW){

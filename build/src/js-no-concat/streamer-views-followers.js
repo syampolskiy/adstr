@@ -90,42 +90,7 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
     return resultVFChart;
 }
 
-function getChartsFollowersData(checkboxesID, dateStart, dateEnd){
-    var ordID2 = checkboxesID;
 
-    //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
-    var resultFollowersChart = {
-        days: {
-            labels: [],
-            channelsId: {}
-        }
-    };
-    // $(".loading-overlay").addClass('hide');
-    $.ajax({
-        url: "/Admin/ChartsStreamer/Followers",
-        type: "POST",
-        data: {ordersId: ordID2,  startDate: dateStart, endDate:  dateEnd},
-        dataType: "json",
-        async: false,
-        success: function (data) {
-            if(!data.error){
-                //Labels for CHART
-                resultFollowersChart.days.labels = data.chartData.days.labels.slice(0);
-
-
-                //Values for CHART
-                resultFollowersChart.days.channelsId = JSON.stringify(data.chartData.days.ordersId);
-                resultFollowersChart.days.channelsId = JSON.parse(resultFollowersChart.days.channelsId);
-            } else {
-                console.log(data);
-            }
-        }, error: function (data) {
-            console.log(data);
-        }
-    });
-    // $(".loading-overlay").removeClass('hide');
-    return resultFollowersChart;
-}
 
 
 function setViewsData(chrtStngs, dataArr, data, chrt){
@@ -138,27 +103,13 @@ function setViewsData(chrtStngs, dataArr, data, chrt){
     });
 }
 
-function setFollowersData(chrtStngs, dataArr, data, chrt){
-    chrtStngs.Followers.data.labels = data.days.labels;
-
-    $.each(data.days.channelsId, function (index, value) {
-        dataArr[index] =  value;
-        removeViewsChart(chrtStngs.Followers, $("div.mutliSelect_followers input[type='checkbox'][data-f-id='"+index+"']"), chrt);
-        addViewsChart(chrtStngs.Followers, $("div.mutliSelect_followers input[type='checkbox'][data-f-id='"+index+"']"), dataArr[index], chrt);
-    });
-
-
-}
 
 
 function handleDateViewsChange(s_date, e_date, chS, chDD, chDW){
     setTimeout(function() {
         var checkedIDs = getCheckedViewsChIDs();
         var data = getChartsViewsData(checkedIDs, s_date, e_date);
-        var data2 = getChartsFollowersData(checkedIDs, s_date, e_date);
-
         setViewsData(chS, chDD, data, window.myLineVF);
-        setFollowersData(chS, chDW, data2, window.myLineVF2);
     }, 100);
 }
 
@@ -196,7 +147,6 @@ $(function () {
     END_DATE_Views = extensionRange.endDateText;
 // vars init
     var ctx = document.getElementById('stream-followers').getContext('2d');
-    var ctx2 = document.getElementById('stream-followers2').getContext('2d');
     var Checbox_element_views = $('.mutliSelect_followers input[type="checkbox"]') ;
     var chartsDataTimeDays = {};
     var chartsDataTimeWeeks = {};
@@ -238,45 +188,12 @@ $(function () {
         },
 
     };
-    chartsViewsSettings.Followers = {
-        type: 'line',
-        data: {
-            labels: [],
 
-        },
-        options: {
-            legend: {
-                position: 'right',
-                fontSize: 20,
-
-            },
-            layout: {
-                padding: {
-                    left: 20,
-                    right: 20,
-                    top: 20,
-                    bottom: 20
-                }
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        callback: function (value) {
-                            return  value + ' amount';
-                        }
-                    }
-                }]
-            },
-        }
-    };
 
     var DaysVFChart = function (settings) {
         window.myLineVF = new Chart(ctx, settings);
     };
-    var WeeksVFChart = function (settings) {
-        window.myLineVF2 = new Chart(ctx2, settings);
-    };
+
 
     // SELECT CHECKBOX IN DROPDOWN
     $('.mutliSelect_followers input[type="checkbox"]').on('click', function () {
@@ -295,16 +212,10 @@ $(function () {
 
 
 
-    // Toggle chars DAYS || WEEKS
-    $("input.vfchart").change(function () {
-        $("#stream-followers, #stream-followers2").toggleClass("show");
-    });
 
     //DRAWING
-    WeeksVFChart(chartsViewsSettings.Followers);
     DaysVFChart(chartsViewsSettings.Views);
     ctx.clearRect(0, 0, 800, 400);
-    ctx2.clearRect(0, 0, 800, 400);
 
     Checbox_element_views[0].checked = true;
     if (Checbox_element_views[0].checked){
@@ -322,10 +233,8 @@ $(function () {
             }
 
             addViewsChart(chartsViewsSettings.Views, t, chartsDataTimeDays[checkedInputID], window.myLineVF);
-            addViewsChart(chartsViewsSettings.Followers, t, chartsDataTimeWeeks[checkedInputID], window.myLineVF2);
         } else {
             removeViewsChart(chartsViewsSettings.Views, t, window.myLineVF);
-            removeViewsChart(chartsViewsSettings.Followers, t, window.myLineVF2);
         }
     });
     $("#view-folowers-chart").click(function(){
