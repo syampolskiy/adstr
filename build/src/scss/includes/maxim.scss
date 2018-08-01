@@ -628,6 +628,10 @@ form#wallet-chart {
   //background:  linear-gradient(to top,#34aa44 0%, #39b54a 100%);
 }
 
+.pay {
+  font-size: 15px !important;
+  color: #7f8fa4 !important;
+}
 .checkbox-custom,
 .radio-custom,
 .label {
@@ -1096,10 +1100,14 @@ span.cell-banner-price {
   display: block;
   text-align: center;
   color: #000;
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #7f8fa4;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
-a .balance {
-  color: #fff;
+a.balance {
+  color: #fff !important;
 }
 
 

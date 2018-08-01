@@ -22,11 +22,24 @@ function removeChart(chrtStngs, chkbxVl, cnvs){
 }
 
 function getCheckedIDs() {
-    var res = [];
+    var res = {
+        orders: [],
+        layers: [],
+        channels: []
+    };
     $.each($('.mutliSelect input[type="checkbox"]:checked'), function (i) {
-        // var id = parseInt($(this).attr("id").split("_")[1]);
         var id = $(this).attr("data-obj-id");
-        res.push(id);
+        switch ($(this).attr("data-type")){
+            case "order":
+                res.orders.push(id);
+                break;
+            case "layer":
+                res.layers.push(id);
+                break;
+            case "channel":
+                res.channels.push(id);
+                break;
+        }
     });
     return res;
 }
@@ -62,15 +75,40 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
         }
     };
     console.log('Loading');
+    for (key in checkboxesID) {
+        if(checkboxesID[key].length === 0)
+            continue;
+
+        var ajaxUrl = "";
+        var ajaxData = { startDate: dateStart, endDate: dateEnd };
+        var arrKey = "";
+
+        switch(key){
+            case "channels":
+                ajaxUrl = "/Admin/ChartsStreamer/IncomeByChannels";
+                ajaxData.channelsId = checkboxesID[key];
+                arrKey = "channelsId";
+                break;
+            case "layers":
+                ajaxUrl = "/Admin/ChartsStreamer/IncomeByLayers";
+                ajaxData.layersId = checkboxesID[key];
+                arrKey = "layersId";
+                break;
+            case "orders":
+                ajaxUrl = "/Admin/ChartsStreamer/Income";
+                ajaxData.ordersId = checkboxesID[key];
+                arrKey = "ordersId";
+                break;
+        }
     $.ajax({
-        url: "/Admin/ChartsStreamer/Income",
+        url: ajaxUrl,
         type: "POST",
-        data: {ordersId: ordID,  startDate: dateStart, endDate:  dateEnd},
+        data: ajaxData,
         dataType: "json",
         async: false,
         success: function (data) {
+            console.log(data);
             if(!data.error){
-                console.log(data);
                 //Labels for CHART
                 result.days.labels = data.chartData.days.labels.slice(0);
                 var daysLabels = result.days.labels;
@@ -82,8 +120,9 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
                 }
 
                 //Values for CHART
-                result.days.ordersId = JSON.stringify(data.chartData.days.ordersId);
-                result.days.ordersId = JSON.parse(result.days.ordersId);
+                result.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
+                result.days[arrKey] = JSON.parse( result.days[arrKey]);
+
             } else {
                 console.log(data);
             }
@@ -91,23 +130,33 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
             console.log(data);
         }
     });
+    }
     console.log('Ready');
-    return result;
+    return  result;
 }
 
 function setDaysData(chrtStngs, dataArr, data, chrt){
     chrtStngs.Days.data.labels = data.days.labels;
 
+    $.each(data.days.channelsId, function (index, value) {
+        removeChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
+    });
+
+    $.each(data.days.layersId, function (index, value) {
+        removeChart(chrtStngs.Days,$("div.mutliSelect input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), value, chrt);
+    });
+
     $.each(data.days.ordersId, function (index, value) {
-        dataArr[index] =  value;
-        removeChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        removeChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Days, $("div.mutliSelect input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), value, chrt);
     });
 }
 
 function setWeeksData(chrtStngs, dataArr, data, chrt){
 
-    $.each(data.days.ordersId, function (index, value) {
+    $.each(data.days.channelsId, function (index, value) {
         var tmp = [],
             i = 0,
             k = 0;
@@ -126,19 +175,56 @@ function setWeeksData(chrtStngs, dataArr, data, chrt){
         chrtStngs.Weeks.data.labels = data.weeks.labels;
 
 
-        removeChart(chrtStngs.Weeks,$("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
+        removeChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
+
+    });
+
+    $.each(data.days.layersId, function (index, value) {
+        var tmp = [],
+            i = 0,
+            k = 0;
+
+        for(i = 0; i < Math.ceil(value.length/7); ++i){
+            tmp[i] = 0;
+        }
+
+        for (i = 0, k = 0; i < value.length; ++i, k=div(i,7)){
+            tmp[k] += value[i];
+        }
+
+        dataArr[index] = tmp;
+
+
+        chrtStngs.Weeks.data.labels = data.weeks.labels;
+
+        removeChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), value, chrt);
+    });
+    $.each(data.days.ordersId, function (index, value) {
+        var tmp = [],
+            i = 0,
+            k = 0;
+
+        for(i = 0; i < Math.ceil(value.length/7); ++i){
+            tmp[i] = 0;
+        }
+
+        for (i = 0, k = 0; i < value.length; ++i, k=div(i,7)){
+            tmp[k] += value[i];
+        }
+
+        dataArr[index] = tmp;
+
+
+        chrtStngs.Weeks.data.labels = data.weeks.labels;
+
+        removeChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), chrt);
+        addChart(chrtStngs.Weeks, $("div.mutliSelect input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), value, chrt);
     });
 }
 
 
-function dateforWeeks(){
-    var tmp = [];
-    $.each($("#date_range td.selected"), function (i) {
-        tmp.push($(this).children("a").text()+"."+$(this).attr("data-month")+"."+$(this).attr("data-year"));
-    });
-    return tmp;
-}
 
 function handleDateChange(s_date, e_date, chS, chDD, chDW){
     setTimeout(function() {
