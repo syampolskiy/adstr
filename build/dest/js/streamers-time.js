@@ -22,10 +22,24 @@ function removeTimeChart(chrtStngs, chkbxVl, cnvs){
 }
 
 function getCheckedTimeChIDs() {
-    var res = [];
+    var res = {
+        orders: [],
+        layers: [],
+        channels: []
+    };
     $.each($('.timeChart_select input[type="checkbox"]:checked'), function (i) {
-        var id = $(this).attr("data-obj-id");//parseInt($(this).attr("id").split("_")[1]);
-        res.push(id);
+        var id = $(this).attr("data-obj-id");
+        switch ($(this).attr("data-type")){
+            case "order":
+                res.orders.push(id);
+                break;
+            case "layer":
+                res.layers.push(id);
+                break;
+            case "channel":
+                res.channels.push(id);
+                break;
+        }
     });
     return res;
 }
@@ -59,53 +73,90 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
             channelsId: {}
         }
     };
-    // $(".loading-overlay").addClass('hide');
+
     console.log('Loading');
-    $.ajax({
-        url: "/Admin/ChartsStreamer/AmountOfTime",
-        type: "POST",
-        data: {ids: Id,  startDate: dateStart, endDate:  dateEnd},
-        dataType: "json",
-        async: false,
-        success: function (data) {
-            if(!data.error){
+    for (key in checkboxesID) {
+        if(checkboxesID[key].length === 0)
+            continue;
 
-                //Labels for CHART
-                resultTimeChart.days.labels = data.chartData.days.labels.slice(0);
-                var daysLabels = resultTimeChart.days.labels;
-                var daysLabelsLen = daysLabels.length;
+        var ajaxUrl = "";
+        var ajaxData = { startDate: dateStart, endDate: dateEnd };
+        var arrKey = "";
 
-                for(i = 0; i < Math.ceil(daysLabelsLen/7); ++i){
-                    var ind = i*7;
-                    resultTimeChart.weeks.labels[i] = daysLabels[ind];
-                }
-                //Values for CHART
-                resultTimeChart.days.channelsId = JSON.stringify(data.chartData.days.channelsId);
-                resultTimeChart.days.channelsId = JSON.parse(resultTimeChart.days.channelsId);
-                console.log(data);
-            } else {
-                console.log(data);
-            }
-        }, error: function (data) {
-            console.log(data);
+        switch(key){
+            case "channels":
+                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTime";
+                ajaxData.channelsId = checkboxesID[key];
+                arrKey = "channelsId";
+                break;
+            case "layers":
+                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTimeByLayers";
+                ajaxData.layersId = checkboxesID[key];
+                arrKey = "layersId";
+                break;
+            case "orders":
+                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTimeByOrders ";
+                ajaxData.ordersId = checkboxesID[key];
+                arrKey = "ordersId";
+                break;
         }
 
-    });
-    // $(".loading-overlay").removeClass('hide');
-    console.log('Ready');
-    return resultTimeChart;
 
+        $.ajax({
+            url: ajaxUrl,
+            type: "POST",
+            data: ajaxData,
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                if(!data.error){
+                    //Labels for CHART
+                    resultTimeChart.days.labels = data.chartData.days.labels.slice(0);
+                    var daysLabels = resultTimeChart.days.labels;
+                    var daysLabelsLen = daysLabels.length;
+
+                    for(i = 0; i < Math.ceil(daysLabelsLen/7); ++i){
+                        var ind = i*7;
+                        resultTimeChart.weeks.labels[i] = daysLabels[ind];
+                    }
+
+                    //Values for CHART
+                    resultTimeChart.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
+                    resultTimeChart.days[arrKey] = JSON.parse( resultTimeChart.days[arrKey]);
+
+                } else {
+                    console.log(data);
+                }
+            }, error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+    console.log('Ready');
+    return  resultTimeChart;
 }
 
 function setTimeDaysData(chrtStngs, dataArr, data, chrt){
     chrtStngs.Days.data.labels = data.days.labels;
 
     $.each(data.days.channelsId, function (index, value) {
-        dataArr[index] =  value;
-        removeTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
-
+        removeTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
     });
+
+    $.each(data.days.layersId, function (index, value) {
+        removeTimeChart(chrtStngs.Days,$("div.timeChart_select input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), value, chrt);
+    });
+
+    $.each(data.days.ordersId, function (index, value) {
+        removeTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), value, chrt);
+    });
+
+
+
 }
 
 function setTimeWeeksData(chrtStngs, dataArr, data, chrt){
@@ -129,8 +180,52 @@ function setTimeWeeksData(chrtStngs, dataArr, data, chrt){
         chrtStngs.Weeks.data.labels = data.weeks.labels;
 
 
-        removeTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
+
+    });
+
+    $.each(data.days.layersId, function (index, value) {
+        var tmp = [],
+            i = 0,
+            k = 0;
+
+        for(i = 0; i < Math.ceil(value.length/7); ++i){
+            tmp[i] = 0;
+        }
+
+        for (i = 0, k = 0; i < value.length; ++i, k=div(i,7)){
+            tmp[k] += value[i];
+        }
+
+        dataArr[index] = tmp;
+
+
+        chrtStngs.Weeks.data.labels = data.weeks.labels;
+
+        removeTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), value, chrt);
+    });
+    $.each(data.days.ordersId, function (index, value) {
+        var tmp = [],
+            i = 0,
+            k = 0;
+
+        for(i = 0; i < Math.ceil(value.length/7); ++i){
+            tmp[i] = 0;
+        }
+
+        for (i = 0, k = 0; i < value.length; ++i, k=div(i,7)){
+            tmp[k] += value[i];
+        }
+
+        dataArr[index] = tmp;
+
+
+        chrtStngs.Weeks.data.labels = data.weeks.labels;
+
+        removeTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), value, chrt);
     });
 }
 
@@ -318,6 +413,7 @@ $(function () {
 
     $("#time-chart").click();
 });
+
 
 
 

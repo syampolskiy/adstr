@@ -22,10 +22,20 @@ function removeChartViews(chrtStngs, chkbxVl, cnvs){
 }
 
 function getViewsCheckedIDs() {
-    var res = [];
+    var res = {
+        banners: [],
+        channels: []
+    };
     $.each($('.views-select input[type="checkbox"]:checked'), function (i) {
-        var id = parseInt($(this).attr("id").split("_")[1]);
-        res.push(id);
+        var id = $(this).attr("data-obj-id");
+        switch ($(this).attr("data-type")){
+            case "banner":
+                res.banners.push(id);
+                break;
+            case "channel":
+                res.channels.push(id);
+                break;
+        }
     });
     return res;
 }
@@ -41,9 +51,9 @@ function ShowFirstViewChecbox(chkBx) {
     $(".hida").hide();
 }
 
-function div(val, by){
-    return (val - val % by) / by;
-}
+// function div(val, by){
+//     return (val - val % by) / by;
+// }
 
 function getViewChartsData(checkboxesID, dateStart, dateEnd){
     var viewID = checkboxesID;
@@ -52,44 +62,71 @@ function getViewChartsData(checkboxesID, dateStart, dateEnd){
     var resultViews = {
         views: {
             labels: [],
-            viewsId: {}
+            // viewsId: {}
         }
     };
-    // $(".loading-overlay").addClass('hide');
-    $.ajax({
-        url: "/Admin/ChartsAdvertiser/Views",
-        type: "POST",
-        data: {campaignsId: viewID,  startDate: dateStart, endDate:  dateEnd},
-        dataType: "json",
-        async: false,
-        success: function (data) {
-            console.log(data);
+    console.log('Loading');
+    for (key in checkboxesID) {
+        if(checkboxesID[key].length === 0)
+            continue;
 
-            if(!data.error){
-                //Labels for CHART
-                resultViews.views.labels = data.chartData.labels.slice(0);
-                //Values for CHART
-                resultViews.views.viewsId = JSON.stringify(data.chartData.campaignsId);
-                resultViews.views.viewsId = JSON.parse(resultViews.views.viewsId);
+        var ajaxUrl = "";
+        var ajaxData = { startDate: dateStart, endDate: dateEnd };
+        var arrKey = "";
 
-            } else {
+        switch(key){
+            case "channels":
+                ajaxUrl = "/Admin/ChartsAdvertiser/ViewsByChannels";
+                ajaxData.channelsId = checkboxesID[key];
+                arrKey = "channelsId";
+                break;
+            case "banners":
+                ajaxUrl = "/Admin/ChartsAdvertiser/Views";
+                ajaxData.campaignsId = checkboxesID[key];
+                arrKey = "campaignsId";
+                break;
+        }
+
+
+        $.ajax({
+            url: ajaxUrl,
+            type: "POST",
+            data: ajaxData,
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                if(!data.error){
+                    //Labels for CHART
+                    resultViews.views.labels = data.chartData.labels.slice(0);
+
+                    //Values for CHART
+                    resultViews.views[arrKey] = JSON.stringify(data.chartData[arrKey]);
+                    resultViews.views[arrKey] = JSON.parse( resultViews.views[arrKey]);
+
+                } else {
+                    console.log(data);
+                }
+            }, error: function (data) {
                 console.log(data);
             }
-        }, error: function (data) {
-            console.log(data);
-        }
-    });
-    // $(".loading-overlay").removeClass('hide');
-    return resultViews;
+        });
+    }
+    console.log('Ready');
+    return  resultViews;
 }
 
 function setViewsData(chrtStngs, dataArr, data, chrt){
     chrtStngs.Days.data.labels = data.views.labels;
 
-    $.each(data.views.viewsId, function (index, value) {
-        dataArr[index] =  value;
-        removeChartViews(chrtStngs.Days,  $("div.views-select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addChartViews(chrtStngs.Days, $("div.views-select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
+    $.each(data.views.channelsId, function (index, value) {
+        removeChartViews(chrtStngs.Days, $("div.views-select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addChartViews(chrtStngs.Days, $("div.views-select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
+    });
+
+    $.each(data.views.campaignsId, function (index, value) {
+        removeChartViews(chrtStngs.Days,$("div.views-select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), chrt);
+        addChartViews(chrtStngs.Days, $("div.views-select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), value, chrt);
     });
 }
 function handleViewDateChange(s_date, e_date, chS, chDD, chDW){
@@ -222,9 +259,9 @@ $(function () {
 
         }
     });
-  $("#views-chart-adv").click(function(){
-    handleViewDateChange(START_DATE_VIEW, END_DATE_VIEW, chartsViewsSettings, chartsViewsDataDays);
-  });
+    $("#views-chart-adv").click(function(){
+        handleViewDateChange(START_DATE_VIEW, END_DATE_VIEW, chartsViewsSettings, chartsViewsDataDays);
+    });
 });
 
 

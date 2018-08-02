@@ -85,7 +85,7 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
 
         switch(key){
             case "channels":
-                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTime";
+                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTimeByChannels";
                 ajaxData.channelsId = checkboxesID[key];
                 arrKey = "channelsId";
                 break;

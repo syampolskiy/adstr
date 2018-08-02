@@ -30,15 +30,15 @@ function getCheckedViewsChIDs() {
     $.each($('.mutliSelect_followers input[type="checkbox"]:checked'), function (i) {
         var id = $(this).attr("data-obj-id");
         switch ($(this).attr("data-type")){
-          case "order":
-              res.orders.push(id);
-              break;
-          case "layer":
-              res.layers.push(id);
-              break;
-          case "channel":
-              res.channels.push(id);
-              break;
+            case "order":
+                res.orders.push(id);
+                break;
+            case "layer":
+                res.layers.push(id);
+                break;
+            case "channel":
+                res.channels.push(id);
+                break;
         }
     });
     return res;
@@ -74,55 +74,55 @@ function getChartsViewsData(checkboxesID, dateStart, dateEnd){
     console.log('Loading');
 
     for (key in checkboxesID) {
-      if(checkboxesID[key].length === 0)
-          continue;
+        if(checkboxesID[key].length === 0)
+            continue;
 
-      var ajaxUrl = "";
-      var ajaxData = { startDate: dateStart, endDate: dateEnd };
-      var arrKey = "";
+        var ajaxUrl = "";
+        var ajaxData = { startDate: dateStart, endDate: dateEnd };
+        var arrKey = "";
 
-      switch(key){
+        switch(key){
 
-          case "channels":
-          ajaxUrl = "/Admin/ChartsStreamer/ViewsByChannels";
-          ajaxData.channelsId = checkboxesID[key];
-          arrKey = "channelsId";
-          break;
-        case "layers":
-          ajaxUrl = "/Admin/ChartsStreamer/ViewsByLayers";
-          ajaxData.layersId = checkboxesID[key];
-          arrKey = "layersId";
-          break;
-        case "orders":
-          ajaxUrl = "/Admin/ChartsStreamer/Views";
-          ajaxData.ordersId = checkboxesID[key];
-          arrKey = "ordersId";
-          break;
-      }
-
-      $.ajax({
-        url: ajaxUrl,
-        type: "POST",
-        data: ajaxData,
-        dataType: "json",
-        async: false,
-        success: function (data) {
-          console.log(data);
-          if(!data.error){
-            //Labels for CHART
-            resultVFChart.days.labels = data.chartData.days.labels.slice(0);
-
-            //Values for CHART
-            resultVFChart.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
-            resultVFChart.days[arrKey] = JSON.parse(resultVFChart.days[arrKey]);
-
-          } else {
-            console.log(data);
-          }
-        }, error: function (data) {
-          console.log(data);
+            case "channels":
+                ajaxUrl = "/Admin/ChartsStreamer/ViewsByChannels";
+                ajaxData.channelsId = checkboxesID[key];
+                arrKey = "channelsId";
+                break;
+            case "layers":
+                ajaxUrl = "/Admin/ChartsStreamer/ViewsByLayers";
+                ajaxData.layersId = checkboxesID[key];
+                arrKey = "layersId";
+                break;
+            case "orders":
+                ajaxUrl = "/Admin/ChartsStreamer/Views";
+                ajaxData.ordersId = checkboxesID[key];
+                arrKey = "ordersId";
+                break;
         }
-      });
+
+        $.ajax({
+            url: ajaxUrl,
+            type: "POST",
+            data: ajaxData,
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                if(!data.error){
+                    //Labels for CHART
+                    resultVFChart.days.labels = data.chartData.days.labels.slice(0);
+
+                    //Values for CHART
+                    resultVFChart.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
+                    resultVFChart.days[arrKey] = JSON.parse(resultVFChart.days[arrKey]);
+
+                } else {
+                    console.log(data);
+                }
+            }, error: function (data) {
+                console.log(data);
+            }
+        });
     }
     console.log('Ready');
     return resultVFChart;
@@ -139,15 +139,15 @@ function setViewsData(chrtStngs, dataArr, data, chrt){
         addViewsChart(chrtStngs.Views, $("div.mutliSelect_followers input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
     });
 
-      $.each(data.days.layersId, function (index, value) {
+    $.each(data.days.layersId, function (index, value) {
         removeViewsChart(chrtStngs.Views, $("div.mutliSelect_followers input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), chrt);
         addViewsChart(chrtStngs.Views, $("div.mutliSelect_followers input[type='checkbox'][data-type='layer'][data-obj-id='"+index+"']"), value, chrt);
-      });
+    });
 
-      $.each(data.days.ordersId, function (index, value) {
+    $.each(data.days.ordersId, function (index, value) {
         removeViewsChart(chrtStngs.Views, $("div.mutliSelect_followers input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), chrt);
         addViewsChart(chrtStngs.Views, $("div.mutliSelect_followers input[type='checkbox'][data-type='order'][data-obj-id='"+index+"']"), value, chrt);
-      });
+    });
 }
 
 
