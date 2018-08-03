@@ -21,6 +21,7 @@ function removeTimeChart(chrtStngs, chkbxVl, cnvs){
 
 }
 
+
 function getCheckedTimeChIDs() {
     var res = {
         orders: [],
