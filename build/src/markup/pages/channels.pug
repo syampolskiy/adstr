@@ -130,7 +130,9 @@ block content
 								option Twitch.TV
 								option test
 							.chbox
-								input#IsAllowAtomaticPlacement(type='checkbox' name='check' value='' checked)
+								input(name='IsAllowAtomaticPlacement', type='hidden', value='false')
+								input#IsAllowAtomaticPlacement(data-val='true', data-val-required='The IsAllowAtomaticPlacement field is required.', name='IsAllowAtomaticPlacement', type='checkbox', value='true')
+
 								label(for='IsAllowAtomaticPlacement') Allow Automatic Placement
 							.btn-block
 								a(class='btn btn-modal btn-modal-blue' href='') Save
