@@ -128,6 +128,13 @@ $(function() {
 	});
 
 
+	$('#mychbx').change(function() {
+		if ($('#mychbx').is(':checked')) {
+			$('#IsAllowAtomaticPlacement').prop('checked', true);
+		} else {
+			$('#IsAllowAtomaticPlacement').prop('checked', false);
+		}
+	})
 
 });
 $(function() {

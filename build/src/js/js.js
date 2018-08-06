@@ -126,10 +126,13 @@ $(function() {
         }
     });
 
- if( $("#mychbx").is(':checked')) {
-   $("#IsAllowAtomaticPlacement")[0].checked = true;
- }else {
-   $("#IsAllowAtomaticPlacement")[0].checked = false;
- }
+
+$('#mychbx').change(function () {
+  if($('#mychbx').is(':checked')){
+    $('#IsAllowAtomaticPlacement').prop('checked', true);
+  }else {
+    $('#IsAllowAtomaticPlacement').prop('checked', false);
+  }
+})
 
 });

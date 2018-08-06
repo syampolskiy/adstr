@@ -1988,6 +1988,11 @@ form#wallet-chart {
 	position: relative;
 }
 
+.pay {
+	font-size: 15px !important;
+	color: #7f8fa4 !important;
+}
+
 .checkbox-custom,
 .radio-custom,
 .label {
@@ -2017,6 +2022,8 @@ form#wallet-chart {
 span.label.pay {
 	margin-left: 15px;
 	font-family: 'Noto Sans', sans-serif;
+	color: inherit !important;
+	font-size: 100%;
 }
 
 .red-container {
@@ -2201,7 +2208,7 @@ button.chart-close {
 	border: 1px solid #ced0da;
 	border-radius: 4px;
 	outline: none;
-	background: url(/Content/images/Dropdown.png) no-repeat 94% #e9edf1;
+	background: url(../Content/images/Dropdown.png) no-repeat 94% #e9edf1;
 	display: inline-block;
 	position: relative;
 	color: #354052;
@@ -2222,7 +2229,7 @@ button.chart-close {
 #addLayer select:focus {
 	border: 1px solid #2ea2f8;
 	border-radius: 4px;
-	background: url(/Content/images/Dropdown.png) no-repeat 94%, linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+	background: url(../Content/images/Dropdown.png) no-repeat 94%, linear-gradient(to top, #f1f3f7 0%, #fff 100%);
 }
 .modal-content label,
 #confirmChannel label,
@@ -2468,8 +2475,18 @@ span.cell-banner-price {
 	display: block;
 	text-align: center;
 	color: #000;
+	padding: 5px 0 5px 0;
+	border-bottom: 1px solid #7f8fa4;
+	margin-bottom: 5px;
+	margin-top: 5px;
 }
 
-a .balance {
-	color: #fff;
+a.balance {
+	color: #fff !important;
+}
+
+.modal-content label,
+#confirmChannel label,
+#addLayer label {
+	display: block;
 }
