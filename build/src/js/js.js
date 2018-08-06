@@ -126,6 +126,10 @@ $(function() {
         }
     });
 
-
+ if( $("#mychbx").is(':checked')) {
+   $("#IsAllowAtomaticPlacement")[0].checked = true;
+ }else {
+   $("#IsAllowAtomaticPlacement")[0].checked = false;
+ }
 
 });

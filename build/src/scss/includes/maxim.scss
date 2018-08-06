@@ -655,10 +655,14 @@ form#wallet-chart {
 .radio:checked + .radio-custom::before {
   border-radius: 50%;
 }
+
 span.label.pay {
-  margin-left: 15px;
-  font-family: 'Noto Sans', sans-serif;
+    margin-left: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    color: inherit !important;
+    font-size: 100%;
 }
+
 .red-container {
   width: 5%;
 }
@@ -824,7 +828,7 @@ button.chart-close {
     border: 1px solid #ced0da;
     border-radius: 4px;
     outline: none;
-    background:url(/Content/images/Dropdown.png) no-repeat 94% #e9edf1;
+    background:url(../Content/images/Dropdown.png) no-repeat 94% #e9edf1;
     display: inline-block;
     position: relative;
     color:#354052;
@@ -843,7 +847,7 @@ button.chart-close {
   select:focus {
     border: 1px solid #2ea2f8;
     border-radius: 4px;
-    background: url(/Content/images/Dropdown.png) no-repeat 94% , linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+    background: url(../Content/images/Dropdown.png) no-repeat 94% , linear-gradient(to top, #f1f3f7 0%, #fff 100%);
   }
 
   label {
