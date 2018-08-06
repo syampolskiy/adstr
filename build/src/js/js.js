@@ -130,8 +130,10 @@ $(function() {
 $('#mychbx').change(function () {
   if($('#mychbx').is(':checked')){
     $('#IsAllowAtomaticPlacement').prop('checked', true);
+    $('#IsAllowAtomaticPlacement').val(true);
   }else {
     $('#IsAllowAtomaticPlacement').prop('checked', false);
+    $('#IsAllowAtomaticPlacement').val(false);
   }
 })
 
