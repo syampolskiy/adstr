@@ -100,36 +100,36 @@ function getChartsData(checkboxesID, dateStart, dateEnd){
                 arrKey = "ordersId";
                 break;
         }
-        $.ajax({
-            url: ajaxUrl,
-            type: "POST",
-            data: ajaxData,
-            dataType: "json",
-            async: false,
-            success: function (data) {
-                console.log(data);
-                if(!data.error){
-                    //Labels for CHART
-                    result.days.labels = data.chartData.days.labels.slice(0);
-                    var daysLabels = result.days.labels;
-                    var daysLabelsLen = daysLabels.length;
+    $.ajax({
+        url: ajaxUrl,
+        type: "POST",
+        data: ajaxData,
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            console.log(data);
+            if(!data.error){
+                //Labels for CHART
+                result.days.labels = data.chartData.days.labels.slice(0);
+                var daysLabels = result.days.labels;
+                var daysLabelsLen = daysLabels.length;
 
-                    for(i = 0; i < Math.ceil(daysLabelsLen/7); ++i){
-                        var ind = i*7;
-                        result.weeks.labels[i] = daysLabels[ind];
-                    }
-
-                    //Values for CHART
-                    result.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
-                    result.days[arrKey] = JSON.parse( result.days[arrKey]);
-
-                } else {
-                    console.log(data);
+                for(i = 0; i < Math.ceil(daysLabelsLen/7); ++i){
+                    var ind = i*7;
+                    result.weeks.labels[i] = daysLabels[ind];
                 }
-            }, error: function (data) {
+
+                //Values for CHART
+                result.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
+                result.days[arrKey] = JSON.parse( result.days[arrKey]);
+
+            } else {
                 console.log(data);
             }
-        });
+        }, error: function (data) {
+            console.log(data);
+        }
+    });
     }
     console.log('Ready');
     return  result;

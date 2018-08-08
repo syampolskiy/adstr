@@ -1392,6 +1392,10 @@ html {
 	background: url(/Content/images/Dropdown.png) no-repeat 97%, linear-gradient(to top, #f1f3f7 0%, #fff 100%);
 }
 
+.ui-datepicker-calendar .ui-state-highlight {
+	background: #bdc0c5 !important;
+}
+
 .ui-tabs .ui-tabs-nav {
 	margin: 0;
 	padding: .2em 1.55em 0;
@@ -1883,6 +1887,7 @@ form#wallet-chart {
 	font-weight: bold;
 	font-size: 20px;
 	display: block;
+	width: inherit;
 	margin: 0 auto;
 }
 .chart-info span.info-red {
@@ -2489,4 +2494,10 @@ a.balance {
 #confirmChannel label,
 #addLayer label {
 	display: block;
+}
+
+.control-panel {
+	width: 95%;
+	display: block;
+	margin: 20px auto;
 }

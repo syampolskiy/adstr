@@ -21,7 +21,6 @@ function removeTimeChart(chrtStngs, chkbxVl, cnvs){
 
 }
 
-
 function getCheckedTimeChIDs() {
     var res = {
         orders: [],
@@ -86,7 +85,7 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
 
         switch(key){
             case "channels":
-                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTimeByChannels";
+                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTime";
                 ajaxData.channelsId = checkboxesID[key];
                 arrKey = "channelsId";
                 break;

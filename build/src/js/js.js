@@ -135,6 +135,6 @@ $('#mychbx').change(function () {
     $('#IsAllowAtomaticPlacement').prop('checked', false);
     $('#IsAllowAtomaticPlacement').val(false);
   }
-})
+});
 
 });
