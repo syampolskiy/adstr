@@ -2501,3 +2501,24 @@ a.balance {
 	display: block;
 	margin: 20px auto;
 }
+
+th {
+	text-align: center;
+}
+
+.label {
+	padding: 0;
+}
+
+.btn-primary:hover {
+	color: #333;
+	background-color: #e6e6e6 !important;
+	border-color: #adadad;
+}
+
+.btn-primary {
+	background-color: #f2f6fc !important;
+	color: #535b76 !important;
+	border-color: #d1d3dc !important;
+	outline: none !important;
+}
