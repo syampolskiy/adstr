@@ -2,7 +2,7 @@ function addTimeChart(chrtStngs, chkbxVl, chrtDataWeek, cnvs){
     var newTimeDataset = {
         label: chkbxVl.val(),
         borderColor: 'transparent',
-        backgroundColor: rndColor(),
+        backgroundColor:rndColor() ,
         data: chrtDataWeek,
     };
 
@@ -22,10 +22,20 @@ function removeTimeChart(chrtStngs, chkbxVl, cnvs){
 }
 
 function getCheckedTimeChIDs() {
-    var res = [];
+    var res = {
+        banners: [],
+        channels: []
+    };
     $.each($('.timeChart_select input[type="checkbox"]:checked'), function (i) {
-        var id = parseInt($(this).attr("id").split("_")[1]);
-        res.push(id);
+        var id = $(this).attr("data-obj-id");
+        switch ($(this).attr("data-type")){
+            case "banner":
+                res.banners.push(id);
+                break;
+            case "channel":
+                res.channels.push(id);
+                break;
+        }
     });
     return res;
 }
@@ -41,12 +51,12 @@ function ShowFirstTimeChartChecbox(chkBx) {
     $(".hida").hide();
 }
 
-function div(val, by){
-    return (val - val % by) / by;
-}
+// function div(val, by){
+//     return (val - val % by) / by;
+// }
 
 function getChartsTimeData(checkboxesID, dateStart, dateEnd){
-    var ordID = checkboxesID;
+    var Id = checkboxesID;
 
     //на беке загнать данные в ассоциативный массив и перегнать его в json json_encode(); в таком виде:
     var resultTimeChart = {
@@ -59,45 +69,81 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
             channelsId: {}
         }
     };
-    $.ajax({
-        url: "/Admin/ChartsAdvertiser/AmountOfTime",
-        type: "POST",
-        data: {campaignsId: ordID,  startDate: dateStart, endDate:  dateEnd},
-        dataType: "json",
-        async: false,
-        success: function (data) {
-            if(!data.error){
-                console.log(data);
-                //Labels for CHART
-                resultTimeChart.days.labels = data.chartData.labels.slice(0);
-                var daysLabels = resultTimeChart.days.labels;
-                var daysLabelsLen = daysLabels.length;
 
-                for(i = 0; i < Math.ceil(daysLabelsLen/7); ++i){
-                    var ind = i*7;
-                    resultTimeChart.weeks.labels[i] = daysLabels[ind];
+    console.log('Loading');
+    for (key in checkboxesID) {
+        if(checkboxesID[key].length === 0)
+            continue;
+
+        var ajaxUrl = "";
+        var ajaxData = { startDate: dateStart, endDate: dateEnd };
+        var arrKey = "";
+
+        switch(key){
+            case "channels":
+                ajaxUrl = "/Admin/ChartsAdvertiser/AmountOfTimeByChannels";
+                ajaxData.channelsId = checkboxesID[key];
+                arrKey = "channelsId";
+                break;
+            case "banners":
+                ajaxUrl = "/Admin/ChartsAdvertiser/AmountOfTime";
+                ajaxData.campaignsId = checkboxesID[key];
+                arrKey = "campaignsId";
+                break;
+        }
+
+
+        $.ajax({
+            url: ajaxUrl,
+            type: "POST",
+            data: ajaxData,
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                if(!data.error){
+                    //Labels for CHART
+                    resultTimeChart.days.labels = data.chartData.labels.slice(0);
+                    var daysLabels = resultTimeChart.days.labels;
+                    var daysLabelsLen = daysLabels.length;
+
+                    for(i = 0; i < Math.ceil(daysLabelsLen/7); ++i){
+                        var ind = i*7;
+                        resultTimeChart.weeks.labels[i] = daysLabels[ind];
+                    }
+
+                    //Values for CHART
+                    resultTimeChart.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
+                    resultTimeChart.days[arrKey] = JSON.parse( resultTimeChart.days[arrKey]);
+
+                } else {
+                    console.log(data);
                 }
-                //Values for CHART
-                resultTimeChart.days.channelsId = JSON.stringify(data.chartData.days.campaignsId);
-                resultTimeChart.days.channelsId = JSON.parse(resultTimeChart.days.channelsId);
-            } else {
+            }, error: function (data) {
                 console.log(data);
             }
-        }, error: function (data) {
-            console.log(data);
-        }
-    });
-    return resultTimeChart;
+        });
+    }
+    console.log('Ready');
+    return  resultTimeChart;
 }
 
 function setTimeDaysData(chrtStngs, dataArr, data, chrt){
     chrtStngs.Days.data.labels = data.days.labels;
 
     $.each(data.days.channelsId, function (index, value) {
-        dataArr[index] =  value;
-        removeTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addTimeChart(chrtStngs.Days,  $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
     });
+
+    $.each(data.days.campaignsId, function (index, value) {
+        removeTimeChart(chrtStngs.Days,$("div.timeChart_select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Days, $("div.timeChart_select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), value, chrt);
+    });
+
+
+
+
 }
 
 function setTimeWeeksData(chrtStngs, dataArr, data, chrt){
@@ -121,18 +167,33 @@ function setTimeWeeksData(chrtStngs, dataArr, data, chrt){
         chrtStngs.Weeks.data.labels = data.weeks.labels;
 
 
-        removeTimeChart(chrtStngs.Weeks,  $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addTimeChart(chrtStngs.Weeks,  $("div.timeChart_select input[type='checkbox'][data-obj-id='"+index+"']"), dataArr[index], chrt);
+        removeTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), value, chrt);
+
     });
-}
+
+    $.each(data.days.campaignsId, function (index, value) {
+        var tmp = [],
+            i = 0,
+            k = 0;
+
+        for(i = 0; i < Math.ceil(value.length/7); ++i){
+            tmp[i] = 0;
+        }
+
+        for (i = 0, k = 0; i < value.length; ++i, k=div(i,7)){
+            tmp[k] += value[i];
+        }
+
+        dataArr[index] = tmp;
 
 
-function dateforWeeks(){
-    var tmp = [];
-    $.each($("#date_range_time td.selected"), function (i) {
-        tmp.push($(this).children("a").text()+"."+$(this).attr("data-month")+"."+$(this).attr("data-year"));
+        chrtStngs.Weeks.data.labels = data.weeks.labels;
+
+        removeTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), chrt);
+        addTimeChart(chrtStngs.Weeks, $("div.timeChart_select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), value, chrt);
     });
-    return tmp;
+
 }
 
 function handleDateTimeChange(s_date, e_date, chS, chDD, chDW){
@@ -142,6 +203,7 @@ function handleDateTimeChange(s_date, e_date, chS, chDD, chDW){
 
         setTimeDaysData(chS, chDD, data, window.myLineTime);
         setTimeWeeksData(chS, chDW, data, window.myLineTime2);
+
     }, 100);
 }
 
@@ -263,14 +325,13 @@ $(function () {
 
     // SELECT CHECKBOX IN DROPDOWN
     $('.timeChart_select input[type="checkbox"]').on('click', function () {
-        var title_t = $(this).closest('.timeChart_select').find('input[type="checkbox"]').val(),
-            title_t = $(this).val() + ",";
+        var title = $(this).val() + ", ";//$(this).closest('.timeChart_select').find('input[type="checkbox"]').val();
         if ($(this).is(':checked')) {
-            var t_show = '<span title_t="' + title_t + '">' + title_t + '</span>';
+            var t_show = '<span title_t="' + title + '">' + title + '</span>';
             $('.timeChart').append(t_show);
             $(".hida").hide();
         } else {
-            $('span[title_t="' + title_t + '"]').remove();
+            $('span[title_t="' + title + '"]').remove();
             var ret = $(".hida");
             $('.timeChartIdsMenu dt a').append(ret);
         }
@@ -311,11 +372,12 @@ $(function () {
             removeTimeChart(chartsTimeSettings.Weeks, t, window.myLineTime2);
         }
     });
-  $("#time-chart-adv").click(function(){
-    handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
-  });
 
-  $("#time-chart-adv").click();
+    $("#time-chart-adv").click(function(){
+        handleDateTimeChange(START_DATE_TIME, END_DATE_TIME, chartsTimeSettings, chartsDataTimeDays, chartsDataTimeWeeks);
+    });
+
+    $("#time-chart-adv").click();
 });
 
 

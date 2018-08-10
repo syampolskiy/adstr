@@ -22,10 +22,20 @@ function removeChartCoast(chrtStngs, chkbxVl, cnvs){
 }
 
 function getCoastCheckedIDs() {
-    var res = [];
+    var res = {
+        banners: [],
+        channels: []
+    };
     $.each($('.coast-select input[type="checkbox"]:checked'), function (i) {
-        var id = parseInt($(this).attr("id").split("_")[1]);
-        res.push(id);
+        var id = $(this).attr("data-obj-id");
+        switch ($(this).attr("data-type")){
+            case "banner":
+                res.banners.push(id);
+                break;
+            case "channel":
+                res.channels.push(id);
+                break;
+        }
     });
     return res;
 }
@@ -41,9 +51,9 @@ function ShowFirstCoastChecbox(chkBx) {
     $(".hida").hide();
 }
 
-function div(val, by){
-    return (val - val % by) / by;
-}
+// function div(val, by){
+//     return (val - val % by) / by;
+// }
 
 function getCoastChartsData(checkboxesID, dateStart, dateEnd){
     var ordID = checkboxesID;
@@ -52,33 +62,58 @@ function getCoastChartsData(checkboxesID, dateStart, dateEnd){
     var resultViews = {
         days: {
             labels: [],
-            channelsId: {}
+            // channelsId: {}
         }
     };
-    // $(".loading-overlay").addClass('hide');
-    $.ajax({
-        url: "/Admin/ChartsAdvertiser/Cost",
-        type: "POST",
-        data: {campaignsId: ordID,  startDate: dateStart, endDate:  dateEnd},
-        dataType: "json",
-        async: false,
-        success: function (data) {
-            if(!data.error){
+    console.log('Loading');
+    for (key in checkboxesID) {
+        if(checkboxesID[key].length === 0)
+            continue;
+
+        var ajaxUrl = "";
+        var ajaxData = { startDate: dateStart, endDate: dateEnd };
+        var arrKey = "";
+
+        switch(key){
+            case "channels":
+                ajaxUrl = "/Admin/ChartsAdvertiser/CostByChannels";
+                ajaxData.channelsId = checkboxesID[key];
+                arrKey = "channelsId";
+                break;
+            case "banners":
+                ajaxUrl = "/Admin/ChartsAdvertiser/Cost";
+                ajaxData.campaignsId = checkboxesID[key];
+                arrKey = "campaignsId";
+                break;
+        }
+
+
+        $.ajax({
+            url: ajaxUrl,
+            type: "POST",
+            data: ajaxData,
+            dataType: "json",
+            async: false,
+            success: function (data) {
                 console.log(data);
-                //Labels for CHART
-                resultViews.days.labels = data.chartData.days.labels.slice(0);
-                //Values for CHART
-                resultViews.days.channelsId = JSON.stringify(data.chartData.days.campaignsId);
-                resultViews.days.channelsId = JSON.parse(resultViews.days.channelsId);
-            } else {
+                if(!data.error){
+                    //Labels for CHART
+                    resultViews.days.labels = data.chartData.days.labels.slice(0);
+
+                    //Values for CHART
+                    resultViews.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
+                    resultViews.days[arrKey] = JSON.parse( resultViews.days[arrKey]);
+
+                } else {
+                    console.log(data);
+                }
+            }, error: function (data) {
                 console.log(data);
             }
-        }, error: function (data) {
-            console.log(data);
-        }
-    });
-    // $(".loading-overlay").removeClass('hide');
-    return resultViews;
+        });
+    }
+    console.log('Ready');
+    return  resultViews;
 }
 
 function setCoastData(chrtStngs, dataArr, data, chrt){
@@ -86,8 +121,12 @@ function setCoastData(chrtStngs, dataArr, data, chrt){
 
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
-        removeChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
-        addChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-obj-id='"+index+"']"), chrt);
+        removeChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+    });
+    $.each(data.days.campaignsId, function (index, value) {
+        removeChartCoast(chrtStngs.Days,$("div.coast-select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), chrt);
+        addChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), value, chrt);
     });
 }
 function handleCoastDateChange(s_date, e_date, chS, chDD, chDW){
