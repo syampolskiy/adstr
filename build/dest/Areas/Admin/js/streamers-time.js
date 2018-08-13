@@ -85,7 +85,7 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
 
         switch(key){
             case "channels":
-                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTimeByChannels";
+                ajaxUrl = "/Admin/ChartsStreamer/AmountOfTime";
                 ajaxData.channelsId = checkboxesID[key];
                 arrKey = "channelsId";
                 break;
@@ -127,6 +127,7 @@ function getChartsTimeData(checkboxesID, dateStart, dateEnd){
 
                 } else {
                     console.log(data);
+                    alert('The chosen period must not exceed 30 (31) days')
                 }
             }, error: function (data) {
                 console.log(data);

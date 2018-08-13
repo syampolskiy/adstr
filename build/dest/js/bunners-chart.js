@@ -79,6 +79,7 @@ function getBunnerChartsData(checkboxesID, dateStart, dateEnd){
 
             } else {
                 console.log(data)
+                 alert('The chosen period must not exceed 30 (31) days')
             }
         }, error: function (data) {
         }
