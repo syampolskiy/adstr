@@ -32,12 +32,24 @@ $(function() {
   // scrollable content --/
 
   // init selectric
-  $('.js-init-selectric').selectric({
-    optionsItemBuilder: function(itemData, element, index) {
-      var content = $(itemData.element).data('content');
-      return content;
+    function AdStreamActionDropDownControlInit(){
+      $('.js-init-selectric').selectric({
+        optionsItemBuilder: function(itemData, element, index) {
+          var content = $(itemData.element).data('content');
+          return content;
+        }
+      });
+
+      $('.js-init-selectric').on('change', function() {
+        if ($('.js-init-selectric option:selected').attr('class') == 'target-blank') {
+          window.open($(this).val(), '_blank');
+        } else {
+          window.location.href = $(this).val()
+        }
+      });
     }
-  });
+
+  AdStreamActionDropDownControlInit();
   // init selectric --/
 
   // init responsive table
@@ -116,16 +128,6 @@ $(function() {
     });
   });
 
-
-
-
-  $('.js-init-selectric').on('change', function() {
-    if ($('.js-init-selectric option:selected').attr('class') == 'target-blank') {
-      window.open($(this).val(), '_blank');
-    } else {
-      window.location.href = $(this).val()
-    }
-  });
 
 
   $('#mychbx').change(function() {
