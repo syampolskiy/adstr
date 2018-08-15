@@ -98,7 +98,7 @@ function getCoastChartsData(checkboxesID, dateStart, dateEnd){
                 console.log(data);
                 if(!data.error){
                     //Labels for CHART
-                    resultViews.days.labels = data.chartData.days.labels.slice(0);
+                    resultViews.days.labels = data.chartData.labels.slice(0);
 
                     //Values for CHART
                     resultViews.days[arrKey] = JSON.stringify(data.chartData.days[arrKey]);
