@@ -123,7 +123,7 @@ function setCoastData(chrtStngs, dataArr, data, chrt){
     $.each(data.days.channelsId, function (index, value) {
         dataArr[index] =  value;
         removeChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
-        addChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"), chrt);
+        addChartCoast(chrtStngs.Days, $("div.coast-select input[type='checkbox'][data-type='channel'][data-obj-id='"+index+"']"),value,chrt);
     });
     $.each(data.days.campaignsId, function (index, value) {
         removeChartCoast(chrtStngs.Days,$("div.coast-select input[type='checkbox'][data-type='banner'][data-obj-id='"+index+"']"), chrt);
