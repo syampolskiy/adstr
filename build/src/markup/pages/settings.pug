@@ -1,0 +1,229 @@
+extends ../template
+
+block content
+    main.content.content--with-notify-bar.js-set-padd-top
+
+
+
+        //- .notify-bar.notify-bar--success
+        //- 	ul.notify-msgs
+        //- 		li.notify-msgs__item
+        //- 			i.icon-info-icon.notify-msgs__info
+        //- 			span.notify-msgs__text Success
+
+        //.notify-bar.notify-bar--error
+        //    ul.notify-msgs
+        //        li.notify-msgs__item
+        //            i.icon-info-icon.notify-msgs__info
+        //            span.notify-msgs__text Error. Please create a channel
+        //            a.btn.btn--foggy(class='popup' href='#addChannel') Add Channel
+        //        li.notify-msgs__item
+        //            i.icon-info-icon.notify-msgs__info
+        //            span.notify-msgs__text Error. Please confirm a channel
+        //            a.btn.btn--foggy(class='popup' href='#confirmChannel') Click to confirm
+
+        //- .notify-bar.notify-bar--error
+        //- 	ul.notify-msgs
+        //- 		li.notify-msgs__item
+        //- 			i.icon-info-icon.notify-msgs__info
+        //- 			span.notify-msgs__text You should place a test banner on your channel (link to the banner). if you have done it, please click Done
+        //- 			button.btn.btn--foggy(type="button") Done
+        .scrollable.js-init-scrollable
+            .box
+                .box__header
+                    h1 Сompany Settings
+                .box__content.box__content--with-table.no-pad-lr
+                    table.standard-table.settings-table.js-init-responsive-table(data-rtContainerBreakPoint="1309")
+                        thead.settings
+                            tr
+                                th Advertising campaign
+                                th Banner
+                                th Display time
+                                th Display duration
+                                th Price calculation
+                                th Status
+                                th
+                        tbody
+                            tr
+                                td
+                                    .avatar-w-text
+                                        img.cell-set-avatar(src=i + "Man_icon.png", alt="")
+                                        .avatar-only-text
+                                            span.set-title Advertising campaign 1
+                                            span.set-title-n Streamer №1
+
+                                td
+                                    img.cell-banner(src=i + "bunner_img.png", alt="")
+
+                                td.relative-pos
+                                   .psevdo_select
+                                       span 5 min
+                                       span 10 min
+                                       span 15 min
+                                       span 20 min
+                                       span 25 min
+                                       span 30 min
+                                       span 35 min
+                                       span 40 min
+                                   .time-select
+                                       img.cell-clock(src=i + "Clock.png", alt="")
+                                       span.texEv Every
+                                       select.duration-time
+                                           option.dt 10 min
+                                       img.cell-arrow(src=i + "Dropdown-side.png", alt="")
+                                td.relative-pos
+                                    .psevdo_select_dur
+                                        span 1 min
+                                        span 2 min
+                                        span 3 min
+                                        span 4 min
+                                        span 5 min
+                                        span 6 min
+                                        span 7 min
+                                        span 8 min
+                                    .time-duration
+                                        img.cell-clock(src=i + "Clock.png", alt="")
+                                        select.display-time
+                                            option.tdo 10 min
+                                        img.cell-arrow(src=i + "Dropdown-side.png", alt="")
+                                td
+                                    span.cell-budget-total-price
+                                    .info-bar
+                                        span.target Target/Time
+                                        span.coast.settings
+                                            span.black.settings $5/
+                                            span.normal.settings 50
+                                    progress.green(max = "100" value='5')
+                                td
+                                    .status.order-status.status--green RUNNING
+
+                                td.td-under-empty-th
+                                    .select-wrap
+                                        select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
+                                            option(value="Actions" data-content="Actions") Actions
+                                            option(value="Stop" data-content="Stop") Stop
+                                            option(value="Pause" data-content="Pause") Pause
+                                            option(value="Run" data-content="Run") Run
+                            tr
+                                td
+                                    .avatar-w-text
+                                        img.cell-set-avatar(src=i + "Man_icon.png", alt="")
+                                        .avatar-only-text
+                                            span.set-title Advertising campaign 1
+                                            span.set-title-n Streamer №1
+
+                                td
+                                    img.cell-banner(src=i + "bunner_img.png", alt="")
+
+                                td.relative-pos
+                                    .psevdo_select
+                                        span 5 min
+                                        span 10 min
+                                        span 15 min
+                                        span 20 min
+                                        span 25 min
+                                        span 30 min
+                                        span 35 min
+                                        span 40 min
+                                    .time-select
+                                        img.cell-clock(src=i + "Clock.png", alt="")
+                                        span.texEv Every
+                                        select.duration-time
+                                            option.dt 10 min
+                                        img.cell-arrow(src=i + "Dropdown-side.png", alt="")
+                                td.relative-pos
+                                    .psevdo_select_dur
+                                        span 1 min
+                                        span 2 min
+                                        span 3 min
+                                        span 4 min
+                                        span 5 min
+                                        span 6 min
+                                        span 7 min
+                                        span 8 min
+                                    .time-duration
+                                        img.cell-clock(src=i + "Clock.png", alt="")
+                                        select.display-time
+                                            option.tdo 10 min
+                                        img.cell-arrow(src=i + "Dropdown-side.png", alt="")
+                                td
+                                    span.cell-budget-total-price
+                                    .info-bar
+                                        span.target Target/Time
+                                        span.coast.settings
+                                            span.black.settings $120/
+                                            span.normal.settings 100
+                                    progress.blue(max = "120" value='100')
+                                td
+                                    .status.order-status.status--red STOPPED
+
+                                td.td-under-empty-th
+                                    .select-wrap
+                                        select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
+                                            option(value="Actions" data-content="Actions") Actions
+                                            option(value="Stop" data-content="Stop") Stop
+                                            option(value="Pause" data-content="Pause") Pause
+                                            option(value="Run" data-content="Run") Run
+                        tr
+                            td
+                                .avatar-w-text
+                                    img.cell-set-avatar(src=i + "Man_icon.png", alt="")
+                                    .avatar-only-text
+                                        span.set-title Advertising campaign 1
+                                        span.set-title-n Streamer №1
+
+                            td
+                                img.cell-banner(src=i + "bunner_img.png", alt="")
+
+                            td.relative-pos
+                                .psevdo_select
+                                    span 5 min
+                                    span 10 min
+                                    span 15 min
+                                    span 20 min
+                                    span 25 min
+                                    span 30 min
+                                    span 35 min
+                                    span 40 min
+
+
+                                .time-select
+                                    img.cell-clock(src=i + "Clock.png", alt="")
+                                    span.texEv Every
+                                    select(size="1").duration-time
+                                        option.dt 10 min
+                                    img.cell-arrow(src=i + "Dropdown-side.png", alt="")
+                            td.relative-pos
+                                .psevdo_select_dur
+                                    span 1 min
+                                    span 2 min
+                                    span 3 min
+                                    span 4 min
+                                    span 5 min
+                                    span 6 min
+                                    span 7 min
+                                    span 8 min
+                                .time-duration
+                                    img.cell-clock(src=i + "Clock.png", alt="")
+                                    select.display-time
+                                        option.tdo 10 min
+                                    img.cell-arrow(src=i + "Dropdown-side.png", alt="")
+                            td
+                                span.cell-budget-total-price
+                                .info-bar
+                                    span.target Target/Time
+                                    span.coast.settings
+                                        span.black.settings $50/
+                                        span.normal.settings 40
+                                progress.red(max = "50" value='50')
+                            td
+                                .status.order-status.status--grey PAUSED
+
+                            td.td-under-empty-th
+                                .select-wrap
+                                    select.js-init-selectric(onchange='window.location.href=this.options[this.selectedIndex].value')
+                                        option(value="Actions" data-content="Actions") Actions
+                                        option(value="Stop" data-content="Stop") Stop
+                                        option(value="Pause" data-content="Pause") Pause
+                                        option(value="Run" data-content="Run") Run
+

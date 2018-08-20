@@ -359,7 +359,8 @@ $(function () {
 
     // SELECT CHECKBOX IN DROPDOWN
     $('.timeChart_select input[type="checkbox"]').on('click', function () {
-        var title = $(this).val() + ", ";//$(this).closest('.timeChart_select').find('input[type="checkbox"]').val();
+      var title = $(this).closest('.timeChart_select').find('input[type="checkbox"]').val(),
+          title = $(this).val() + ",";
         if ($(this).is(':checked')) {
             var t_show = '<span title_t="' + title + '">' + title + '</span>';
             $('.timeChart').append(t_show);

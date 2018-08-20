@@ -1086,6 +1086,17 @@ progress.green::-moz-progress-bar {
   border-radius: 5px;
   background: #2cb516;
 }
+
+
+progress.red::-webkit-progress-value {
+  border-radius: 7px;
+  background: #e80211;
+}
+progress.red::-moz-progress-bar {
+  border-radius: 5px;
+  background: #e80211;
+}
+
 span.cell-banner-price {
   color: #354052;
   font-weight: bold;
@@ -1143,5 +1154,158 @@ th {
   color: #535b76 !important;
   border-color:#d1d3dc !important ;
   outline: none !important;
+}
+
+// settings
+table.settings-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+
+.settings-table thead.settings th:nth-child(1){
+  width: 20%;
+  padding-left: 70px;
+}
+.settings-table thead.settings th:nth-child(2){
+  width: 6%;
+}
+.settings-table thead.settings th:nth-child(3){
+  width: 14%;
+}
+.settings-table thead.settings th:nth-child(4){
+  width: 10.5%;
+}
+.settings-table thead.settings th:nth-child(5){
+  width: 17%;
+}
+span.set-title {
+  color: #4c5e70;
+  font-weight: bold;
+  margin-left: 30px;
+  font-size: 15px;
+}
+span.set-title-n {
+  margin-left: 30px;
+  font-size: 12px;
+}
+
+.avatar-w-text {
+  display: flex;
+  flex-direction: row;
+}
+.avatar-only-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.time-select {
+  width: 160px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ced0da;
+  border-radius: 4px;
+  background-color: #b7c0cd;
+  background-image: linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+}
+
+
+img.cell-clock {
+  position: relative;
+  top: 2px;
+}
+img.cell-arrow {
+  position: relative;
+  top: 1px;
+}
+span.texEv {
+  color: #354052;
+  font-weight: lighter;
+}
+
+
+select.display-time, select.duration-time  {
+  outline: none !important;
+  border: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+ font-weight: bold;
+  color: #354052;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 5px;
+  option {
+    font-size: 14px;
+    outline: none !important;
+    border: none !important;
+    display: none !important;
+  }
+}
+
+
+.time-duration {
+  width: 110px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ced0da;
+  border-radius: 4px;
+  background-color: #b7c0cd;
+  background-image: linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+}
+
+span.black.settings {
+  &:after{
+    content: "";
+    width: 16px;
+    height: 17px;
+    position: absolute;
+    margin-top: 3px;
+    margin-left: 2px;
+    background: url('/Content/images/Clock.png');
+  }
+}
+span.normal.settings {
+  margin-left: 17px;
+}
+@media  screen and (max-width: 1677px) {
+  .time-select,.time-duration {
+    margin: 0;
+  }
+}
+.psevdo_select,.psevdo_select_dur {
+  position: absolute;
+  width: 55px;
+  top: 5px;
+  left: 125px;
+  height: 110px;
+  overflow-y: auto;
+  background-image: linear-gradient(to top, #f1f3f7 0%, #fff 100%);
+  z-index: 999999;
+  border: 1px solid #ced0da;
+  border-radius: 4px;
+  span {
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    &:hover {
+      color: cornflowerblue;
+    }
+  }
+}
+
+.psevdo_select_dur {
+  left: 71px;
+}
+
+.psevdo_select::-webkit-scrollbar { width: 0; }
+.psevdo_select_dur::-webkit-scrollbar { width: 0; }
+.relative-pos {
+  position: relative;
 }
 
